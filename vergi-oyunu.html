@@ -1,0 +1,3120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- ============================================================
+     VERGİ OYUNU — ANA HTML DOSYASI
+     BÖLÜM: PART 1 / 3
+     İÇERİK:
+       - Head bölümü (meta, link, SEO)
+       - Yükleme ekranı
+       - Giriş / Kayıt ekranı
+       - Ana menü
+       - Karakter seçimi
+       - Ayarlar ekranı
+       - Hakkında / Yardım ekranı
+       - Skor tablosu
+     ============================================================ -->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="Her Şeyden Vergi Ödüyorum - Pixel Online Vergi Simülasyon Oyunu" />
+<meta name="keywords" content="vergi, oyun, simülasyon, pixel, türkiye, mizah" />
+<meta name="author" content="Vergi Oyunu Ekibi" />
+<meta name="theme-color" content="#0a0a14" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="Turkish" />
+<meta name="revisit-after" content="7 days" />
+
+<title>💸 Vergi Oyunu — Her Şeyden Vergi Ödüyorum</title>
+
+<!-- FAVICON (SVG ile) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+
+<!-- CSS DOSYALARI -->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animasyonlar.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+
+<!-- PRELOAD -->
+<link rel="preload" href="css/style.css" as="style" />
+
+<!-- FONTS (Opsiyonel) -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+
+</head>
+
+<body>
+
+<!-- ============================================================
+     YÜKLEME EKRANI
+     ============================================================ -->
+<div id="yukleme-ekrani" class="ekran aktif">
+  <div class="yukleme-kap">
+
+    <div class="yukleme-logo">
+      <div class="yukleme-logo-ikon">💸</div>
+      <h1 class="yukleme-logo-baslik">VERGİ OYUNU</h1>
+      <p class="yukleme-logo-alt">Her Şeyden Vergi Ödüyorum</p>
+    </div>
+
+    <div class="yukleme-bar-kap">
+      <div class="yukleme-bar">
+        <div id="yukleme-dolgu" class="yukleme-dolgu"></div>
+      </div>
+      <div class="yukleme-yuzde">
+        <span id="yukleme-yuzde">0</span>%
+      </div>
+    </div>
+
+    <div id="yukleme-mesaj" class="yukleme-mesaj">
+      Sistem başlatılıyor...
+    </div>
+
+    <div class="yukleme-ipucu">
+      💡 İpucu: Vergilerden kaçamazsın, sadece daha akıllı ödeyebilirsin.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     GİRİŞ / KAYIT EKRANI
+     ============================================================ -->
+<div id="giris-ekrani" class="ekran">
+
+  <div class="giris-arkaplan">
+    <!-- Arka plan dekorasyon: binalar -->
+    <div class="bg-bina bg-b1"></div>
+    <div class="bg-bina bg-b2"></div>
+    <div class="bg-bina bg-b3"></div>
+    <div class="bg-bina bg-b4"></div>
+    <div class="bg-bina bg-b5"></div>
+    <div class="bg-gokyuzu"></div>
+    <div class="bg-yildizlar"></div>
+  </div>
+
+  <div class="giris-kap">
+
+    <!-- LOGO -->
+    <div class="giris-logo">
+      <div class="giris-logo-ikon">💸</div>
+      <h1 class="giris-logo-baslik">VERGİ OYUNU</h1>
+      <p class="giris-logo-alt">Her Şeyden Vergi Ödüyorum</p>
+    </div>
+
+    <!-- FORM KAP -->
+    <div class="giris-form-kap">
+
+      <!-- SEKMELER -->
+      <div class="giris-sekmeler">
+        <button id="sekme-giris" class="giris-sekme aktif" data-sekme="giris">
+          🔑 Giriş Yap
+        </button>
+        <button id="sekme-kayit" class="giris-sekme" data-sekme="kayit">
+          📝 Kayıt Ol
+        </button>
+      </div>
+
+      <!-- GİRİŞ FORMU -->
+      <form id="form-giris" class="giris-form aktif" autocomplete="on">
+        <div class="form-alan">
+          <label for="giris-kullanici" class="form-etiket">
+            👤 Kullanıcı Adı
+          </label>
+          <input
+            type="text"
+            id="giris-kullanici"
+            class="form-input"
+            placeholder="Kullanıcı adını gir"
+            autocomplete="username"
+            maxlength="15"
+            required
+          />
+          <div class="form-hata" id="hata-giris-kullanici"></div>
+        </div>
+
+        <div class="form-alan">
+          <label for="giris-sifre" class="form-etiket">
+            🔒 Şifre
+          </label>
+          <div class="form-sifre-kap">
+            <input
+              type="password"
+              id="giris-sifre"
+              class="form-input"
+              placeholder="Şifreni gir"
+              autocomplete="current-password"
+              maxlength="30"
+              required
+            />
+            <button type="button" class="sifre-goz" data-hedef="giris-sifre">
+              👁️
+            </button>
+          </div>
+          <div class="form-hata" id="hata-giris-sifre"></div>
+        </div>
+
+        <div class="form-secenek">
+          <label class="checkbox-label">
+            <input type="checkbox" id="beni-hatirla" />
+            <span class="checkbox-gorsel"></span>
+            <span>Beni hatırla</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-buyuk btn-basari btn-tam" id="btn-giris-submit">
+          <span class="btn-ikon">🔑</span>
+          <span class="btn-yazi">GİRİŞ YAP</span>
+        </button>
+
+        <div class="form-mesaj" id="mesaj-giris"></div>
+      </form>
+
+      <!-- KAYIT FORMU -->
+      <form id="form-kayit" class="giris-form" autocomplete="on">
+        <div class="form-alan">
+          <label for="kayit-kullanici" class="form-etiket">
+            👤 Kullanıcı Adı
+          </label>
+          <input
+            type="text"
+            id="kayit-kullanici"
+            class="form-input"
+            placeholder="3-15 karakter"
+            autocomplete="username"
+            maxlength="15"
+            required
+          />
+          <div class="form-yardim">
+            Harf, rakam ve _ kullanabilirsin
+          </div>
+          <div class="form-hata" id="hata-kayit-kullanici"></div>
+        </div>
+
+        <div class="form-alan">
+          <label for="kayit-sifre" class="form-etiket">
+            🔒 Şifre
+          </label>
+          <div class="form-sifre-kap">
+            <input
+              type="password"
+              id="kayit-sifre"
+              class="form-input"
+              placeholder="En az 4 karakter"
+              autocomplete="new-password"
+              maxlength="30"
+              required
+            />
+            <button type="button" class="sifre-goz" data-hedef="kayit-sifre">
+              👁️
+            </button>
+          </div>
+          <div class="form-guc" id="sifre-guc">
+            <div class="guc-bar"></div>
+            <div class="guc-bar"></div>
+            <div class="guc-bar"></div>
+            <div class="guc-bar"></div>
+          </div>
+          <div class="form-hata" id="hata-kayit-sifre"></div>
+        </div>
+
+        <div class="form-alan">
+          <label for="kayit-sifre2" class="form-etiket">
+            🔒 Şifre (Tekrar)
+          </label>
+          <div class="form-sifre-kap">
+            <input
+              type="password"
+              id="kayit-sifre2"
+              class="form-input"
+              placeholder="Şifreni tekrar yaz"
+              autocomplete="new-password"
+              maxlength="30"
+              required
+            />
+            <button type="button" class="sifre-goz" data-hedef="kayit-sifre2">
+              👁️
+            </button>
+          </div>
+          <div class="form-hata" id="hata-kayit-sifre2"></div>
+        </div>
+
+        <div class="form-secenek">
+          <label class="checkbox-label">
+            <input type="checkbox" id="kayit-sozlesme" required />
+            <span class="checkbox-gorsel"></span>
+            <span>Kurallara uyacağımı kabul ediyorum</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-buyuk btn-basari btn-tam" id="btn-kayit-submit">
+          <span class="btn-ikon">📝</span>
+          <span class="btn-yazi">KAYIT OL</span>
+        </button>
+
+        <div class="form-mesaj" id="mesaj-kayit"></div>
+      </form>
+
+    </div>
+
+    <!-- ALT NOT -->
+    <div class="giris-alt-not">
+      ⚰️ 2. günün sonunda idam edilirsin. Bol şans!
+    </div>
+
+    <div class="giris-surum">
+      sürüm v1.0.0
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     ANA MENÜ EKRANI
+     ============================================================ -->
+<div id="menu-ekrani" class="ekran">
+
+  <div class="menu-arkaplan">
+    <div class="menu-bg-sehir"></div>
+    <div class="menu-bg-gunes"></div>
+    <div class="menu-bg-bulutlar"></div>
+  </div>
+
+  <div class="menu-kap">
+
+    <!-- ÜST BAR -->
+    <div class="menu-ust">
+      <div class="menu-kullanici">
+        <div class="menu-avatar" id="menu-avatar">👤</div>
+        <div class="menu-kullanici-bilgi">
+          <div class="menu-kullanici-ad" id="menu-kullanici-ad">oyuncu</div>
+          <div class="menu-kullanici-durum">
+            <span class="durum-nokta aktif"></span>
+            Çevrimiçi
+          </div>
+        </div>
+      </div>
+      <div class="menu-para">
+        <span class="menu-para-ikon">💰</span>
+        <span class="menu-para-deger" id="menu-para">1000</span>
+      </div>
+    </div>
+
+    <!-- BAŞLIK -->
+    <div class="menu-baslik">
+      <h1>VERGİ OYUNU</h1>
+      <p>Her Şeyden Vergi Ödüyorum</p>
+    </div>
+
+    <!-- MENÜ BUTONLARI -->
+    <div class="menu-butonlar">
+
+      <button class="menu-btn menu-btn-birincil" id="btn-oyna">
+        <div class="menu-btn-ikon">🎮</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">OYNA</div>
+          <div class="menu-btn-alt">Yeni oyun başlat</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-devam">
+        <div class="menu-btn-ikon">💾</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">DEVAM ET</div>
+          <div class="menu-btn-alt">Kaydedilmiş oyunu yükle</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-online">
+        <div class="menu-btn-ikon">🌐</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">ONLINE</div>
+          <div class="menu-btn-alt">Arkadaşlarınla oyna</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-skorlar">
+        <div class="menu-btn-ikon">🏆</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">SKOR TABLOSU</div>
+          <div class="menu-btn-alt">En iyi oyuncular</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-basarimlar">
+        <div class="menu-btn-ikon">🎖️</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">BAŞARIMLAR</div>
+          <div class="menu-btn-alt">Kazandığın rozetler</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-ayarlar">
+        <div class="menu-btn-ikon">⚙️</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">AYARLAR</div>
+          <div class="menu-btn-alt">Ses, görüntü, kontrol</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn" id="btn-yardim">
+        <div class="menu-btn-ikon">❓</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">YARDIM</div>
+          <div class="menu-btn-alt">Nasıl oynanır</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+      <button class="menu-btn menu-btn-tehlike" id="btn-cikis">
+        <div class="menu-btn-ikon">🚪</div>
+        <div class="menu-btn-icerik">
+          <div class="menu-btn-baslik">ÇIKIŞ</div>
+          <div class="menu-btn-alt">Hesaptan çık</div>
+        </div>
+        <div class="menu-btn-ok">▶</div>
+      </button>
+
+    </div>
+
+    <!-- ALT BİLGİ -->
+    <div class="menu-alt">
+      <span>💸 Vergi Oyunu</span>
+      <span>•</span>
+      <span>v1.0.0</span>
+      <span>•</span>
+      <span id="menu-tarih">2024</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KARAKTER SEÇİM EKRANI
+     ============================================================ -->
+<div id="karakter-ekrani" class="ekran">
+
+  <div class="karakter-kap">
+
+    <div class="karakter-baslik">
+      <h2>🧑 KARAKTER SEÇ</h2>
+      <p>Mesleğini seç, hayatını yaşa</p>
+    </div>
+
+    <div class="karakter-liste">
+
+      <!-- MEMUR -->
+      <div class="karakter-kart" data-meslek="memur">
+        <div class="karakter-kart-ikon">👔</div>
+        <div class="karakter-kart-baslik">Memur</div>
+        <div class="karakter-kart-aciklama">
+          Sabit maaş, düzenli vergi
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">250 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">60</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- İŞÇİ -->
+      <div class="karakter-kart" data-meslek="isci">
+        <div class="karakter-kart-ikon">🔧</div>
+        <div class="karakter-kart-baslik">İşçi</div>
+        <div class="karakter-kart-aciklama">
+          Değişken maaş, yüksek vergi
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">300 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">50</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERBEST -->
+      <div class="karakter-kart" data-meslek="serbest">
+        <div class="karakter-kart-ikon">💼</div>
+        <div class="karakter-kart-baslik">Serbest Meslek</div>
+        <div class="karakter-kart-aciklama">
+          Kendi vergini öde
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">400 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">55</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐⭐⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMEKLİ -->
+      <div class="karakter-kart" data-meslek="emekli">
+        <div class="karakter-kart-ikon">🧓</div>
+        <div class="karakter-kart-baslik">Emekli</div>
+        <div class="karakter-kart-aciklama">
+          Düşük gelir, muafiyet
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">150 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">70</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÖĞRENCİ -->
+      <div class="karakter-kart" data-meslek="ogrenci">
+        <div class="karakter-kart-ikon">🎓</div>
+        <div class="karakter-kart-baslik">Öğrenci</div>
+        <div class="karakter-kart-aciklama">
+          Burs + indirim
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">100 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">80</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐⭐⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MİLYARDER -->
+      <div class="karakter-kart" data-meslek="milyarder">
+        <div class="karakter-kart-ikon">💎</div>
+        <div class="karakter-kart-baslik">Milyarder</div>
+        <div class="karakter-kart-aciklama">
+          Çok para, çok vergi
+        </div>
+        <div class="karakter-kart-istatistik">
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">💰 Maaş</span>
+            <span class="kart-stat-deger">1000 TL</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">😊 Moral</span>
+            <span class="kart-stat-deger">90</span>
+          </div>
+          <div class="kart-stat">
+            <span class="kart-stat-etiket">📊 Zorluk</span>
+            <span class="kart-stat-deger">⭐⭐⭐⭐</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="karakter-butonlar">
+      <button class="btn btn-iptal" id="btn-karakter-geri">
+        ← Geri
+      </button>
+      <button class="btn btn-basari" id="btn-karakter-basla" disabled>
+        🎮 OYUNA BAŞLA
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     AYARLAR EKRANI
+     ============================================================ -->
+<div id="ayarlar-ekrani" class="ekran">
+
+  <div class="ayarlar-kap">
+
+    <div class="ayarlar-baslik">
+      <h2>⚙️ AYARLAR</h2>
+      <button class="btn-kapat" id="btn-ayarlar-kapat">✕</button>
+    </div>
+
+    <div class="ayarlar-icerik">
+
+      <!-- SES -->
+      <div class="ayar-bolum">
+        <div class="ayar-bolum-baslik">🔊 SES</div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Ana Ses</label>
+          <input type="range" class="ayar-slider" id="ayar-ses-ana" min="0" max="100" value="70" />
+          <span class="ayar-deger" id="ayar-ses-ana-deger">70</span>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Müzik</label>
+          <input type="range" class="ayar-slider" id="ayar-ses-muzik" min="0" max="100" value="50" />
+          <span class="ayar-deger" id="ayar-ses-muzik-deger">50</span>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Efektler</label>
+          <input type="range" class="ayar-slider" id="ayar-ses-efekt" min="0" max="100" value="80" />
+          <span class="ayar-deger" id="ayar-ses-efekt-deger">80</span>
+        </div>
+      </div>
+
+      <!-- GÖRÜNTÜ -->
+      <div class="ayar-bolum">
+        <div class="ayar-bolum-baslik">🎨 GÖRÜNTÜ</div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Tema</label>
+          <select class="ayar-select" id="ayar-tema">
+            <option value="koyu">🌙 Koyu</option>
+            <option value="aydinlik">☀️ Aydınlık</option>
+            <option value="pixel">👾 Pixel</option>
+            <option value="neon">💜 Neon</option>
+          </select>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Grafik Kalitesi</label>
+          <select class="ayar-select" id="ayar-grafik">
+            <option value="dusuk">Düşük</option>
+            <option value="orta" selected>Orta</option>
+            <option value="yuksek">Yüksek</option>
+          </select>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Ekran Sarsıntısı</label>
+          <label class="toggle">
+            <input type="checkbox" id="ayar-sarsinti" checked />
+            <span class="toggle-gorsel"></span>
+          </label>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Parçacık Efektleri</label>
+          <label class="toggle">
+            <input type="checkbox" id="ayar-parcacik" checked />
+            <span class="toggle-gorsel"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- KONTROL -->
+      <div class="ayar-bolum">
+        <div class="ayar-bolum-baslik">🎮 KONTROL</div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Hareket Tuşları</label>
+          <select class="ayar-select" id="ayar-tuslar">
+            <option value="wasd" selected>W A S D</option>
+            <option value="oklar">Ok Tuşları</option>
+            <option value="ikisi">İkisi de</option>
+          </select>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Kamera Sarsıntısı</label>
+          <label class="toggle">
+            <input type="checkbox" id="ayar-kamera-sarsinti" checked />
+            <span class="toggle-gorsel"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ERİŞİLEBİLİRLİK -->
+      <div class="ayar-bolum">
+        <div class="ayar-bolum-baslik">♿ ERİŞİLEBİLİRLİK</div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Renk Körü Modu</label>
+          <label class="toggle">
+            <input type="checkbox" id="ayar-renk-koru" />
+            <span class="toggle-gorsel"></span>
+          </label>
+        </div>
+
+        <div class="ayar-satir">
+          <label class="ayar-etiket">Yazı Boyutu</label>
+          <select class="ayar-select" id="ayar-yazi-boyut">
+            <option value="kucuk">Küçük</option>
+            <option value="orta" selected>Orta</option>
+            <option value="buyuk">Büyük</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ayarlar-butonlar">
+      <button class="btn btn-iptal" id="btn-ayarlar-sifirla">🔄 Sıfırla</button>
+      <button class="btn btn-basari" id="btn-ayarlar-kaydet">💾 Kaydet</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SKOR TABLOSU EKRANI
+     ============================================================ -->
+<div id="skor-ekrani" class="ekran">
+
+  <div class="skor-kap">
+
+    <div class="skor-baslik">
+      <h2>🏆 SKOR TABLOSU</h2>
+      <button class="btn-kapat" id="btn-skor-kapat">✕</button>
+    </div>
+
+    <div class="skor-sekmeler">
+      <button class="skor-sekme aktif" data-skor="yerel">📱 Yerel</button>
+      <button class="skor-sekme" data-skor="online">🌐 Online</button>
+      <button class="skor-sekme" data-skor="arkadas">👥 Arkadaşlar</button>
+    </div>
+
+    <div class="skor-liste" id="skor-liste">
+      <!-- JS ile doldurulur -->
+      <div class="skor-bos">
+        Henüz skor yok. İlk oyunu oyna!
+      </div>
+    </div>
+
+    <div class="skor-alt">
+      <button class="btn btn-iptal btn-tam" id="btn-skor-temizle">
+        🗑️ Skorları Temizle
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     BAŞARIMLAR EKRANI
+     ============================================================ -->
+<div id="basarim-ekrani" class="ekran">
+
+  <div class="basarim-kap">
+
+    <div class="basarim-baslik">
+      <h2>🎖️ BAŞARIMLAR</h2>
+      <button class="btn-kapat" id="btn-basarim-kapat">✕</button>
+    </div>
+
+    <div class="basarim-ozet">
+      <div class="basarim-ozet-istat">
+        <div class="ozet-ikon">🏅</div>
+        <div class="ozet-deger" id="basarim-toplam">0</div>
+        <div class="ozet-etiket">Toplam Rozet</div>
+      </div>
+      <div class="basarim-ozet-istat">
+        <div class="ozet-ikon">📊</div>
+        <div class="ozet-deger" id="basarim-yuzde">0%</div>
+        <div class="ozet-etiket">Tamamlanma</div>
+      </div>
+    </div>
+
+    <div class="basarim-liste" id="basarim-liste">
+      <!-- JS ile doldurulur -->
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     YARDIM EKRANI
+     ============================================================ -->
+<div id="yardim-ekrani" class="ekran">
+
+  <div class="yardim-kap">
+
+    <div class="yardim-baslik">
+      <h2>❓ NASIL OYNANIR</h2>
+      <button class="btn-kapat" id="btn-yardim-kapat">✕</button>
+    </div>
+
+    <div class="yardim-icerik">
+
+      <div class="yardim-bolum">
+        <h3>🎮 KONTROLLER</h3>
+        <div class="yardim-tus-liste">
+          <div class="yardim-tus-satir">
+            <div class="yardim-tuslar">
+              <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+            </div>
+            <div class="yardim-tus-aciklama">Hareket et</div>
+          </div>
+          <div class="yardim-tus-satir">
+            <div class="yardim-tuslar"><kbd>E</kbd></div>
+            <div class="yardim-tus-aciklama">Etkileşim / Uyu / Market</div>
+          </div>
+          <div class="yardim-tus-satir">
+            <div class="yardim-tuslar"><kbd>Enter</kbd></div>
+            <div class="yardim-tus-aciklama">Sohbet mesajı gönder</div>
+          </div>
+          <div class="yardim-tus-satir">
+            <div class="yardim-tuslar"><kbd>ESC</kbd></div>
+            <div class="yardim-tus-aciklama">Menüyü aç / Kapat</div>
+          </div>
+          <div class="yardim-tus-satir">
+            <div class="yardim-tuslar"><kbd>Tab</kbd></div>
+            <div class="yardim-tus-aciklama">Envanteri aç</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="yardim-bolum">
+        <h3>🎯 AMAÇ</h3>
+        <p>
+          2 gün boyunca hayatta kalmaya çalış. Her gün absürt vergiler gelir.
+          Öde veya reddet. Para ve moralini dengele.
+        </p>
+      </div>
+
+      <div class="yardim-bolum">
+        <h3>💸 VERGİLER</h3>
+        <p>
+          Çay vergisi, nefes alma vergisi, uyku vergisi...
+          Hepsini ödemek zorundasın. Ödemezsen moralin düşer.
+        </p>
+      </div>
+
+      <div class="yardim-bolum">
+        <h3>🍞 AÇLIK</h3>
+        <p>
+          Zamanla acıkırsın. Market'ten (E tuşu) yemek al.
+          Açlık 0 olursa ölürsün.
+        </p>
+      </div>
+
+      <div class="yardim-bolum">
+        <h3>🛏️ UYKU</h3>
+        <p>
+          Gece olunca yatağa git ve E'ye bas. Yeni gün başlar.
+          Uyumazsan moral kaybedersin.
+        </p>
+      </div>
+
+      <div class="yardim-bolum">
+        <h3>⚰️ İDAM</h3>
+        <p>
+          2. günün sonunda her ne olursa olsun idam edilirsin!
+          Yani 2 günü en iyi şekilde geçir.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     OYUN DÜNYASI (PART 2'de devam eder)
+     ============================================================ -->
+
+<!-- PART 2 BURADAN BAŞLAYACAK -->
+<!-- ============================================================
+     OYUN DÜNYASI EKRANI
+     ============================================================ -->
+<div id="oyun-ekrani" class="ekran">
+
+  <!-- ÜST BİLGİ BARI (HUD) -->
+  <header class="hud">
+
+    <!-- SOL: Oyuncu bilgisi -->
+    <div class="hud-sol">
+      <div class="hud-avatar" id="hud-avatar">👤</div>
+      <div class="hud-oyuncu">
+        <div class="hud-oyuncu-ad" id="hud-oyuncu-ad">oyuncu</div>
+        <div class="hud-oyuncu-meslek" id="hud-oyuncu-meslek">Memur</div>
+      </div>
+    </div>
+
+    <!-- ORTA: İstatistikler -->
+    <div class="hud-orta">
+
+      <!-- GÜN -->
+      <div class="hud-kutu">
+        <div class="hud-kutu-ikon">📅</div>
+        <div class="hud-kutu-icerik">
+          <div class="hud-kutu-etiket">GÜN</div>
+          <div class="hud-kutu-deger">
+            <span id="hud-gun">1</span>
+            <span class="hud-kutu-toplam">/ 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZAMAN -->
+      <div class="hud-kutu">
+        <div class="hud-kutu-ikon" id="hud-zaman-ikon">☀️</div>
+        <div class="hud-kutu-icerik">
+          <div class="hud-kutu-etiket">KALAN</div>
+          <div class="hud-kutu-deger" id="hud-zaman">02:00</div>
+        </div>
+      </div>
+
+      <!-- PARA -->
+      <div class="hud-kutu" id="hud-kutu-para">
+        <div class="hud-kutu-ikon">💰</div>
+        <div class="hud-kutu-icerik">
+          <div class="hud-kutu-etiket">PARA</div>
+          <div class="hud-kutu-deger" id="hud-para">1000</div>
+        </div>
+      </div>
+
+      <!-- AÇLIK -->
+      <div class="hud-kutu" id="hud-kutu-aclik">
+        <div class="hud-kutu-ikon">🍞</div>
+        <div class="hud-kutu-icerik">
+          <div class="hud-kutu-etiket">AÇLIK</div>
+          <div class="hud-kutu-deger" id="hud-aclik">100</div>
+        </div>
+      </div>
+
+      <!-- MORAL -->
+      <div class="hud-kutu" id="hud-kutu-moral">
+        <div class="hud-kutu-ikon">😊</div>
+        <div class="hud-kutu-icerik">
+          <div class="hud-kutu-etiket">MORAL</div>
+          <div class="hud-kutu-deger" id="hud-moral">60</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SAĞ: Menü butonları -->
+    <div class="hud-sag">
+      <button class="hud-btn" id="btn-hud-envanter" title="Envanter (Tab)">
+        🎒
+      </button>
+      <button class="hud-btn" id="btn-hud-menu" title="Menü (ESC)">
+        ⏸️
+      </button>
+    </div>
+
+  </header>
+
+  <!-- BİLGİ BARI (alt panel) -->
+  <div class="hud-bilgi">
+    <div class="hud-bilgi-sol">
+      <div class="moral-bar-kap">
+        <div class="moral-bar-etiket">MORAL</div>
+        <div class="moral-bar">
+          <div class="moral-bar-dolgu" id="moral-bar-dolgu"></div>
+        </div>
+      </div>
+      <div class="aclik-bar-kap">
+        <div class="aclik-bar-etiket">AÇLIK</div>
+        <div class="aclik-bar">
+          <div class="aclik-bar-dolgu" id="aclik-bar-dolgu"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hud-bilgi-sag">
+      <div class="hud-bilgi-saat" id="hud-bilgi-saat">☀️ Gündüz</div>
+    </div>
+  </div>
+
+  <!-- OYUN ALANI -->
+  <div class="oyun-alani">
+
+    <canvas id="oyun-canvas" width="800" height="600"></canvas>
+
+    <!-- İPUCU -->
+    <div id="oyun-ipucu" class="oyun-ipucu gizli">
+      <span class="ipucu-tus">E</span>
+      <span class="ipucu-yazi">Etkileşim</span>
+    </div>
+
+    <!-- BİLDİRİMLER -->
+    <div id="bildirim-alani" class="bildirim-alani"></div>
+
+    <!-- SOHBET -->
+    <div class="sohbet-kap">
+      <div class="sohbet-mesajlar" id="sohbet-mesajlar"></div>
+      <div class="sohbet-input-kap">
+        <input
+          type="text"
+          id="sohbet-input"
+          class="sohbet-input"
+          placeholder="Mesaj yaz... (Enter)"
+          maxlength="80"
+        />
+        <button class="sohbet-gonder" id="sohbet-gonder">➤</button>
+      </div>
+    </div>
+
+    <!-- DUYGU GÖSTERGESİ -->
+    <div id="duygu-gosterge" class="duygu-gosterge gizli">
+      <div class="duygu-ikon" id="duygu-ikon">😐</div>
+      <div class="duygu-yazi" id="duygu-yazi">Normal</div>
+    </div>
+
+  </div>
+
+  <!-- KONTROL BİLGİSİ (alt) -->
+  <footer class="kontroller-bar">
+    <div class="kontrol-ogesi">
+      <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+      <span>Hareket</span>
+    </div>
+    <div class="kontrol-ogesi">
+      <kbd>E</kbd>
+      <span>Etkileşim</span>
+    </div>
+    <div class="kontrol-ogesi">
+      <kbd>Tab</kbd>
+      <span>Envanter</span>
+    </div>
+    <div class="kontrol-ogesi">
+      <kbd>Enter</kbd>
+      <span>Sohbet</span>
+    </div>
+    <div class="kontrol-ogesi">
+      <kbd>ESC</kbd>
+      <span>Menü</span>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============================================================
+     VERGİ KARTI (MODAL)
+     ============================================================ -->
+<div id="vergi-kart" class="modal-overlay gizli">
+  <div class="vergi-modal">
+
+    <!-- ÜST ÇİZGİ -->
+    <div class="vergi-modal-ust"></div>
+
+    <!-- İÇERİK -->
+    <div class="vergi-modal-icerik">
+
+      <!-- İKON -->
+      <div class="vergi-modal-ikon" id="vergi-ikon">🫖</div>
+
+      <!-- ETİKET -->
+      <div class="vergi-modal-etiket">
+        <span class="vergi-modal-etiket-nokta"></span>
+        YENİ VERGİ GELDİ
+      </div>
+
+      <!-- BAŞLIK -->
+      <h2 class="vergi-modal-baslik" id="vergi-baslik">
+        Çay Vergisi
+      </h2>
+
+      <!-- AÇIKLAMA -->
+      <p class="vergi-modal-aciklama" id="vergi-aciklama">
+        Bugün çay içtin. Bardak başına 5 TL!
+      </p>
+
+      <!-- TUTAR -->
+      <div class="vergi-modal-tutar-kap">
+        <div class="vergi-modal-tutar-etiket">Devlet istiyor:</div>
+        <div class="vergi-modal-tutar" id="vergi-tutar">50 TL</div>
+      </div>
+
+      <!-- UYARI -->
+      <div class="vergi-modal-uyari" id="vergi-uyari">
+        ⚠️ Reddedersen moralin düşer!
+      </div>
+
+      <!-- BUTONLAR -->
+      <div class="vergi-modal-butonlar">
+        <button class="btn btn-buyuk btn-basari" id="btn-vergi-ode">
+          <span class="btn-ikon">💸</span>
+          <span class="btn-yazi">ÖDE</span>
+        </button>
+        <button class="btn btn-buyuk btn-tehlike" id="btn-vergi-reddet">
+          <span class="btn-ikon">🙅</span>
+          <span class="btn-yazi">REDDET</span>
+        </button>
+      </div>
+
+      <!-- İPUCU -->
+      <div class="vergi-modal-ipucu">
+        💡 Ödeme yaparsan moralin artar. Reddedersen moral düşer.
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     MARKET EKRANI
+     ============================================================ -->
+<div id="market-ekrani" class="modal-overlay gizli">
+  <div class="market-modal">
+
+    <div class="market-modal-ust">
+      <div class="market-modal-baslik">🛒 MARKET</div>
+      <button class="btn-kapat" id="btn-market-kapat">✕</button>
+    </div>
+
+    <div class="market-modal-para">
+      <span class="market-para-ikon">💰</span>
+      <span class="market-para-etiket">Paran:</span>
+      <span class="market-para-deger" id="market-para">1000 TL</span>
+    </div>
+
+    <div class="market-modal-liste">
+
+      <!-- YEMEK -->
+      <div class="market-urun" data-urun="yemek" data-fiyat="50">
+        <div class="market-urun-ikon">🍞</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Ekmek</div>
+          <div class="market-urun-aciklama">+40 açlık</div>
+        </div>
+        <div class="market-urun-fiyat">50 TL</div>
+        <button class="market-urun-btn" data-al="yemek">Al</button>
+      </div>
+
+      <!-- SU -->
+      <div class="market-urun" data-urun="su" data-fiyat="30">
+        <div class="market-urun-ikon">💧</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Su</div>
+          <div class="market-urun-aciklama">+20 açlık, +10 moral</div>
+        </div>
+        <div class="market-urun-fiyat">30 TL</div>
+        <button class="market-urun-btn" data-al="su">Al</button>
+      </div>
+
+      <!-- ÇAY -->
+      <div class="market-urun" data-urun="cay" data-fiyat="15">
+        <div class="market-urun-ikon">🫖</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Çay</div>
+          <div class="market-urun-aciklama">+15 moral</div>
+        </div>
+        <div class="market-urun-fiyat">15 TL</div>
+        <button class="market-urun-btn" data-al="cay">Al</button>
+      </div>
+
+      <!-- SİMİT -->
+      <div class="market-urun" data-urun="simit" data-fiyat="20">
+        <div class="market-urun-ikon">🥖</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Simit</div>
+          <div class="market-urun-aciklama">+25 açlık, +5 moral</div>
+        </div>
+        <div class="market-urun-fiyat">20 TL</div>
+        <button class="market-urun-btn" data-al="simit">Al</button>
+      </div>
+
+      <!-- KAHVE -->
+      <div class="market-urun" data-urun="kahve" data-fiyat="40">
+        <div class="market-urun-ikon">☕</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Kahve</div>
+          <div class="market-urun-aciklama">+20 moral</div>
+        </div>
+        <div class="market-urun-fiyat">40 TL</div>
+        <button class="market-urun-btn" data-al="kahve">Al</button>
+      </div>
+
+      <!-- PİZZA -->
+      <div class="market-urun" data-urun="pizza" data-fiyat="100">
+        <div class="market-urun-ikon">🍕</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Pizza</div>
+          <div class="market-urun-aciklama">+60 açlık, +20 moral</div>
+        </div>
+        <div class="market-urun-fiyat">100 TL</div>
+        <button class="market-urun-btn" data-al="pizza">Al</button>
+      </div>
+
+      <!-- İLAÇ -->
+      <div class="market-urun" data-urun="ilac" data-fiyat="150">
+        <div class="market-urun-ikon">💊</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">İlaç</div>
+          <div class="market-urun-aciklama">+30 moral, tam iyileşme</div>
+        </div>
+        <div class="market-urun-fiyat">150 TL</div>
+        <button class="market-urun-btn" data-al="ilac">Al</button>
+      </div>
+
+      <!-- KİTAP -->
+      <div class="market-urun" data-urun="kitap" data-fiyat="80">
+        <div class="market-urun-ikon">📚</div>
+        <div class="market-urun-bilgi">
+          <div class="market-urun-ad">Kitap</div>
+          <div class="market-urun-aciklama">+15 moral</div>
+        </div>
+        <div class="market-urun-fiyat">80 TL</div>
+        <button class="market-urun-btn" data-al="kitap">Al</button>
+      </div>
+
+    </div>
+
+    <div class="market-modal-alt">
+      💡 Aldığın ürünler hemen kullanılır.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     ENVANTER EKRANI
+     ============================================================ -->
+<div id="envanter-ekrani" class="modal-overlay gizli">
+  <div class="envanter-modal">
+
+    <div class="envanter-modal-ust">
+      <div class="envanter-modal-baslik">🎒 ENVANTER</div>
+      <button class="btn-kapat" id="btn-envanter-kapat">✕</button>
+    </div>
+
+    <div class="envanter-grid" id="envanter-grid">
+      <!-- JS ile doldurulur -->
+      <div class="envanter-bos">
+        Envanterin boş. Market'ten bir şeyler al!
+      </div>
+    </div>
+
+    <div class="envanter-alt">
+      <div class="envanter-para">
+        💰 Paran: <strong id="envanter-para">1000 TL</strong>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     OYUN İÇİ MENÜ (PAUSE)
+     ============================================================ -->
+<div id="oyun-menu" class="modal-overlay gizli">
+  <div class="oyun-menu-modal">
+
+    <div class="oyun-menu-baslik">
+      ⏸️ OYUN DURDURULDU
+    </div>
+
+    <div class="oyun-menu-butonlar">
+
+      <button class="oyun-menu-btn" id="btn-devam-et">
+        <span class="oyun-menu-btn-ikon">▶️</span>
+        <span>Devam Et</span>
+      </button>
+
+      <button class="oyun-menu-btn" id="btn-oyun-ayarlar">
+        <span class="oyun-menu-btn-ikon">⚙️</span>
+        <span>Ayarlar</span>
+      </button>
+
+      <button class="oyun-menu-btn" id="btn-oyun-kaydet">
+        <span class="oyun-menu-btn-ikon">💾</span>
+        <span>Kaydet</span>
+      </button>
+
+      <button class="oyun-menu-btn oyun-menu-btn-tehlike" id="btn-oyun-cikis">
+        <span class="oyun-menu-btn-ikon">🚪</span>
+        <span>Ana Menüye Dön</span>
+      </button>
+
+    </div>
+
+    <div class="oyun-menu-bilgi">
+      <div class="oyun-menu-bilgi-satir">
+        <span>📅 Gün:</span>
+        <strong id="menu-gun-bilgi">1 / 2</strong>
+      </div>
+      <div class="oyun-menu-bilgi-satir">
+        <span>💰 Para:</span>
+        <strong id="menu-para-bilgi">1000 TL</strong>
+      </div>
+      <div class="oyun-menu-bilgi-satir">
+        <span>💸 Ödenen:</span>
+        <strong id="menu-odenen-bilgi">0 TL</strong>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DİYALOG KUTUSU (NPC)
+     ============================================================ -->
+<div id="diyalog-kutusu" class="diyalog-kutusu gizli">
+  <div class="diyalog-kap">
+    <div class="diyalog-avatar" id="diyalog-avatar">🧑</div>
+    <div class="diyalog-icerik">
+      <div class="diyalog-isim" id="diyalog-isim">Vergi Memuru</div>
+      <div class="diyalog-metin" id="diyalog-metin">
+        Merhaba vatandaş! Vergini ödedin mi?
+      </div>
+    </div>
+    <button class="diyalog-devam" id="btn-diyalog-devam">▶</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     HABER BÜLTENİ (TV)
+     ============================================================ -->
+<div id="haber-bulteni" class="haber-bulteni gizli">
+  <div class="haber-kap">
+    <div class="haber-ust">
+      <div class="haber-canli">
+        <span class="haber-canli-nokta"></span>
+        CANLI
+      </div>
+      <div class="haber-kanal">📺 VERGİ TV</div>
+      <button class="haber-kapat" id="btn-haber-kapat">✕</button>
+    </div>
+    <div class="haber-icerik">
+      <div class="haber-manset" id="haber-manset">
+        VERGİ ŞOKU! Yeni vergi: Nefes Alma Vergisi!
+      </div>
+      <div class="haber-aciklama" id="haber-aciklama">
+        Vatandaşlar isyan ediyor...
+      </div>
+    </div>
+    <div class="haber-kayan-yazi">
+      <div class="haber-kayan-metin" id="haber-kayan">
+        SON DAKİKA: Vergi Bakanı açıklama yaptı... | Halk sokaklara döküldü... |
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SEVİYE ATLAMA EKRANI
+     ============================================================ -->
+<div id="seviye-atlama" class="seviye-atlama gizli">
+  <div class="seviye-kap">
+    <div class="seviye-isik"></div>
+    <div class="seviye-ikon">⭐</div>
+    <div class="seviye-baslik">SEVİYE ATLADIN!</div>
+    <div class="seviye-numara" id="seviye-numara">2</div>
+    <div class="seviye-alt" id="seviye-alt">Yeni özellikler açıldı!</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BAŞARIM AÇILDI BİLDİRİMİ
+     ============================================================ -->
+<div id="basarim-bildirim" class="basarim-bildirim gizli">
+  <div class="basarim-bildirim-ikon" id="bb-ikon">🏅</div>
+  <div class="basarim-bildirim-icerik">
+    <div class="basarim-bildirim-etiket">BAŞARIM AÇILDI!</div>
+    <div class="basarim-bildirim-baslik" id="bb-baslik">İlk Vergi</div>
+    <div class="basarim-bildirim-alt" id="bb-alt">İlk vergini ödedin!</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     İDAM EKRANI (Oyun Sonu)
+     ============================================================ -->
+<div id="idam-ekrani" class="ekran">
+
+  <div class="idam-arkaplan">
+    <div class="idam-sis"></div>
+    <div class="idam-yagmur"></div>
+  </div>
+
+  <div class="idam-kap">
+
+    <div class="idam-ikon">⚰️</div>
+
+    <h1 class="idam-baslik">İDAM EDİLDİN</h1>
+
+    <div class="idam-sebep-kap">
+      <div class="idam-sebep-etiket">SEBEP</div>
+      <div class="idam-sebep" id="idam-sebep">
+        Vergi kaçakçılığı
+      </div>
+    </div>
+
+    <div class="idam-istatistik-kap">
+
+      <div class="idam-istat">
+        <div class="idam-istat-ikon">📅</div>
+        <div class="idam-istat-etiket">Dayandığın Gün</div>
+        <div class="idam-istat-deger" id="idam-gun">2</div>
+      </div>
+
+      <div class="idam-istat">
+        <div class="idam-istat-ikon">💸</div>
+        <div class="idam-istat-etiket">Ödenen Vergi</div>
+        <div class="idam-istat-deger" id="idam-odenen">0 TL</div>
+      </div>
+
+      <div class="idam-istat">
+        <div class="idam-istat-ikon">🎯</div>
+        <div class="idam-istat-etiket">Skor</div>
+        <div class="idam-istat-deger" id="idam-skor">0</div>
+      </div>
+
+    </div>
+
+    <div class="idam-ironi">
+      <div class="idam-ironi-yazi">
+        "Vergi veren, canını verir."
+      </div>
+      <div class="idam-ironi-alt">
+        — Bilinmeyen Vergi Mükellefi
+      </div>
+    </div>
+
+    <div class="idam-butonlar">
+      <button class="btn btn-basari btn-buyuk" id="btn-idam-tekrar">
+        <span class="btn-ikon">🔄</span>
+        <span class="btn-yazi">TEKRAR OYNA</span>
+      </button>
+      <button class="btn btn-iptal btn-buyuk" id="btn-idam-menu">
+        <span class="btn-ikon">🏠</span>
+        <span class="btn-yazi">ANA MENÜ</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KAZANMA EKRANI
+     ============================================================ -->
+<div id="kazanma-ekrani" class="ekran">
+
+  <div class="kazanma-arkaplan">
+    <div class="kazanma-konfeti" id="konfeti-alani"></div>
+  </div>
+
+  <div class="kazanma-kap">
+
+    <div class="kazanma-ikon">🏆</div>
+
+    <h1 class="kazanma-baslik">HAYATTA KALDIN!</h1>
+
+    <div class="kazanma-alt">
+      2 günü başarıyla tamamladın!
+    </div>
+
+    <div class="kazanma-istatistik-kap">
+
+      <div class="kazanma-istat">
+        <div class="kazanma-istat-ikon">📅</div>
+        <div class="kazanma-istat-etiket">Gün</div>
+        <div class="kazanma-istat-deger" id="kazanma-gun">2</div>
+      </div>
+
+      <div class="kazanma-istat">
+        <div class="kazanma-istat-ikon">💰</div>
+        <div class="kazanma-istat-etiket">Kalan Para</div>
+        <div class="kazanma-istat-deger" id="kazanma-para">0</div>
+      </div>
+
+      <div class="kazanma-istat">
+        <div class="kazanma-istat-ikon">💸</div>
+        <div class="kazanma-istat-etiket">Ödenen</div>
+        <div class="kazanma-istat-deger" id="kazanma-odenen">0</div>
+      </div>
+
+      <div class="kazanma-istat">
+        <div class="kazanma-istat-ikon">🎯</div>
+        <div class="kazanma-istat-etiket">Skor</div>
+        <div class="kazanma-istat-deger" id="kazanma-skor">0</div>
+      </div>
+
+    </div>
+
+    <div class="kazanma-odul" id="kazanma-odul">
+      🎁 Ödül: Vergi Muafiyet Sertifikası (sadece manevi)
+    </div>
+
+    <div class="kazanma-butonlar">
+      <button class="btn btn-basari btn-buyuk" id="btn-kazanma-tekrar">
+        <span class="btn-ikon">🔄</span>
+        <span class="btn-yazi">TEKRAR OYNA</span>
+      </button>
+      <button class="btn btn-iptal btn-buyuk" id="btn-kazanma-menu">
+        <span class="btn-ikon">🏠</span>
+        <span class="btn-yazi">ANA MENÜ</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SOHBET PANELİ (Büyük)
+     ============================================================ -->
+<div id="sohbet-panel" class="sohbet-panel gizli">
+  <div class="sohbet-panel-ust">
+    <div class="sohbet-panel-baslik">💬 SOHBET</div>
+    <button class="btn-kapat" id="btn-sohbet-kapat">✕</button>
+  </div>
+  <div class="sohbet-panel-mesajlar" id="sohbet-panel-mesajlar"></div>
+  <div class="sohbet-panel-input-kap">
+    <input
+      type="text"
+      id="sohbet-panel-input"
+      class="sohbet-panel-input"
+      placeholder="Mesajını yaz..."
+      maxlength="80"
+    />
+    <button class="sohbet-panel-gonder" id="btn-sohbet-panel-gonder">➤</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     ACHIEVEMENT / ROZET LİSTESİ (Bildirim alanı)
+     ============================================================ -->
+<div id="bildirim-kap" class="bildirim-kap"></div>
+
+<!-- ============================================================
+     TOAST MESAJLARI
+     ============================================================ -->
+<div id="toast-alani" class="toast-alani"></div>
+
+<!-- ============================================================
+     YÜKLENİYOR OVERLAY
+     ============================================================ -->
+<div id="yukleniyor" class="yukleniyor-overlay gizli">
+  <div class="yukleniyor-spinner"></div>
+  <div class="yukleniyor-yazi">Yükleniyor...</div>
+</div>
+
+<!-- ============================================================
+     BAĞLANTI KOPTU UYARISI
+     ============================================================ -->
+<div id="baglanti-uyari" class="baglanti-uyari gizli">
+  <div class="baglanti-kap">
+    <div class="baglanti-ikon">📡</div>
+    <div class="baglanti-baslik">Bağlantı Koptu!</div>
+    <div class="baglanti-alt">Yeniden bağlanılıyor...</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DEBUG PANELİ (Geliştirici için - F12 ile açılır)
+     ============================================================ -->
+<div id="debug-panel" class="debug-panel gizli">
+  <div class="debug-baslik">🐛 DEBUG</div>
+  <div class="debug-icerik" id="debug-icerik">
+    <div>FPS: <span id="debug-fps">0</span></div>
+    <div>X: <span id="debug-x">0</span></div>
+    <div>Y: <span id="debug-y">0</span></div>
+    <div>Durum: <span id="debug-durum">-</span></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ÇIKIŞ ONAY EKRANI
+     ============================================================ -->
+<div id="cikis-onay" class="modal-overlay gizli">
+  <div class="cikis-modal">
+
+    <div class="cikis-ikon">🚪</div>
+
+    <h2 class="cikis-baslik">ÇIKMAK İSTİYOR MUSUN?</h2>
+
+    <p class="cikis-aciklama">
+      Oyun ilerlemen kaybolacak. Emin misin?
+    </p>
+
+    <div class="cikis-butonlar">
+      <button class="btn btn-iptal btn-buyuk" id="btn-cikis-hayir">
+        <span class="btn-ikon">✕</span>
+        <span class="btn-yazi">HAYIR</span>
+      </button>
+      <button class="btn btn-tehlike btn-buyuk" id="btn-cikis-evet">
+        <span class="btn-ikon">✓</span>
+        <span class="btn-yazi">EVET</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     OYUN SONU DETAY EKRANI
+     ============================================================ -->
+<div id="oyun-sonu-detay" class="modal-overlay gizli">
+  <div class="oyun-sonu-modal">
+
+    <div class="os-baslik" id="os-baslik">💀 OYUN BİTTİ</div>
+
+    <div class="os-ikon" id="os-ikon">💀</div>
+
+    <div class="os-mesaj" id="os-mesaj">
+      Haciz geldi, her şeyini kaybettin.
+    </div>
+
+    <!-- İSTATİSTİKLER -->
+    <div class="os-istatistikler">
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">📅</div>
+        <div class="os-stat-deger" id="os-gun">0</div>
+        <div class="os-stat-etiket">GÜN</div>
+      </div>
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">💸</div>
+        <div class="os-stat-deger" id="os-odenen">0</div>
+        <div class="os-stat-etiket">ÖDENEN</div>
+      </div>
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">💰</div>
+        <div class="os-stat-deger" id="os-para">0</div>
+        <div class="os-stat-etiket">KALAN</div>
+      </div>
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">🙅</div>
+        <div class="os-stat-deger" id="os-reddedilen">0</div>
+        <div class="os-stat-etiket">REDDEDİLEN</div>
+      </div>
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">🎯</div>
+        <div class="os-stat-deger" id="os-skor">0</div>
+        <div class="os-stat-etiket">SKOR</div>
+      </div>
+
+      <div class="os-stat">
+        <div class="os-stat-ikon">🏆</div>
+        <div class="os-stat-deger" id="os-rekor">0</div>
+        <div class="os-stat-etiket">REKOR</div>
+      </div>
+
+    </div>
+
+    <!-- YENİ REKOR -->
+    <div class="os-yeni-rekor gizli" id="os-yeni-rekor">
+      🎉 YENİ REKOR!
+    </div>
+
+    <!-- ROZETLER -->
+    <div class="os-rozetler" id="os-rozetler">
+      <!-- JS ile doldurulur -->
+    </div>
+
+    <!-- BUTONLAR -->
+    <div class="os-butonlar">
+      <button class="btn btn-basari btn-buyuk" id="btn-os-tekrar">
+        <span class="btn-ikon">🔄</span>
+        <span class="btn-yazi">TEKRAR OYNA</span>
+      </button>
+      <button class="btn btn-iptal btn-buyuk" id="btn-os-menu">
+        <span class="btn-ikon">🏠</span>
+        <span class="btn-yazi">ANA MENÜ</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     HİKAYE MODU EKRANI
+     ============================================================ -->
+<div id="hikaye-ekrani" class="ekran">
+
+  <div class="hikaye-kap">
+
+    <div class="hikaye-baslik">
+      <h2>📖 HİKAYE MODU</h2>
+      <button class="btn-kapat" id="btn-hikaye-kapat">✕</button>
+    </div>
+
+    <div class="hikaye-liste">
+
+      <div class="hikaye-bolum" data-bolum="1">
+        <div class="hikaye-bolum-numara">1</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">Vergiye İlk Adım</div>
+          <div class="hikaye-bolum-aciklama">
+            İlk günün. Uyan ve vergilerle tanış.
+          </div>
+          <div class="hikaye-bolum-durum">✅ Tamamlandı</div>
+        </div>
+      </div>
+
+      <div class="hikaye-bolum" data-bolum="2">
+        <div class="hikaye-bolum-numara">2</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">Çay Vergisi Şoku</div>
+          <div class="hikaye-bolum-aciklama">
+            Çay bile vergilendi. Ne yapacaksın?
+          </div>
+          <div class="hikaye-bolum-durum">🔒 Kilitli</div>
+        </div>
+      </div>
+
+      <div class="hikaye-bolum" data-bolum="3">
+        <div class="hikaye-bolum-numara">3</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">Market Kaçışı</div>
+          <div class="hikaye-bolum-aciklama">
+            Açsın. Markete git ve hayatta kal.
+          </div>
+          <div class="hikaye-bolum-durum">🔒 Kilitli</div>
+        </div>
+      </div>
+
+      <div class="hikaye-bolum" data-bolum="4">
+        <div class="hikaye-bolum-numara">4</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">Gece Uykusu</div>
+          <div class="hikaye-bolum-aciklama">
+            Gece oldu. Yatağa git ve uyu.
+          </div>
+          <div class="hikaye-bolum-durum">🔒 Kilitli</div>
+        </div>
+      </div>
+
+      <div class="hikaye-bolum" data-bolum="5">
+        <div class="hikaye-bolum-numara">5</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">Son Gün</div>
+          <div class="hikaye-bolum-aciklama">
+            2. gün. Her şeyi riske at.
+          </div>
+          <div class="hikaye-bolum-durum">🔒 Kilitli</div>
+        </div>
+      </div>
+
+      <div class="hikaye-bolum" data-bolum="6">
+        <div class="hikaye-bolum-numara">6</div>
+        <div class="hikaye-bolum-icerik">
+          <div class="hikaye-bolum-baslik">İdam</div>
+          <div class="hikaye-bolum-aciklama">
+            Sonun geldi. Ama belki kaçabilirsin?
+          </div>
+          <div class="hikaye-bolum-durum">🔒 Kilitli</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     GÜNLÜK ÖDÜL EKRANI
+     ============================================================ -->
+<div id="gunluk-odul" class="modal-overlay gizli">
+  <div class="odul-modal">
+
+    <div class="odul-baslik">🎁 GÜNLÜK ÖDÜL</div>
+
+    <div class="odul-ikon" id="odul-ikon">💰</div>
+
+    <div class="odul-baslik-2" id="odul-baslik-2">
+      100 TL Kazandın!
+    </div>
+
+    <div class="odul-aciklama" id="odul-aciklama">
+      Her gün giriş yaparsan daha çok kazanırsın.
+    </div>
+
+    <div class="odul-gunler">
+      <div class="odul-gun" data-gun="1">1️⃣</div>
+      <div class="odul-gun" data-gun="2">2️⃣</div>
+      <div class="odul-gun" data-gun="3">3️⃣</div>
+      <div class="odul-gun" data-gun="4">4️⃣</div>
+      <div class="odul-gun" data-gun="5">5️⃣</div>
+      <div class="odul-gun" data-gun="6">6️⃣</div>
+      <div class="odul-gun" data-gun="7">7️⃣</div>
+    </div>
+
+    <button class="btn btn-basari btn-buyuk btn-tam" id="btn-odul-al">
+      🎁 ÖDÜLÜ AL
+    </button>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KARAKTER MARKET EKRANI
+     ============================================================ -->
+<div id="karakter-market" class="ekran">
+
+  <div class="km-kap">
+
+    <div class="km-baslik">
+      <h2>🛍️ KARAKTER MARKET</h2>
+      <button class="btn-kapat" id="btn-km-kapat">✕</button>
+    </div>
+
+    <div class="km-para">
+      💰 Paran: <strong id="km-para">1000 TL</strong>
+    </div>
+
+    <div class="km-liste">
+
+      <div class="km-urun" data-urun="sac" data-fiyat="200">
+        <div class="km-urun-ikon">💇</div>
+        <div class="km-urun-ad">Saç Modeli</div>
+        <div class="km-urun-aciklama">+10 moral bonusu</div>
+        <div class="km-urun-fiyat">200 TL</div>
+        <button class="km-urun-btn" data-al="sac">Al</button>
+      </div>
+
+      <div class="km-urun" data-urun="kiyafet" data-fiyat="300">
+        <div class="km-urun-ikon">👕</div>
+        <div class="km-urun-ad">Yeni Kıyafet</div>
+        <div class="km-urun-aciklama">+15 moral bonusu</div>
+        <div class="km-urun-fiyat">300 TL</div>
+        <button class="km-urun-btn" data-al="kiyafet">Al</button>
+      </div>
+
+      <div class="km-urun" data-urun="ayakkabi" data-fiyat="250">
+        <div class="km-urun-ikon">👟</div>
+        <div class="km-urun-ad">Spor Ayakkabı</div>
+        <div class="km-urun-aciklama">+%10 hız</div>
+        <div class="km-urun-fiyat">250 TL</div>
+        <button class="km-urun-btn" data-al="ayakkabi">Al</button>
+      </div>
+
+      <div class="km-urun" data-urun="sapka" data-fiyat="150">
+        <div class="km-urun-ikon">🎩</div>
+        <div class="km-urun-ad">Şapka</div>
+        <div class="km-urun-aciklama">+5 moral bonusu</div>
+        <div class="km-urun-fiyat">150 TL</div>
+        <button class="km-urun-btn" data-al="sapka">Al</button>
+      </div>
+
+      <div class="km-urun" data-urun="gozluk" data-fiyat="180">
+        <div class="km-urun-ikon">🕶️</div>
+        <div class="km-urun-ad">Gözlük</div>
+        <div class="km-urun-aciklama">+10 moral bonusu</div>
+        <div class="km-urun-fiyat">180 TL</div>
+        <button class="km-urun-btn" data-al="gozluk">Al</button>
+      </div>
+
+      <div class="km-urun" data-urun="semsiye" data-fiyat="120">
+        <div class="km-urun-ikon">☂️</div>
+        <div class="km-urun-ad">Şemsiye</div>
+        <div class="km-urun-aciklama">Yağmurdan korur</div>
+        <div class="km-urun-fiyat">120 TL</div>
+        <button class="km-urun-btn" data-al="semsiye">Al</button>
+      </div>
+
+    </div>
+
+    <div class="km-alt">
+      💡 Aldığın ürünler kalıcıdır.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     İSTATİSTİK EKRANI
+     ============================================================ -->
+<div id="istatistik-ekrani" class="ekran">
+
+  <div class="ist-kap">
+
+    <div class="ist-baslik">
+      <h2>📈 İSTATİSTİKLER</h2>
+      <button class="btn-kapat" id="btn-ist-kapat">✕</button>
+    </div>
+
+    <div class="ist-liste">
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">🎮</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">Toplam Oyun</div>
+          <div class="ist-satir-deger" id="ist-toplam-oyun">0</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">🏆</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">En İyi Skor</div>
+          <div class="ist-satir-deger" id="ist-en-iyi-skor">0</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">📅</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">En Uzun Süre</div>
+          <div class="ist-satir-deger" id="ist-en-uzun">0 gün</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">💸</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">Toplam Ödenen Vergi</div>
+          <div class="ist-satir-deger" id="ist-toplam-vergi">0 TL</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">🙅</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">Toplam Reddedilen</div>
+          <div class="ist-satir-deger" id="ist-toplam-red">0</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">⚰️</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">İdam Sayısı</div>
+          <div class="ist-satir-deger" id="ist-idam">0</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">🏅</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">Kazanılan Rozet</div>
+          <div class="ist-satir-deger" id="ist-rozet">0</div>
+        </div>
+      </div>
+
+      <div class="ist-satir">
+        <div class="ist-satir-ikon">⏱️</div>
+        <div class="ist-satir-bilgi">
+          <div class="ist-satir-etiket">Oynanan Süre</div>
+          <div class="ist-satir-deger" id="ist-sure">0 dk</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GRAFİK -->
+    <div class="ist-grafik-kap">
+      <div class="ist-grafik-baslik">📊 Son 7 Oyunun Skoru</div>
+      <div class="ist-grafik" id="ist-grafik">
+        <!-- JS ile doldurulur -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KAYIT SLOT EKRANI
+     ============================================================ -->
+<div id="kayit-ekrani" class="modal-overlay gizli">
+  <div class="kayit-modal">
+
+    <div class="kayit-baslik">
+      <h2>💾 OYUNU KAYDET</h2>
+      <button class="btn-kapat" id="btn-kayit-kapat">✕</button>
+    </div>
+
+    <div class="kayit-slotlar">
+
+      <div class="kayit-slot" data-slot="1">
+        <div class="kayit-slot-numara">1</div>
+        <div class="kayit-slot-bilgi">
+          <div class="kayit-slot-baslik">Kayıt 1</div>
+          <div class="kayit-slot-aciklama" id="kayit-slot-1">
+            Boş
+          </div>
+        </div>
+        <button class="kayit-slot-btn" data-kaydet="1">💾</button>
+      </div>
+
+      <div class="kayit-slot" data-slot="2">
+        <div class="kayit-slot-numara">2</div>
+        <div class="kayit-slot-bilgi">
+          <div class="kayit-slot-baslik">Kayıt 2</div>
+          <div class="kayit-slot-aciklama" id="kayit-slot-2">
+            Boş
+          </div>
+        </div>
+        <button class="kayit-slot-btn" data-kaydet="2">💾</button>
+      </div>
+
+      <div class="kayit-slot" data-slot="3">
+        <div class="kayit-slot-numara">3</div>
+        <div class="kayit-slot-bilgi">
+          <div class="kayit-slot-baslik">Kayıt 3</div>
+          <div class="kayit-slot-aciklama" id="kayit-slot-3">
+            Boş
+          </div>
+        </div>
+        <button class="kayit-slot-btn" data-kaydet="3">💾</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     ONLINE LOBİ EKRANI
+     ============================================================ -->
+<div id="online-lobi" class="ekran">
+
+  <div class="lobi-kap">
+
+    <div class="lobi-baslik">
+      <h2>🌐 ONLINE LOBİ</h2>
+      <button class="btn-kapat" id="btn-lobi-kapat">✕</button>
+    </div>
+
+    <div class="lobi-secenek">
+      <button class="btn btn-basari btn-buyuk btn-tam" id="btn-lobi-olustur">
+        <span class="btn-ikon">➕</span>
+        <span class="btn-yazi">ODA OLUŞTUR</span>
+      </button>
+
+      <div class="lobi-veya">- VEYA -</div>
+
+      <div class="lobi-katil-kap">
+        <input
+          type="text"
+          id="lobi-kod"
+          class="lobi-kod-input"
+          placeholder="Oda kodu gir (6 haneli)"
+          maxlength="6"
+        />
+        <button class="btn btn-basari" id="btn-lobi-katil">
+          <span class="btn-ikon">🚪</span>
+          <span class="btn-yazi">KATIL</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="lobi-liste-baslik">🌍 Aktif Odalar</div>
+
+    <div class="lobi-liste" id="lobi-liste">
+      <div class="lobi-bos">
+        Henüz aktif oda yok. İlk odayı sen oluştur!
+      </div>
+    </div>
+
+    <div class="lobi-alt">
+      💡 Oda kodu ile arkadaşların katılabilir.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     GÖREV LİSTESİ
+     ============================================================ -->
+<div id="gorev-panel" class="gorev-panel">
+  <div class="gorev-panel-ust">
+    <div class="gorev-panel-baslik">📋 GÖREVLER</div>
+    <button class="gorev-panel-kapat" id="btn-gorev-kapat">✕</button>
+  </div>
+  <div class="gorev-liste" id="gorev-liste">
+    <!-- JS ile doldurulur -->
+  </div>
+</div>
+
+<!-- ============================================================
+     INTRO VİDEO / ANİMASYON
+     ============================================================ -->
+<div id="intro-ekrani" class="ekran">
+  <div class="intro-kap">
+    <div class="intro-sahne" id="intro-sahne">
+      <div class="intro-yazi" id="intro-yazi">
+        Bir vatandaş...
+      </div>
+      <div class="intro-alt-yazi" id="intro-alt-yazi">
+        Vergilerle dolu bir hayat...
+      </div>
+    </div>
+    <button class="btn btn-basari intro-atla" id="btn-intro-atla">
+      Atla ▶
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     SES DOSYALARI (Opsiyonel - ses efektleri için)
+     ============================================================ -->
+<audio id="ses-buton" preload="auto">
+  <!-- <source src="ses/buton.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-para" preload="auto">
+  <!-- <source src="ses/para.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-vergi" preload="auto">
+  <!-- <source src="ses/vergi.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-uyari" preload="auto">
+  <!-- <source src="ses/uyari.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-kazanma" preload="auto">
+  <!-- <source src="ses/kazanma.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-kaybetme" preload="auto">
+  <!-- <source src="ses/kaybetme.mp3" type="audio/mpeg" /> -->
+</audio>
+<audio id="ses-tik" preload="auto">
+  <!-- <source src="ses/tik.mp3" type="audio/mpeg" /> -->
+</audio>
+
+<!-- ============================================================
+     MÜZİK (Arka Plan)
+     ============================================================ -->
+<audio id="muzik-arka" loop preload="none">
+  <!-- <source src="ses/arka-plan.mp3" type="audio/mpeg" /> -->
+</audio>
+
+<!-- ============================================================
+     JS DOSYALARI
+     ============================================================ -->
+<script src="js/veri.js"></script>
+<script src="js/ses.js"></script>
+<script src="js/kayit.js"></script>
+<script src="js/oyun.js"></script>
+<script src="js/arayuz.js"></script>
+<script src="js/animasyonlar.js"></script>
+<script src="js/main.js"></script>
+
+<!-- ============================================================
+     İNLINE BAŞLANGIÇ SCRIPT (Opsiyonel)
+     ============================================================ -->
+<script>
+  // Sayfa yüklendiğinde ilk ayarlar
+  window.addEventListener("DOMContentLoaded", function () {
+    console.log("%c💸 VERGİ OYUNU v1.0.0", "color:#feca57;font-size:20px;font-weight:bold;");
+    console.log("%cHer Şeyden Vergi Ödüyorum", "color:#8a8aa8;font-size:12px;font-style:italic;");
+    console.log("%cKonsol açık mı? Vergi kaçırma!", "color:#ff5a5a;font-size:11px;");
+  });
+
+  // Sağ tık engelle (opsiyonel)
+  // document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
+
+  // F12 debug için
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "F12") {
+      e.preventDefault();
+      const p = document.getElementById("debug-panel");
+      if (p) p.classList.toggle("gizli");
+    }
+  });
+</script>
+
+</body>
+<!-- ============================================================
+     BANKA / ATM EKRANI
+     ============================================================ -->
+<div id="banka-ekrani" class="ekran">
+  <div class="banka-kap">
+
+    <div class="banka-baslik">
+      <h2>🏦 BANKA</h2>
+      <button class="btn-kapat" id="btn-banka-kapat">✕</button>
+    </div>
+
+    <div class="banka-kart-gorsel">
+      <div class="banka-kart">
+        <div class="banka-kart-ust">
+          <span class="banka-kart-banka">VERGİ BANK</span>
+          <span class="banka-kart-tip">💳</span>
+        </div>
+        <div class="banka-kart-numara" id="banka-kart-no">1234 5678 9012 3456</div>
+        <div class="banka-kart-alt">
+          <div>
+            <div class="banka-kart-etiket">KART SAHİBİ</div>
+            <div class="banka-kart-deger" id="banka-kart-isim">OYUNCU</div>
+          </div>
+          <div>
+            <div class="banka-kart-etiket">BAKİYE</div>
+            <div class="banka-kart-deger" id="banka-kart-bakiye">1.000 TL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banka-islemler">
+      <div class="banka-islem-baslik">İŞLEMLER</div>
+
+      <button class="banka-islem" id="btn-para-yatir">
+        <span class="banka-islem-ikon">⬇️</span>
+        <span class="banka-islem-yazi">Para Yatır</span>
+      </button>
+
+      <button class="banka-islem" id="btn-para-cek">
+        <span class="banka-islem-ikon">⬆️</span>
+        <span class="banka-islem-yazi">Para Çek</span>
+      </button>
+
+      <button class="banka-islem" id="btn-kredi-cek">
+        <span class="banka-islem-ikon">💳</span>
+        <span class="banka-islem-yazi">Kredi Çek (%20 faiz)</span>
+      </button>
+
+      <button class="banka-islem" id="btn-kredi-ode">
+        <span class="banka-islem-ikon">💰</span>
+        <span class="banka-islem-yazi">Kredi Öde</span>
+      </button>
+
+      <button class="banka-islem" id="btn-faiz-isle">
+        <span class="banka-islem-ikon">📈</span>
+        <span class="banka-islem-yazi">Faiz İşlet</span>
+      </button>
+
+      <button class="banka-islem" id="btn-hesap-ozet">
+        <span class="banka-islem-ikon">📊</span>
+        <span class="banka-islem-yazi">Hesap Özeti</span>
+      </button>
+
+    </div>
+
+    <div class="banka-ozet" id="banka-ozet">
+      <div class="banka-ozet-satir">
+        <span>Nakit:</span>
+        <strong id="banka-nakit">1.000 TL</strong>
+      </div>
+      <div class="banka-ozet-satir">
+        <span>Banka Hesabı:</span>
+        <strong id="banka-hesap">0 TL</strong>
+      </div>
+      <div class="banka-ozet-satir">
+        <span>Kredi Borcu:</span>
+        <strong id="banka-borc" class="metin-kirmizi">0 TL</strong>
+      </div>
+      <div class="banka-ozet-satir">
+        <span>Toplam:</span>
+        <strong id="banka-toplam" class="metin-yesil">1.000 TL</strong>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     BORSA / YATIRIM EKRANI
+     ============================================================ -->
+<div id="borsa-ekrani" class="ekran">
+  <div class="borsa-kap">
+
+    <div class="borsa-baslik">
+      <h2>📈 BORSA & YATIRIM</h2>
+      <button class="btn-kapat" id="btn-borsa-kapat">✕</button>
+    </div>
+
+    <div class="borsa-durum">
+      <div class="borsa-durum-kart">
+        <div class="borsa-durum-etiket">PORTFÖY DEĞERİ</div>
+        <div class="borsa-durum-deger" id="borsa-portfoy">0 TL</div>
+      </div>
+      <div class="borsa-durum-kart">
+        <div class="borsa-durum-etiket">KÂR / ZARAR</div>
+        <div class="borsa-durum-deger" id="borsa-kar">0 TL</div>
+      </div>
+      <div class="borsa-durum-kart">
+        <div class="borsa-durum-etiket">NAKİT</div>
+        <div class="borsa-durum-deger" id="borsa-nakit">1.000 TL</div>
+      </div>
+    </div>
+
+    <div class="borsa-hisseler">
+
+      <div class="borsa-hisse" data-hisse="vrg">
+        <div class="borsa-hisse-ad">VRG</div>
+        <div class="borsa-hisse-firma">Vergi Holding</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-vrg">100</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-vrg">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="vrg">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="vrg">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-vrg">0 adet</div>
+      </div>
+
+      <div class="borsa-hisse" data-hisse="mrt">
+        <div class="borsa-hisse-ad">MRT</div>
+        <div class="borsa-hisse-firma">Market A.Ş.</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-mrt">250</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-mrt">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="mrt">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="mrt">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-mrt">0 adet</div>
+      </div>
+
+      <div class="borsa-hisse" data-hisse="bnk">
+        <div class="borsa-hisse-ad">BNK</div>
+        <div class="borsa-hisse-firma">VergiBank</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-bnk">500</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-bnk">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="bnk">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="bnk">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-bnk">0 adet</div>
+      </div>
+
+      <div class="borsa-hisse" data-hisse="alt">
+        <div class="borsa-hisse-ad">ALT</div>
+        <div class="borsa-hisse-firma">Altın</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-alt">1000</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-alt">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="alt">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="alt">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-alt">0 adet</div>
+      </div>
+
+      <div class="borsa-hisse" data-hisse="usd">
+        <div class="borsa-hisse-ad">USD</div>
+        <div class="borsa-hisse-firma">Dolar</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-usd">35</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-usd">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="usd">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="usd">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-usd">0 adet</div>
+      </div>
+
+      <div class="borsa-hisse" data-hisse="btc">
+        <div class="borsa-hisse-ad">BTC</div>
+        <div class="borsa-hisse-firma">Bitcoin</div>
+        <div class="borsa-hisse-fiyat" id="borsa-fiyat-btc">1000000</div>
+        <div class="borsa-hisse-degisim" id="borsa-degisim-btc">+0%</div>
+        <div class="borsa-hisse-butonlar">
+          <button class="btn-kucuk btn-basari" data-al="btc">AL</button>
+          <button class="btn-kucuk btn-tehlike" data-sat="btc">SAT</button>
+        </div>
+        <div class="borsa-hisse-adet" id="borsa-adet-btc">0 adet</div>
+      </div>
+
+    </div>
+
+    <div class="borsa-alt">
+      ⚠️ Yatırım tavsiyesi değildir. Vergi de ödersin bu arada.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     MAHKEME EKRANI
+     ============================================================ -->
+<div id="mahkeme-ekrani" class="ekran">
+  <div class="mahkeme-kap">
+
+    <div class="mahkeme-baslik">
+      <h2>⚖️ MAHKEME</h2>
+      <button class="btn-kapat" id="btn-mahkeme-kapat">✕</button>
+    </div>
+
+    <div class="mahkeme-hakim">
+      <div class="mahkeme-hakim-ikon">👨‍⚖️</div>
+      <div class="mahkeme-hakim-balonu" id="mahkeme-hakim-balonu">
+        "Sanık! Vergi kaçırdığın iddia ediliyor. Ne diyorsun?"
+      </div>
+    </div>
+
+    <div class="mahkeme-dava">
+      <div class="mahkeme-dava-ikon">📁</div>
+      <div class="mahkeme-dava-bilgi">
+        <div class="mahkeme-dava-baslik">Dava #001</div>
+        <div class="mahkeme-dava-aciklama">
+          Vergi kaçakçılığı suçlaması
+        </div>
+      </div>
+    </div>
+
+    <div class="mahkeme-secenekler">
+
+      <button class="mahkeme-secenek" data-secenek="savun">
+        <div class="mahkeme-secenek-ikon">🗣️</div>
+        <div class="mahkeme-secenek-baslik">Savunma Yap</div>
+        <div class="mahkeme-secenek-aciklama">Şansına bağlı (%50)</div>
+      </button>
+
+      <button class="mahkeme-secenek" data-secenek="avukat">
+        <div class="mahkeme-secenek-ikon">👔</div>
+        <div class="mahkeme-secenek-baslik">Avukat Tut</div>
+        <div class="mahkeme-secenek-aciklama">-500 TL (%80 kazanma)</div>
+      </button>
+
+      <button class="mahkeme-secenek" data-secenek="rusvet">
+        <div class="mahkeme-secenek-ikon">💵</div>
+        <div class="mahkeme-secenek-baslik">Rüşvet Ver</div>
+        <div class="mahkeme-secenek-aciklama">-1000 TL (Riskli!)</div>
+      </button>
+
+      <button class="mahkeme-secenek" data-secenek="kabul">
+        <div class="mahkeme-secenek-ikon">🙇</div>
+        <div class="mahkeme-secenek-baslik">Suçu Kabul Et</div>
+        <div class="mahkeme-secenek-aciklama">Cezayı öde, kurtul</div>
+      </button>
+
+    </div>
+
+    <div class="mahkeme-sonuc" id="mahkeme-sonuc"></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     MUHALEFET / SEÇİM EKRANI
+     ============================================================ -->
+<div id="seçim-ekrani" class="ekran">
+  <div class="secim-kap">
+
+    <div class="secim-baslik">
+      <h2>🗳️ SEÇİM</h2>
+      <button class="btn-kapat" id="btn-secim-kapat">✕</button>
+    </div>
+
+    <div class="secim-bilgi">
+      <div class="secim-bilgi-satir">
+        <span>📅 Seçime Kalan:</span>
+        <strong id="secim-kalan">30 gün</strong>
+      </div>
+      <div class="secim-bilgi-satir">
+        <span>👥 Oy Hakkın:</span>
+        <strong class="metin-yesil">VAR</strong>
+      </div>
+    </div>
+
+    <div class="secim-partiler">
+
+      <div class="secim-parti" data-parti="A">
+        <div class="secim-parti-logo">🟨</div>
+        <div class="secim-parti-bilgi">
+          <div class="secim-parti-ad">Vergi Partisi</div>
+          <div class="secim-parti-aciklama">
+            Vergileri artıracağım diyor
+          </div>
+          <div class="secim-parti-vaat">Vaadi: Hazineyi güçlendirmek</div>
+        </div>
+        <button class="secim-parti-btn" data-oy="A">OY VER</button>
+      </div>
+
+      <div class="secim-parti" data-parti="B">
+        <div class="secim-parti-logo">🟦</div>
+        <div class="secim-parti-bilgi">
+          <div class="secim-parti-ad">Vergisiz Parti</div>
+          <div class="secim-parti-aciklama">
+            Vergileri kaldıracağım diyor
+          </div>
+          <div class="secim-parti-vaat">Vaadi: 0 vergi (!)</div>
+        </div>
+        <button class="secim-parti-btn" data-oy="B">OY VER</button>
+      </div>
+
+      <div class="secim-parti" data-parti="C">
+        <div class="secim-parti-logo">🟪</div>
+        <div class="secim-parti-bilgi">
+          <div class="secim-parti-ad">Orta Yol Partisi</div>
+          <div class="secim-parti-aciklama">
+            Dengeli vergi politikası
+          </div>
+          <div class="secim-parti-vaat">Vaadi: Herkese biraz vergi</div>
+        </div>
+        <button class="secim-parti-btn" data-oy="C">OY VER</button>
+      </div>
+
+      <div class="secim-parti" data-parti="D">
+        <div class="secim-parti-logo">🟥</div>
+        <div class="secim-parti-bilgi">
+          <div class="secim-parti-ad">Halk Partisi</div>
+          <div class="secim-parti-aciklama">
+            Halkın yanındayız diyor
+          </div>
+          <div class="secim-parti-vaat">Vaadi: Vergi affı</div>
+        </div>
+        <button class="secim-parti-btn" data-oy="D">OY VER</button>
+      </div>
+
+    </div>
+
+    <div class="secim-sonuc" id="secim-sonuc">
+      <!-- JS ile doldurulur -->
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     RÜŞVET EKRANI
+     ============================================================ -->
+<div id="rusvet-ekrani" class="modal-overlay gizli">
+  <div class="rusvet-modal">
+
+    <div class="rusvet-ikon">🤫</div>
+
+    <h2 class="rusvet-baslik">RÜŞVET VER</h2>
+
+    <p class="rusvet-aciklama">
+      Memura rüşvet vererek vergiden kaçabilirsin. Ama yakalanırsan...
+    </p>
+
+    <div class="rusvet-tutar-kap">
+      <label class="rusvet-tutar-etiket">Tutar Seç:</label>
+      <div class="rusvet-butonlar">
+        <button class="rusvet-tutar-btn" data-tutar="100">100 TL</button>
+        <button class="rusvet-tutar-btn" data-tutar="250">250 TL</button>
+        <button class="rusvet-tutar-btn" data-tutar="500">500 TL</button>
+        <button class="rusvet-tutar-btn" data-tutar="1000">1000 TL</button>
+      </div>
+    </div>
+
+    <div class="rusvet-risk">
+      <div class="rusvet-risk-etiket">Yakalanma Riski:</div>
+      <div class="rusvet-risk-deger" id="rusvet-risk">30%</div>
+    </div>
+
+    <div class="rusvet-butonlar-2">
+      <button class="btn btn-iptal" id="btn-rusvet-iptal">İPTAL</button>
+      <button class="btn btn-tehlike" id="btn-rusvet-ver">RÜŞVET VER</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KAÇIŞ EKRANI (Yurt Dışı)
+     ============================================================ -->
+<div id="kacis-ekrani" class="ekran">
+  <div class="kacis-kap">
+
+    <div class="kacis-baslik">
+      <h2>✈️ YURT DIŞINA KAÇ</h2>
+      <button class="btn-kapat" id="btn-kacis-kapat">✕</button>
+    </div>
+
+    <div class="kacis-uyari">
+      <div class="kacis-uyari-ikon">⚠️</div>
+      <div class="kacis-uyari-yazi">
+        Bu işlem geri alınamaz! Tüm mal varlığın devlete kalır.
+      </div>
+    </div>
+
+    <div class="kacis-ulkeler">
+
+      <div class="kacis-ulke" data-ulke="isvicre">
+        <div class="kacis-ulke-bayrak">🇨🇭</div>
+        <div class="kacis-ulke-bilgi">
+          <div class="kacis-ulke-ad">İsviçre</div>
+          <div class="kacis-ulke-aciklama">Yüksek yaşam, yüksek maliyet</div>
+          <div class="kacis-ulke-fiyat">10.000 TL</div>
+        </div>
+        <button class="kacis-ulke-btn" data-kacis="isvicre">KAÇ</button>
+      </div>
+
+      <div class="kacis-ulke" data-ulke="norvec">
+        <div class="kacis-ulke-bayrak">🇳🇴</div>
+        <div class="kacis-ulke-bilgi">
+          <div class="kacis-ulke-ad">Norveç</div>
+          <div class="kacis-ulke-aciklama">Huzurlu, soğuk, pahalı</div>
+          <div class="kacis-ulke-fiyat">8.000 TL</div>
+        </div>
+        <button class="kacis-ulke-btn" data-kacis="norvec">KAÇ</button>
+      </div>
+
+      <div class="kacis-ulke" data-ulke="dubai">
+        <div class="kacis-ulke-bayrak">🇦🇪</div>
+        <div class="kacis-ulke-bilgi">
+          <div class="kacis-ulke-ad">Dubai</div>
+          <div class="kacis-ulke-aciklama">Vergisiz cennet (mizah)</div>
+          <div class="kacis-ulke-fiyat">5.000 TL</div>
+        </div>
+        <button class="kacis-ulke-btn" data-kacis="dubai">KAÇ</button>
+      </div>
+
+      <div class="kacis-ulke" data-ulke="almanya">
+        <div class="kacis-ulke-bayrak">🇩🇪</div>
+        <div class="kacis-ulke-bilgi">
+          <div class="kacis-ulke-ad">Almanya</div>
+          <div class="kacis-ulke-aciklama">Düzenli vergi sistemi</div>
+          <div class="kacis-ulke-fiyat">7.000 TL</div>
+        </div>
+        <button class="kacis-ulke-btn" data-kacis="almanya">KAÇ</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     HAVA DURUMU PANELİ
+     ============================================================ -->
+<div id="hava-panel" class="hava-panel">
+  <div class="hava-panel-ust">
+    <div class="hava-panel-ikon" id="hava-ikon">☀️</div>
+    <div class="hava-panel-bilgi">
+      <div class="hava-panel-sicaklik" id="hava-sicaklik">25°C</div>
+      <div class="hava-panel-durum" id="hava-durum">Güneşli</div>
+    </div>
+    <button class="hava-panel-kapat" id="btn-hava-kapat">✕</button>
+  </div>
+  <div class="hava-panel-detay">
+    <div class="hava-detay-satir">
+      <span>💨 Rüzgar:</span>
+      <strong id="hava-ruzgar">10 km/s</strong>
+    </div>
+    <div class="hava-detay-satir">
+      <span>💧 Nem:</span>
+      <strong id="hava-nem">40%</strong>
+    </div>
+    <div class="hava-detay-satir">
+      <span>🌡️ Hissedilen:</span>
+      <strong id="hava-hissedilen">27°C</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MİNİ HARİTA
+     ============================================================ -->
+<div id="mini-harita" class="mini-harita">
+  <div class="mini-harita-ust">
+    <div class="mini-harita-baslik">🗺️ HARİTA</div>
+    <button class="mini-harita-kapat" id="btn-harita-kapat">✕</button>
+  </div>
+  <canvas id="mini-harita-canvas" width="200" height="150"></canvas>
+</div>
+
+<!-- ============================================================
+     RADYO PANELİ
+     ============================================================ -->
+<div id="radyo-panel" class="radyo-panel">
+  <div class="radyo-panel-ust">
+    <div class="radyo-panel-ikon">📻</div>
+    <div class="radyo-panel-bilgi">
+      <div class="radyo-panel-kanal" id="radyo-kanal">Vergi FM</div>
+      <div class="radyo-panel-sarki" id="radyo-sarki">Çalan: Vergi Şarkısı</div>
+    </div>
+    <button class="radyo-panel-kapat" id="btn-radyo-kapat">✕</button>
+  </div>
+  <div class="radyo-panel-kontroller">
+    <button class="radyo-btn" id="btn-radyo-onceki">⏮️</button>
+    <button class="radyo-btn radyo-btn-buyuk" id="btn-radyo-oynat">▶️</button>
+    <button class="radyo-btn" id="btn-radyo-sonraki">⏭️</button>
+  </div>
+  <div class="radyo-panel-ses">
+    <span>🔊</span>
+    <input type="range" id="radyo-ses" min="0" max="100" value="50" />
+  </div>
+</div>
+
+<!-- ============================================================
+     GAZETE EKRANI
+     ============================================================ -->
+<div id="gazete-ekrani" class="ekran">
+  <div class="gazete-kap">
+
+    <div class="gazete-baslik">
+      <h2>📰 GAZETE</h2>
+      <button class="btn-kapat" id="btn-gazete-kapat">✕</button>
+    </div>
+
+    <div class="gazete-kagit">
+
+      <div class="gazete-ust">
+        <div class="gazete-logo">📰</div>
+        <div class="gazete-gazete-adi">VERGİ GAZETESİ</div>
+        <div class="gazete-tarih" id="gazete-tarih">12 Eylül 2026</div>
+      </div>
+
+      <div class="gazete-manset" id="gazete-manset">
+        SON DAKİKA: Vergilere zam geldi!
+      </div>
+
+      <div class="gazete-icerik">
+
+        <div class="gazete-haber">
+          <div class="gazete-haber-baslik">
+            Çay Vergisi %50 Arttı!
+          </div>
+          <div class="gazete-haber-metin">
+            Vatandaşlar çay içemiyor. Kahvehaneler boş kaldı.
+          </div>
+        </div>
+
+        <div class="gazete-haber">
+          <div class="gazete-haber-baslik">
+            Yeni Vergi: Uyku Vergisi
+          </div>
+          <div class="gazete-haber-metin">
+            Uyurken de vergi ödeyeceksiniz. Rüyalar bile vergili.
+          </div>
+        </div>
+
+        <div class="gazete-haber">
+          <div class="gazete-haber-baslik">
+            Vergi Affı Söylentisi
+          </div>
+          <div class="gazete-haber-metin">
+            Bakan: "Vergi affı yok, zam var!" dedi.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="gazete-alt">
+        Sayfa 1 / 8 — Devamı s.2'de
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     GÖREV DETAY PANELİ
+     ============================================================ -->
+<div id="gorev-detay" class="modal-overlay gizli">
+  <div class="gorev-detay-modal">
+
+    <div class="gorev-detay-baslik" id="gd-baslik">
+      📋 GÖREV DETAYI
+    </div>
+
+    <div class="gorev-detay-icerik">
+      <div class="gd-satir">
+        <div class="gd-etiket">Görev:</div>
+        <div class="gd-deger" id="gd-ad">İlk vergini öde</div>
+      </div>
+      <div class="gd-satir">
+        <div class="gd-etiket">Açıklama:</div>
+        <div class="gd-deger" id="gd-aciklama">Vergi kartı açıldığında "Öde" butonuna bas</div>
+      </div>
+      <div class="gd-satir">
+        <div class="gd-etiket">Ödül:</div>
+        <div class="gd-deger metin-yesil" id="gd-odul">+100 TL, +5 Moral</div>
+      </div>
+      <div class="gd-satir">
+        <div class="gd-etiket">Durum:</div>
+        <div class="gd-deger" id="gd-durum">⏳ Devam ediyor</div>
+      </div>
+    </div>
+
+    <button class="btn btn-basari btn-tam" id="btn-gd-kapat">
+      TAMAM
+    </button>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KARİYER / İŞ EKRANI
+     ============================================================ -->
+<div id="kariyer-ekrani" class="ekran">
+  <div class="kariyer-kap">
+
+    <div class="kariyer-baslik">
+      <h2>💼 KARİYER</h2>
+      <button class="btn-kapat" id="btn-kariyer-kapat">✕</button>
+    </div>
+
+    <div class="kariyer-mevcut">
+      <div class="kariyer-mevcut-etiket">Şu anki işin:</div>
+      <div class="kariyer-mevcut-ad" id="kariyer-mevcut">Memur</div>
+      <div class="kariyer-mevcut-maas" id="kariyer-maas">Maaş: 250 TL/gün</div>
+    </div>
+
+    <div class="kariyer-isler">
+
+      <div class="kariyer-is" data-is="garson">
+        <div class="kariyer-is-ikon">🍽️</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">Garson</div>
+          <div class="kariyer-is-maas">+200 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 5 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="garson">BAŞVUR</button>
+      </div>
+
+      <div class="kariyer-is" data-is="kasiyer">
+        <div class="kariyer-is-ikon">🛒</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">Kasiyer</div>
+          <div class="kariyer-is-maas">+220 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 5 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="kasiyer">BAŞVUR</button>
+      </div>
+
+      <div class="kariyer-is" data-is="yazilimci">
+        <div class="kariyer-is-ikon">💻</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">Yazılımcı</div>
+          <div class="kariyer-is-maas">+500 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 20 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="yazilimci">BAŞVUR</button>
+      </div>
+
+      <div class="kariyer-is" data-is="doktor">
+        <div class="kariyer-is-ikon">👨‍⚕️</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">Doktor</div>
+          <div class="kariyer-is-maas">+800 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 40 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="doktor">BAŞVUR</button>
+      </div>
+
+      <div class="kariyer-is" data-is="avukat">
+        <div class="kariyer-is-ikon">⚖️</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">Avukat</div>
+          <div class="kariyer-is-maas">+700 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 35 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="avukat">BAŞVUR</button>
+      </div>
+
+      <div class="kariyer-is" data-is="isadami">
+        <div class="kariyer-is-ikon">🏢</div>
+        <div class="kariyer-is-bilgi">
+          <div class="kariyer-is-ad">İş Adamı</div>
+          <div class="kariyer-is-maas">+1500 TL/gün</div>
+          <div class="kariyer-is-gerek">Gerekli: 60 moral</div>
+        </div>
+        <button class="kariyer-is-btn" data-basvur="isadami">BAŞVUR</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     HASTANE EKRANI
+     ============================================================ -->
+<div id="hastane-ekrani" class="ekran">
+  <div class="hastane-kap">
+
+    <div class="hastane-baslik">
+      <h2>🏥 HASTANE</h2>
+      <button class="btn-kapat" id="btn-hastane-kapat">✕</button>
+    </div>
+
+    <div class="hastane-doktor">
+      <div class="hastane-doktor-ikon">👨‍⚕️</div>
+      <div class="hastane-doktor-balonu">
+        "Merhaba! Kendini nasıl hissediyorsun?"
+      </div>
+    </div>
+
+    <div class="hastane-tedaviler">
+
+      <div class="hastane-tedavi">
+        <div class="hastane-tedavi-ikon">💊</div>
+        <div class="hastane-tedavi-bilgi">
+          <div class="hastane-tedavi-ad">İlaç</div>
+          <div class="hastane-tedavi-aciklama">+20 moral</div>
+          <div class="hastane-tedavi-fiyat">100 TL</div>
+        </div>
+        <button class="hastane-tedavi-btn" data-tedavi="ilac">AL</button>
+      </div>
+
+      <div class="hastane-tedavi">
+        <div class="hastane-tedavi-ikon">💉</div>
+        <div class="hastane-tedavi-bilgi">
+          <div class="hastane-tedavi-ad">Aşı</div>
+          <div class="hastane-tedavi-aciklama">+30 moral</div>
+          <div class="hastane-tedavi-fiyat">200 TL</div>
+        </div>
+        <button class="hastane-tedavi-btn" data-tedavi="asi">AL</button>
+      </div>
+
+      <div class="hastane-tedavi">
+        <div class="hastane-tedavi-ikon">🩺</div>
+        <div class="hastane-tedavi-bilgi">
+          <div class="hastane-tedavi-ad">Tam Muayene</div>
+          <div class="hastane-tedavi-aciklama">Moral 100'e çıkar</div>
+          <div class="hastane-tedavi-fiyat">500 TL</div>
+        </div>
+        <button class="hastane-tedavi-btn" data-tedavi="muayene">AL</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     KİŞİSEL NOT DEFTERİ
+     ============================================================ -->
+<div id="not-defteri" class="modal-overlay gizli">
+  <div class="not-modal">
+
+    <div class="not-baslik">
+      <h2>📝 NOT DEFTERİ</h2>
+      <button class="btn-kapat" id="btn-not-kapat">✕</button>
+    </div>
+
+    <textarea
+      id="not-icerik"
+      class="not-textarea"
+      placeholder="Notlarını buraya yaz... (otomatik kaydedilir)"
+    ></textarea>
+
+    <div class="not-alt">
+      <span id="not-durum">Kaydedildi ✓</span>
+      <button class="btn btn-iptal" id="btn-not-temizle">🗑️ Temizle</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     BUG REPORT / GERİ BİLDİRİM
+     ============================================================ -->
+<div id="feedback-ekrani" class="modal-overlay gizli">
+  <div class="feedback-modal">
+
+    <div class="feedback-baslik">
+      <h2>🐛 HATA BİLDİR / GERİ BİLDİRİM</h2>
+      <button class="btn-kapat" id="btn-feedback-kapat">✕</button>
+    </div>
+
+    <div class="feedback-form">
+
+      <div class="feedback-alan">
+        <label>Konu:</label>
+        <select id="feedback-konu" class="feedback-select">
+          <option value="bug">🐛 Hata</option>
+          <option value="oneri">💡 Öneri</option>
+          <option value="sikayet">😤 Şikayet</option>
+          <option value="diger">📝 Diğer</option>
+        </select>
+      </div>
+
+      <div class="feedback-alan">
+        <label>Mesajın:</label>
+        <textarea
+          id="feedback-mesaj"
+          class="feedback-textarea"
+          placeholder="Detaylı yaz..."
+          maxlength="500"
+        ></textarea>
+        <div class="feedback-sayac">
+          <span id="feedback-karakter">0</span> / 500
+        </div>
+      </div>
+
+      <button class="btn btn-basari btn-tam" id="btn-feedback-gonder">
+        📤 GÖNDER
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     TURNUVA EKRANI
+     ============================================================ -->
+<div id="turnuva-ekrani" class="ekran">
+  <div class="turnuva-kap">
+
+    <div class="turnuva-baslik">
+      <h2>🏆 TURNUVA</h2>
+      <button class="btn-kapat" id="btn-turnuva-kapat">✕</button>
+    </div>
+
+    <div class="turnuva-bilgi">
+      <div class="turnuva-bilgi-kart">
+        <div class="turnuva-bilgi-etiket">ÖDÜL HAVUZU</div>
+        <div class="turnuva-bilgi-deger">50.000 TL</div>
+      </div>
+      <div class="turnuva-bilgi-kart">
+        <div class="turnuva-bilgi-etiket">KATILIMCI</div>
+        <div class="turnuva-bilgi-deger">128</div>
+      </div>
+      <div class="turnuva-bilgi-kart">
+        <div class="turnuva-bilgi-etiket">KALAN SÜRE</div>
+        <div class="turnuva-bilgi-deger">02:45:12</div>
+      </div>
+    </div>
+
+    <div class="turnuva-katil">
+      <button class="btn btn-basari btn-buyuk btn-tam" id="btn-turnuva-katil">
+        🎮 TURNUVAYA KATIL
+      </button>
+    </div>
+
+    <div class="turnuva-liderlik">
+      <div class="turnuva-liderlik-baslik">🥇 LİDERLİK TABLOSU</div>
+      <div class="turnuva-liderlik-liste" id="turnuva-liste">
+        <div class="turnuva-satir">
+          <div class="turnuva-satir-sira">1</div>
+          <div class="turnuva-satir-oyuncu">VergiKralı</div>
+          <div class="turnuva-satir-skor">9999</div>
+        </div>
+        <div class="turnuva-satir">
+          <div class="turnuva-satir-sira">2</div>
+          <div class="turnuva-satir-oyuncu">Mükellef34</div>
+          <div class="turnuva-satir-skor">8754</div>
+        </div>
+        <div class="turnuva-satir">
+          <div class="turnuva-satir-sira">3</div>
+          <div class="turnuva-satir-oyuncu">GizliÖdeyici</div>
+          <div class="turnuva-satir-skor">7210</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     GÜNLÜK CHALLENGE
+     ============================================================ -->
+<div id="challenge-ekrani" class="modal-overlay gizli">
+  <div class="challenge-modal">
+
+    <div class="challenge-baslik">
+      <h2>🎯 GÜNLÜK GÖREV</h2>
+      <button class="btn-kapat" id="btn-challenge-kapat">✕</button>
+    </div>
+
+    <div class="challenge-ikon">🎯</div>
+
+    <div class="challenge-ad" id="challenge-ad">
+      Bugünün Görevi: 3 Vergi Öde
+    </div>
+
+    <div class="challenge-aciklama" id="challenge-aciklama">
+      Bugün 3 vergiyi ödemeden reddetme!
+    </div>
+
+    <div class="challenge-ilerleme">
+      <div class="challenge-ilerleme-baslik">İlerleme</div>
+      <div class="challenge-ilerleme-bar">
+        <div class="challenge-ilerleme-dolgu" id="challenge-dolgu" style="width: 0%"></div>
+      </div>
+      <div class="challenge-ilerleme-yazi" id="challenge-yazi">0 / 3</div>
+    </div>
+
+    <div class="challenge-odul">
+      🎁 Ödül: <strong id="challenge-odul">500 TL + Rozet</strong>
+    </div>
+
+    <button class="btn btn-basari btn-tam" id="btn-challenge-tamam">
+      TAMAM
+    </button>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SOSYAL MEDYA / PAYLAŞ
+     ============================================================ -->
+<div id="paylas-ekrani" class="modal-overlay gizli">
+  <div class="paylas-modal">
+
+    <div class="paylas-baslik">📤 SKORUNU PAYLAŞ</div>
+
+    <div class="paylas-kart" id="paylas-kart">
+      <div class="paylas-kart-icerik">
+        <div class="paylas-kart-baslik">💸 VERGİ OYUNU</div>
+        <div class="paylas-kart-skor" id="paylas-skor">0</div>
+        <div class="paylas-kart-etiket">SKOR</div>
+        <div class="paylas-kart-alt" id="paylas-alt">
+          2 gün dayandım!
+        </div>
+      </div>
+    </div>
+
+    <div class="paylas-butonlar">
+      <button class="paylas-btn paylas-twitter" id="btn-paylas-tw">
+        🐦 Twitter
+      </button>
+      <button class="paylas-btn paylas-whatsapp" id="btn-paylas-wa">
+        💬 WhatsApp
+      </button>
+      <button class="paylas-btn paylas-kopyala" id="btn-paylas-kopyala">
+        📋 Kopyala
+      </button>
+    </div>
+
+    <button class="btn btn-iptal btn-tam" id="btn-paylas-kapat">
+      KAPAT
+    </button>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     BAĞLANTI DURUMU GÖSTERGESİ
+     ============================================================ -->
+<div id="baglanti-durum" class="baglanti-durum">
+  <span class="baglanti-nokta"></span>
+  <span class="baglanti-yazi">Bağlı</span>
+</div>
+
+<!-- ============================================================
+     FPS GÖSTERGESİ
+     ============================================================ -->
+<div id="fps-gosterge" class="fps-gosterge">
+  <span id="fps-deger">60</span> FPS
+</div>
+
+<!-- ============================================================
+     PERFORMANS UYARISI
+     ============================================================ -->
+<div id="performans-uyari" class="performans-uyari gizli">
+  <div class="performans-kap">
+    <div class="performans-ikon">⚠️</div>
+    <div class="performans-yazi">
+      Performans düşük! Ayarlardan grafik kalitesini düşür.
+    </div>
+    <button class="performans-kapat" id="btn-performans-kapat">✕</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     VERSİYON BİLGİSİ (sağ alt)
+     ============================================================ -->
+<div class="versiyon-bilgi">
+  <span>v1.0.0</span>
+  <span>•</span>
+  <span id="versiyon-tarih">2026</span>
+</div>

@@ -1,0 +1,3447 @@
+/* ============================================================
+   ============================================================
+   💸 VERGİ OYUNU — RESPONSIVE
+   ============================================================
+   İÇERİK:
+     1.  Genel Responsive Ayarlar
+     2.  Tablet (768px - 1024px)
+     3.  Küçük Tablet (600px - 768px)
+     4.  Büyük Telefon (480px - 600px)
+     5.  Telefon (360px - 480px)
+     6.  Küçük Telefon (320px - 360px)
+     7.  Çok Küçük (< 320px)
+     8.  Yatay Mod (Landscape)
+     9.  Dokunmatik Ekran
+     10. Yazıcı (Print)
+     11. Karanlık Mod
+     12. Yüksek Kontrast
+     13. Hareket Azaltma
+     14. Renk Körü Modu
+     15. Yönelim (Orientation)
+   ============================================================
+*/
+
+/* ============================================================
+   1. GENEL RESPONSIVE AYARLAR
+   ============================================================ */
+
+/* Media query olmadan önce genel ayarlar */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Dokunmatik cihazlarda hover efektlerini sınırla */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .menu-btn:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .karakter-kart:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .market-urun:hover {
+    transform: none;
+  }
+
+  .borsa-hisse:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   2. TABLET (768px - 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  body {
+    padding: 12px 8px;
+  }
+
+  .oyun-kap {
+    max-width: 100%;
+  }
+
+  /* Giriş */
+  .giris-kap {
+    max-width: 420px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 56px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    max-width: 460px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 28px;
+  }
+
+  /* Karakter */
+  .karakter-liste {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  /* HUD */
+  .hud {
+    grid-template-columns: auto 1fr auto;
+    padding: 8px 10px;
+  }
+
+  .hud-orta {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+  }
+
+  .hud-kutu {
+    padding: 5px 6px;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 14px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 11px;
+  }
+
+  .hud-kutu-etiket {
+    font-size: 7px;
+  }
+
+  /* Oyun alanı */
+  .oyun-alani {
+    min-height: 420px;
+  }
+
+  /* Vergi kartı */
+  .vergi-modal {
+    max-width: 420px;
+  }
+
+  .vergi-modal-baslik {
+    font-size: 22px;
+  }
+
+  .vergi-modal-tutar {
+    font-size: 28px;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  /* Banka */
+  .banka-kap {
+    max-width: 520px;
+  }
+
+  .banka-kart {
+    width: 300px;
+  }
+
+  /* Borsa */
+  .borsa-hisseler {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  /* Mahkeme */
+  .mahkeme-secenekler {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Turnuva */
+  .turnuva-bilgi {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* İstatistik */
+  .ist-liste {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  /* Karakter market */
+  .km-liste {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  /* Envanter */
+  .envanter-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  /* Başarım */
+  .basarim-liste {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  /* Ayarlar */
+  .ayarlar-kap {
+    max-width: 520px;
+  }
+
+  /* Skor */
+  .skor-kap {
+    max-width: 520px;
+  }
+}
+
+/* ============================================================
+   3. KÜÇÜK TABLET (600px - 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px 6px;
+  }
+
+  /* Tipografi küçültme */
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  /* Giriş */
+  .giris-kap {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .giris-logo-alt {
+    font-size: 10px;
+  }
+
+  .giris-form-kap {
+    padding: 18px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .menu-baslik p {
+    font-size: 10px;
+  }
+
+  .menu-ust {
+    padding: 8px 12px;
+  }
+
+  .menu-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .menu-btn {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .menu-btn-ikon {
+    font-size: 22px;
+    width: 28px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 12px;
+  }
+
+  .menu-btn-alt {
+    font-size: 9px;
+  }
+
+  .menu-btn-ok {
+    font-size: 14px;
+  }
+
+  /* Karakter seçimi */
+  .karakter-liste {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+
+  .karakter-kart {
+    padding: 14px;
+  }
+
+  .karakter-kart-ikon {
+    font-size: 40px;
+  }
+
+  .karakter-kart-baslik {
+    font-size: 14px;
+  }
+
+  .karakter-kart-aciklama {
+    font-size: 10px;
+    min-height: 24px;
+  }
+
+  .karakter-butonlar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* HUD */
+  .hud {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .hud-sol {
+    justify-content: center;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--renk-kenarlik);
+  }
+
+  .hud-orta {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+  }
+
+  .hud-kutu {
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 2px;
+    text-align: center;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 16px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 11px;
+  }
+
+  .hud-kutu-etiket {
+    font-size: 7px;
+  }
+
+  .hud-sag {
+    justify-content: center;
+    padding-top: 6px;
+    border-top: 2px solid var(--renk-kenarlik);
+  }
+
+  .hud-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  /* HUD alt bilgi */
+  .hud-bilgi {
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .hud-bilgi-sol {
+    width: 100%;
+  }
+
+  .hud-bilgi-sag {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Oyun alanı */
+  .oyun-alani {
+    min-height: 320px;
+  }
+
+  /* Kontroller */
+  .kontroller-bar {
+    gap: 8px;
+    padding: 6px 8px;
+  }
+
+  .kontrol-ogesi {
+    font-size: 9px;
+    gap: 4px;
+  }
+
+  .kontroller-bar kbd {
+    min-width: 20px;
+    height: 20px;
+    font-size: 9px;
+    padding: 0 4px;
+  }
+
+  /* Sohbet */
+  .sohbet-mesajlar {
+    max-height: 80px;
+  }
+
+  .sohbet-satir {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .sohbet-input {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .sohbet-gonder {
+    width: 36px;
+    font-size: 14px;
+  }
+
+  /* Vergi kartı */
+  .vergi-modal {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .vergi-modal-ikon {
+    font-size: 48px;
+  }
+
+  .vergi-modal-baslik {
+    font-size: 18px;
+  }
+
+  .vergi-modal-aciklama {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .vergi-modal-tutar {
+    font-size: 24px;
+  }
+
+  .vergi-modal-tutar-kap {
+    padding: 10px;
+  }
+
+  .vergi-modal-butonlar {
+    gap: 8px;
+  }
+
+  /* Butonlar */
+  .btn {
+    padding: 12px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    gap: 6px;
+  }
+
+  .btn-buyuk {
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+
+  .btn-ikon {
+    font-size: 16px;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .vergi-modal,
+  .market-modal,
+  .envanter-modal,
+  .oyun-menu-modal,
+  .rusvet-modal,
+  .cikis-modal,
+  .oyun-sonu-modal,
+  .not-modal,
+  .feedback-modal,
+  .challenge-modal,
+  .paylas-modal,
+  .kayit-modal,
+  .gorev-detay-modal {
+    max-width: 100%;
+  }
+
+  /* Market */
+  .market-urun {
+    grid-template-columns: 36px 1fr auto;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .market-urun-ikon {
+    font-size: 24px;
+  }
+
+  .market-urun-ad {
+    font-size: 12px;
+  }
+
+  .market-urun-aciklama {
+    font-size: 9px;
+  }
+
+  .market-urun-fiyat {
+    font-size: 11px;
+  }
+
+  .market-urun-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  /* Banka */
+  .banka-kart {
+    width: 280px;
+  }
+
+  .banka-kart-numara {
+    font-size: 14px;
+  }
+
+  .banka-kart-banka {
+    font-size: 11px;
+  }
+
+  .banka-islem {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  /* Borsa */
+  .borsa-durum {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .borsa-hisseler {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .borsa-hisse {
+    padding: 10px;
+  }
+
+  .borsa-hisse-ad {
+    font-size: 14px;
+  }
+
+  .borsa-hisse-fiyat {
+    font-size: 13px;
+  }
+
+  /* Mahkeme */
+  .mahkeme-hakim-ikon {
+    font-size: 44px;
+  }
+
+  .mahkeme-hakim-balonu {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  .mahkeme-secenekler {
+    grid-template-columns: 1fr;
+  }
+
+  .mahkeme-secenek {
+    padding: 12px;
+    flex-direction: row;
+    text-align: left;
+    gap: 10px;
+  }
+
+  .mahkeme-secenek-ikon {
+    font-size: 26px;
+  }
+
+  /* Seçim */
+  .secim-parti {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .secim-parti-logo {
+    font-size: 28px;
+  }
+
+  .secim-parti-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  /* Kariyer */
+  .kariyer-is {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .kariyer-is-ikon {
+    font-size: 26px;
+  }
+
+  .kariyer-is-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  /* Hastane */
+  .hastane-doktor-ikon {
+    font-size: 44px;
+  }
+
+  .hastane-tedavi {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .hastane-tedavi-ikon {
+    font-size: 26px;
+  }
+
+  .hastane-tedavi-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  /* Kaçış */
+  .kacis-ulke {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .kacis-ulke-bayrak {
+    font-size: 28px;
+  }
+
+  .kacis-ulke-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  /* Turnuva */
+  .turnuva-bilgi {
+    grid-template-columns: 1fr;
+  }
+
+  /* İstatistik */
+  .ist-liste {
+    grid-template-columns: 1fr;
+  }
+
+  .ist-grafik {
+    height: 100px;
+  }
+
+  /* Envanter */
+  .envanter-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .envanter-esya {
+    padding: 10px;
+  }
+
+  .envanter-esya-ikon {
+    font-size: 26px;
+  }
+
+  .envanter-esya-ad {
+    font-size: 10px;
+  }
+
+  /* Karakter market */
+  .km-liste {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .km-urun {
+    padding: 10px;
+  }
+
+  .km-urun-ikon {
+    font-size: 32px;
+  }
+
+  /* Başarım */
+  .basarim-liste {
+    grid-template-columns: 1fr;
+  }
+
+  .basarim-ozet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Ayarlar */
+  .ayar-satir {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .ayar-etiket {
+    min-width: auto;
+  }
+
+  .ayar-slider,
+  .ayar-select {
+    width: 100%;
+  }
+
+  .ayar-deger {
+    align-self: flex-end;
+  }
+
+  /* Skor */
+  .skor-satir {
+    grid-template-columns: 32px 1fr 70px;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .skor-satir-oyuncu {
+    font-size: 12px;
+  }
+
+  .skor-satir-skor {
+    font-size: 12px;
+  }
+
+  /* Görev */
+  .gorev-panel {
+    width: 220px;
+    max-height: 320px;
+  }
+
+  /* Hava */
+  .hava-panel {
+    width: 170px;
+  }
+
+  /* Radyo */
+  .radyo-panel {
+    width: 190px;
+  }
+
+  /* Mini harita */
+  .mini-harita canvas {
+    width: 150px;
+    height: 112px;
+  }
+
+  /* Diyalog */
+  .diyalog-avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+
+  .diyalog-isim {
+    font-size: 12px;
+  }
+
+  .diyalog-metin {
+    font-size: 12px;
+  }
+
+  /* Haber */
+  .haber-bulteni {
+    width: 280px;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* Sohbet panel */
+  .sohbet-panel {
+    width: 260px;
+  }
+
+  /* İdam */
+  .idam-baslik {
+    font-size: 28px;
+  }
+
+  .idam-ikon {
+    font-size: 68px;
+  }
+
+  .idam-istatistik-kap {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* Kazanma */
+  .kazanma-baslik {
+    font-size: 26px;
+  }
+
+  .kazanma-ikon {
+    font-size: 68px;
+  }
+
+  .kazanma-istatistik-kap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Toast */
+  .toast-alani {
+    max-width: 260px;
+  }
+
+  /* Yükleme */
+  .yukleme-logo-ikon {
+    font-size: 60px;
+  }
+
+  .yukleme-logo-baslik {
+    font-size: 26px;
+  }
+}
+
+/* ============================================================
+   4. BÜYÜK TELEFON (480px - 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+  body {
+    padding: 8px 4px;
+  }
+
+  /* Tipografi */
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  /* Giriş */
+  .giris-kap {
+    padding: 12px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 44px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .giris-logo-alt {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .giris-form-kap {
+    padding: 14px;
+  }
+
+  .giris-sekmeler {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 3px;
+    margin-bottom: 14px;
+  }
+
+  .giris-sekme {
+    padding: 8px 4px;
+    font-size: 10px;
+  }
+
+  .form-etiket {
+    font-size: 10px;
+  }
+
+  .form-input {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .form-yardim {
+    font-size: 9px;
+  }
+
+  .form-hata {
+    font-size: 10px;
+  }
+
+  .checkbox-label {
+    font-size: 10px;
+  }
+
+  .checkbox-gorsel {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sifre-goz {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    padding: 12px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .menu-baslik p {
+    font-size: 9px;
+  }
+
+  .menu-butonlar {
+    gap: 6px;
+  }
+
+  .menu-btn {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .menu-btn-ikon {
+    font-size: 20px;
+    width: 24px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 11px;
+  }
+
+  .menu-btn-alt {
+    font-size: 8px;
+  }
+
+  .menu-btn-ok {
+    font-size: 13px;
+  }
+
+  .menu-alt {
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  /* Karakter */
+  .karakter-liste {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .karakter-kart {
+    padding: 12px;
+  }
+
+  .karakter-kart-ikon {
+    font-size: 34px;
+  }
+
+  .karakter-kart-baslik {
+    font-size: 13px;
+  }
+
+  .karakter-kart-aciklama {
+    font-size: 9px;
+    min-height: 20px;
+  }
+
+  .karakter-kart-istatistik {
+    padding-top: 8px;
+  }
+
+  .kart-stat {
+    font-size: 10px;
+  }
+
+  /* HUD */
+  .hud {
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .hud-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .hud-oyuncu-ad {
+    font-size: 11px;
+    max-width: 80px;
+  }
+
+  .hud-oyuncu-meslek {
+    font-size: 8px;
+  }
+
+  .hud-orta {
+    gap: 2px;
+  }
+
+  .hud-kutu {
+    padding: 4px 2px;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 14px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 10px;
+  }
+
+  .hud-kutu-etiket {
+    font-size: 6px;
+  }
+
+  .hud-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  /* Oyun alanı */
+  .oyun-alani {
+    min-height: 260px;
+  }
+
+  /* Kontroller */
+  .kontroller-bar {
+    gap: 6px;
+    padding: 4px 6px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .kontrol-ogesi {
+    font-size: 8px;
+    gap: 3px;
+  }
+
+  .kontroller-bar kbd {
+    min-width: 18px;
+    height: 18px;
+    font-size: 8px;
+    padding: 0 3px;
+    border-width: 1px;
+    border-bottom-width: 3px;
+  }
+
+  /* İpucu */
+  .oyun-ipucu {
+    bottom: 70px;
+    padding: 8px 14px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .ipucu-tus {
+    min-width: 22px;
+    height: 22px;
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  /* Bildirim */
+  .bildirim-ogesi {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  /* Sohbet */
+  .sohbet-kap {
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+  }
+
+  .sohbet-mesajlar {
+    max-height: 60px;
+  }
+
+  .sohbet-satir {
+    font-size: 10px;
+    padding: 3px 8px;
+    max-width: 90%;
+  }
+
+  /* Butonlar */
+  .btn {
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    gap: 4px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .btn-buyuk {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .btn-kucuk {
+    padding: 5px 10px;
+    font-size: 9px;
+  }
+
+  .btn-ikon {
+    font-size: 14px;
+  }
+
+  .btn-kapat {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .vergi-modal {
+    padding: 16px;
+  }
+
+  .vergi-modal-ikon {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .vergi-modal-etiket {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .vergi-modal-baslik {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .vergi-modal-aciklama {
+    font-size: 11px;
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .vergi-modal-tutar-kap {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .vergi-modal-tutar {
+    font-size: 22px;
+  }
+
+  .vergi-modal-tutar-etiket {
+    font-size: 9px;
+  }
+
+  .vergi-modal-uyari {
+    font-size: 10px;
+    padding: 6px;
+    margin-bottom: 12px;
+  }
+
+  .vergi-modal-butonlar {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .vergi-modal-ipucu {
+    font-size: 9px;
+    padding-top: 8px;
+  }
+
+  /* Market */
+  .market-modal-ust {
+    padding: 10px 12px;
+  }
+
+  .market-modal-baslik {
+    font-size: 16px;
+  }
+
+  .market-modal-para {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .market-urun {
+    grid-template-columns: 32px 1fr auto;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .market-urun-ikon {
+    font-size: 20px;
+  }
+
+  .market-urun-ad {
+    font-size: 11px;
+  }
+
+  .market-urun-aciklama {
+    font-size: 8px;
+  }
+
+  .market-urun-fiyat {
+    font-size: 10px;
+  }
+
+  .market-urun-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  /* Envanter */
+  .envanter-modal-ust {
+    padding: 10px 12px;
+  }
+
+  .envanter-modal-baslik {
+    font-size: 16px;
+  }
+
+  .envanter-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 6px;
+  }
+
+  .envanter-esya {
+    padding: 8px;
+  }
+
+  .envanter-esya-ikon {
+    font-size: 22px;
+  }
+
+  .envanter-esya-ad {
+    font-size: 9px;
+  }
+
+  .envanter-esya-adet {
+    font-size: 9px;
+    padding: 1px 5px;
+  }
+
+  /* Oyun menü */
+  .oyun-menu-modal {
+    padding: 18px;
+  }
+
+  .oyun-menu-baslik {
+    font-size: 16px;
+  }
+
+  .oyun-menu-btn {
+    padding: 10px 12px;
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .oyun-menu-btn-ikon {
+    font-size: 16px;
+  }
+
+  /* İdam */
+  .idam-baslik {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .idam-ikon {
+    font-size: 56px;
+  }
+
+  .idam-sebep {
+    font-size: 14px;
+  }
+
+  .idam-istat-deger {
+    font-size: 14px;
+  }
+
+  .idam-istat-etiket {
+    font-size: 8px;
+  }
+
+  .idam-ironi-yazi {
+    font-size: 13px;
+  }
+
+  .idam-butonlar {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kazanma */
+  .kazanma-baslik {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .kazanma-ikon {
+    font-size: 56px;
+  }
+
+  .kazanma-istatistik-kap {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .kazanma-butonlar {
+    grid-template-columns: 1fr;
+  }
+
+  /* Diyalog */
+  .diyalog-kutusu {
+    padding: 10px;
+  }
+
+  .diyalog-kap {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .diyalog-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .diyalog-isim {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .diyalog-metin {
+    font-size: 11px;
+  }
+
+  .diyalog-devam {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  /* Haber */
+  .haber-bulteni {
+    width: 240px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .haber-manset {
+    font-size: 12px;
+  }
+
+  .haber-aciklama {
+    font-size: 10px;
+  }
+
+  /* Seviye atlama */
+  .seviye-kap {
+    padding: 24px 36px;
+  }
+
+  .seviye-ikon {
+    font-size: 56px;
+  }
+
+  .seviye-baslik {
+    font-size: 18px;
+  }
+
+  .seviye-numara {
+    font-size: 52px;
+  }
+
+  .seviye-alt {
+    font-size: 11px;
+  }
+
+  /* Başarım */
+  .basarim-bildirim {
+    min-width: 220px;
+    max-width: 300px;
+    padding: 10px 12px;
+  }
+
+  .basarim-bildirim-ikon {
+    font-size: 30px;
+  }
+
+  .basarim-bildirim-baslik {
+    font-size: 12px;
+  }
+
+  .basarim-bildirim-alt {
+    font-size: 9px;
+  }
+
+  /* Challenge */
+  .challenge-modal {
+    padding: 18px;
+  }
+
+  .challenge-ikon {
+    font-size: 48px;
+  }
+
+  .challenge-ad {
+    font-size: 14px;
+  }
+
+  .challenge-aciklama {
+    font-size: 11px;
+  }
+
+  /* Paylaş */
+  .paylas-kart-skor {
+    font-size: 40px;
+  }
+
+  .paylas-kart-baslik {
+    font-size: 12px;
+  }
+
+  .paylas-butonlar {
+    grid-template-columns: 1fr;
+  }
+
+  /* Banka */
+  .banka-kart {
+    width: 240px;
+    padding: 12px;
+  }
+
+  .banka-kart-numara {
+    font-size: 12px;
+  }
+
+  /* Turnuva */
+  .turnuva-satir {
+    grid-template-columns: 32px 1fr 60px;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  /* Görev paneli */
+  .gorev-panel {
+    top: auto;
+    bottom: 70px;
+    right: 8px;
+    width: 200px;
+    max-height: 240px;
+  }
+
+  /* Hava & Radyo & Harita panelleri */
+  .hava-panel,
+  .radyo-panel,
+  .mini-harita {
+    display: none;
+  }
+
+  /* Toast */
+  .toast-alani {
+    bottom: 8px;
+    right: 8px;
+    max-width: 240px;
+    gap: 4px;
+  }
+
+  .toast {
+    padding: 10px 12px;
+    font-size: 11px;
+    min-width: 160px;
+  }
+
+  /* Versiyon */
+  .versiyon-bilgi {
+    font-size: 8px;
+  }
+
+  /* FPS */
+  .fps-gosterge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* Yükleme */
+  .yukleme-logo-ikon {
+    font-size: 52px;
+  }
+
+  .yukleme-logo-baslik {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+
+  .yukleme-bar {
+    height: 20px;
+  }
+
+  .yukleme-mesaj {
+    font-size: 11px;
+  }
+
+  .yukleme-ipucu {
+    font-size: 10px;
+    padding: 10px;
+  }
+
+  /* Intro */
+  .intro-yazi {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .intro-alt-yazi {
+    font-size: 13px;
+  }
+
+  .intro-atla {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* ============================================================
+   5. TELEFON (360px - 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  body {
+    padding: 6px 3px;
+  }
+
+  /* Tipografi */
+  h1 { font-size: 18px; }
+  h2 { font-size: 15px; }
+
+  /* Giriş */
+  .giris-kap {
+    padding: 10px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .giris-logo-alt {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .giris-form-kap {
+    padding: 12px;
+    border-width: 3px;
+  }
+
+  .giris-sekme {
+    padding: 7px 3px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-input {
+    font-size: 12px;
+    padding: 9px 10px;
+    border-width: 2px;
+  }
+
+  .form-etiket {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-gonder,
+  .btn.btn-basari.btn-buyuk {
+    padding: 12px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .giris-alt-not {
+    font-size: 9px;
+    margin-top: 14px;
+  }
+
+  .giris-surum {
+    font-size: 8px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    padding: 10px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .menu-baslik p {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .menu-baslik {
+    margin-bottom: 16px;
+  }
+
+  .menu-ust {
+    padding: 6px 10px;
+    margin-bottom: 14px;
+  }
+
+  .menu-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .menu-kullanici-ad {
+    font-size: 11px;
+    max-width: 120px;
+  }
+
+  .menu-kullanici-durum {
+    font-size: 9px;
+  }
+
+  .menu-para {
+    font-size: 12px;
+  }
+
+  .menu-para-ikon {
+    font-size: 15px;
+  }
+
+  .menu-butonlar {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .menu-btn {
+    padding: 9px 10px;
+    gap: 7px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .menu-btn-ikon {
+    font-size: 18px;
+    width: 22px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .menu-btn-alt {
+    font-size: 8px;
+  }
+
+  .menu-btn-ok {
+    font-size: 12px;
+  }
+
+  .menu-btn-birincil {
+    padding: 12px 10px;
+  }
+
+  .menu-alt {
+    font-size: 8px;
+    gap: 4px;
+    padding-top: 8px;
+  }
+
+  /* Karakter */
+  .karakter-baslik h2 {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .karakter-baslik p {
+    font-size: 10px;
+  }
+
+  .karakter-liste {
+    gap: 6px;
+  }
+
+  .karakter-kart {
+    padding: 10px 8px;
+    border-width: 2px;
+  }
+
+  .karakter-kart-ikon {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+
+  .karakter-kart-baslik {
+    font-size: 12px;
+  }
+
+  .karakter-kart-aciklama {
+    font-size: 8px;
+    min-height: 18px;
+    margin-bottom: 8px;
+  }
+
+  .karakter-kart-istatistik {
+    padding-top: 6px;
+  }
+
+  .kart-stat {
+    font-size: 9px;
+  }
+
+  .karakter-butonlar {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  /* HUD */
+  .hud {
+    padding: 5px;
+    gap: 3px;
+  }
+
+  .hud-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .hud-oyuncu-ad {
+    font-size: 10px;
+    max-width: 70px;
+  }
+
+  .hud-oyuncu-meslek {
+    font-size: 7px;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 12px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 9px;
+  }
+
+  .hud-kutu-etiket {
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .hud-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  /* Oyun alanı */
+  .oyun-alani {
+    min-height: 220px;
+    border-width: 3px;
+  }
+
+  /* Kontroller */
+  .kontroller-bar {
+    gap: 4px;
+    padding: 4px;
+    border-width: 2px;
+  }
+
+  .kontrol-ogesi {
+    font-size: 7px;
+    gap: 2px;
+  }
+
+  .kontroller-bar kbd {
+    min-width: 16px;
+    height: 16px;
+    font-size: 7px;
+    padding: 0 2px;
+    border-width: 1px;
+    border-bottom-width: 2px;
+    min-width: 16px;
+  }
+
+  /* İpucu */
+  .oyun-ipucu {
+    bottom: 60px;
+    padding: 6px 10px;
+    font-size: 10px;
+    gap: 4px;
+    border-width: 2px;
+  }
+
+  .ipucu-tus {
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+    padding: 0 4px;
+  }
+
+  /* Bildirim */
+  .bildirim-ogesi {
+    padding: 6px 10px;
+    font-size: 10px;
+    border-width: 2px;
+  }
+
+  /* Butonlar */
+  .btn {
+    padding: 8px 12px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    gap: 4px;
+  }
+
+  .btn-buyuk {
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+
+  .btn-kucuk {
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+
+  .btn-ikon {
+    font-size: 13px;
+  }
+
+  /* Vergi kartı */
+  .vergi-modal {
+    padding: 14px;
+    border-width: 3px;
+  }
+
+  .vergi-modal-ikon {
+    font-size: 34px;
+    margin-bottom: 6px;
+  }
+
+  .vergi-modal-etiket {
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .vergi-modal-baslik {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .vergi-modal-aciklama {
+    font-size: 10px;
+    padding: 6px;
+    margin-bottom: 10px;
+  }
+
+  .vergi-modal-tutar-kap {
+    padding: 6px;
+    margin-bottom: 10px;
+    border-width: 2px;
+  }
+
+  .vergi-modal-tutar {
+    font-size: 20px;
+  }
+
+  .vergi-modal-tutar-etiket {
+    font-size: 8px;
+  }
+
+  .vergi-modal-uyari {
+    font-size: 9px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .vergi-modal-butonlar {
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  .vergi-modal-ipucu {
+    font-size: 8px;
+    padding-top: 6px;
+  }
+
+  /* Market */
+  .market-modal {
+    max-height: 95vh;
+  }
+
+  .market-modal-ust {
+    padding: 8px 10px;
+    border-width: 2px;
+  }
+
+  .market-modal-baslik {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .market-modal-para {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .market-urun {
+    grid-template-columns: 28px 1fr auto;
+    gap: 5px;
+    padding: 5px 6px;
+    border-width: 2px;
+  }
+
+  .market-urun-ikon {
+    font-size: 18px;
+  }
+
+  .market-urun-ad {
+    font-size: 10px;
+  }
+
+  .market-urun-aciklama {
+    font-size: 7px;
+  }
+
+  .market-urun-fiyat {
+    font-size: 9px;
+  }
+
+  .market-urun-btn {
+    padding: 5px 8px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    grid-column: 1 / -1;
+  }
+
+  /* Envanter */
+  .envanter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .envanter-esya {
+    padding: 6px;
+  }
+
+  .envanter-esya-ikon {
+    font-size: 20px;
+  }
+
+  .envanter-esya-ad {
+    font-size: 8px;
+  }
+
+  /* Oyun menü */
+  .oyun-menu-modal {
+    padding: 14px;
+    border-width: 3px;
+  }
+
+  .oyun-menu-baslik {
+    font-size: 14px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+  }
+
+  .oyun-menu-btn {
+    padding: 8px 10px;
+    font-size: 10px;
+    gap: 8px;
+    border-width: 2px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .oyun-menu-btn-ikon {
+    font-size: 14px;
+  }
+
+  /* İdam */
+  .idam-baslik {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .idam-ikon {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+
+  .idam-sebep {
+    font-size: 12px;
+  }
+
+  .idam-istatistik-kap {
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+
+  .idam-istat {
+    padding: 8px 4px;
+  }
+
+  .idam-istat-ikon {
+    font-size: 18px;
+  }
+
+  .idam-istat-deger {
+    font-size: 13px;
+  }
+
+  .idam-istat-etiket {
+    font-size: 7px;
+    letter-spacing: 0.5px;
+  }
+
+  .idam-ironi {
+    padding: 10px;
+    margin-bottom: 14px;
+  }
+
+  .idam-ironi-yazi {
+    font-size: 11px;
+  }
+
+  .idam-ironi-alt {
+    font-size: 9px;
+  }
+
+  /* Kazanma */
+  .kazanma-baslik {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .kazanma-ikon {
+    font-size: 48px;
+  }
+
+  .kazanma-alt {
+    font-size: 11px;
+  }
+
+  .kazanma-istat {
+    padding: 8px 4px;
+  }
+
+  .kazanma-istat-ikon {
+    font-size: 18px;
+  }
+
+  .kazanma-istat-deger {
+    font-size: 12px;
+  }
+
+  .kazanma-istat-etiket {
+    font-size: 7px;
+  }
+
+  /* Diyalog */
+  .diyalog-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .diyalog-isim {
+    font-size: 10px;
+  }
+
+  .diyalog-metin {
+    font-size: 10px;
+  }
+
+  .diyalog-devam {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  /* Haber */
+  .haber-bulteni {
+    width: 100%;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+  }
+
+  /* Başarım bildirim */
+  .basarim-bildirim {
+    min-width: 180px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .basarim-bildirim-ikon {
+    font-size: 24px;
+  }
+
+  .basarim-bildirim-baslik {
+    font-size: 11px;
+  }
+
+  .basarim-bildirim-alt {
+    font-size: 8px;
+  }
+
+  /* Seviye */
+  .seviye-kap {
+    padding: 18px 28px;
+  }
+
+  .seviye-ikon {
+    font-size: 44px;
+  }
+
+  .seviye-baslik {
+    font-size: 15px;
+  }
+
+  .seviye-numara {
+    font-size: 42px;
+  }
+
+  .seviye-alt {
+    font-size: 10px;
+  }
+
+  /* Ödül */
+  .odul-modal {
+    padding: 18px;
+  }
+
+  .odul-ikon {
+    font-size: 52px;
+  }
+
+  .odul-baslik-2 {
+    font-size: 18px;
+  }
+
+  .odul-aciklama {
+    font-size: 11px;
+  }
+
+  .odul-gun {
+    font-size: 14px;
+  }
+
+  /* Borsa */
+  .borsa-durum-kart {
+    padding: 8px 6px;
+  }
+
+  .borsa-durum-deger {
+    font-size: 13px;
+  }
+
+  .borsa-hisse {
+    padding: 8px;
+  }
+
+  .borsa-hisse-ad {
+    font-size: 12px;
+  }
+
+  .borsa-hisse-firma {
+    font-size: 9px;
+  }
+
+  .borsa-hisse-fiyat {
+    font-size: 12px;
+  }
+
+  .borsa-hisse-degisim {
+    font-size: 9px;
+  }
+
+  .borsa-hisse-adet {
+    font-size: 9px;
+  }
+
+  /* Banka */
+  .banka-kart {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .banka-kart-banka {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .banka-kart-numara {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .banka-kart-etiket {
+    font-size: 7px;
+  }
+
+  .banka-kart-deger {
+    font-size: 10px;
+  }
+
+  /* Kariyer, Hastane, Kaçış, Seçim - liste stilleri */
+  .kariyer-is,
+  .hastane-tedavi,
+  .kacis-ulke,
+  .secim-parti {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .kariyer-is-ikon,
+  .hastane-tedavi-ikon,
+  .kacis-ulke-bayrak,
+  .secim-parti-logo {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .kariyer-is-ad,
+  .hastane-tedavi-ad,
+  .kacis-ulke-ad,
+  .secim-parti-ad {
+    font-size: 12px;
+  }
+
+  .kariyer-is-maas,
+  .hastane-tedavi-aciklama,
+  .kacis-ulke-fiyat,
+  .secim-parti-aciklama {
+    font-size: 10px;
+  }
+
+  /* Mahkeme */
+  .mahkeme-hakim {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .mahkeme-hakim-ikon {
+    font-size: 38px;
+  }
+
+  .mahkeme-hakim-balonu {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .mahkeme-secenek {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .mahkeme-secenek-ikon {
+    font-size: 22px;
+  }
+
+  .mahkeme-secenek-baslik {
+    font-size: 11px;
+  }
+
+  .mahkeme-secenek-aciklama {
+    font-size: 9px;
+  }
+
+  /* Ayarlar */
+  .ayarlar-icerik {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .ayar-bolum-baslik {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .ayar-etiket {
+    font-size: 11px;
+  }
+
+  .ayar-deger {
+    font-size: 11px;
+  }
+
+  .ayar-select {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .toggle {
+    width: 40px;
+    height: 20px;
+  }
+
+  .toggle-gorsel::before {
+    width: 14px;
+    height: 14px;
+  }
+
+  .toggle input:checked + .toggle-gorsel::before {
+    transform: translateX(20px);
+  }
+
+  /* Skor */
+  .skor-satir {
+    grid-template-columns: 28px 1fr 60px;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .skor-satir-sira {
+    font-size: 13px;
+  }
+
+  .skor-satir-oyuncu {
+    font-size: 11px;
+  }
+
+  .skor-satir-skor {
+    font-size: 11px;
+  }
+
+  /* Başarım */
+  .basarim-ozet {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .ozet-ikon {
+    font-size: 20px;
+  }
+
+  .ozet-deger {
+    font-size: 18px;
+  }
+
+  .ozet-etiket {
+    font-size: 9px;
+  }
+
+  .basarim-ogesi {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .basarim-ogesi-ikon {
+    font-size: 22px;
+  }
+
+  .basarim-ogesi-baslik {
+    font-size: 11px;
+  }
+
+  .basarim-ogesi-aciklama {
+    font-size: 9px;
+  }
+
+  /* Karakter market */
+  .km-liste {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .km-urun {
+    padding: 8px;
+  }
+
+  .km-urun-ikon {
+    font-size: 26px;
+  }
+
+  .km-urun-ad {
+    font-size: 11px;
+  }
+
+  .km-urun-aciklama {
+    font-size: 8px;
+  }
+
+  .km-urun-fiyat {
+    font-size: 10px;
+  }
+
+  .km-urun-btn {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+
+  /* İstatistik */
+  .ist-liste {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .ist-satir {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .ist-satir-ikon {
+    font-size: 20px;
+  }
+
+  .ist-satir-etiket {
+    font-size: 9px;
+  }
+
+  .ist-satir-deger {
+    font-size: 13px;
+  }
+
+  .ist-grafik {
+    height: 80px;
+  }
+
+  .ist-grafik-bar::after {
+    font-size: 8px;
+    top: -14px;
+  }
+
+  /* Yardım */
+  .yardim-icerik {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .yardim-bolum h3 {
+    font-size: 12px;
+  }
+
+  .yardim-bolum p {
+    font-size: 11px;
+  }
+
+  .yardim-tus-satir {
+    padding: 6px 8px;
+    gap: 10px;
+  }
+
+  .yardim-tus-aciklama {
+    font-size: 10px;
+  }
+
+  /* Toast */
+  .toast-alani {
+    bottom: 6px;
+    right: 6px;
+    left: 6px;
+    max-width: none;
+  }
+
+  .toast {
+    padding: 8px 10px;
+    font-size: 10px;
+    min-width: auto;
+  }
+
+  .toast-ikon {
+    font-size: 14px;
+  }
+
+  /* Intro */
+  .intro-sahne {
+    padding: 24px;
+  }
+
+  .intro-yazi {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .intro-alt-yazi {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}
+
+/* ============================================================
+   6. KÜÇÜK TELEFON (320px - 360px)
+   ============================================================ */
+@media (max-width: 360px) {
+
+  body {
+    padding: 4px 2px;
+  }
+
+  h1 { font-size: 15px; }
+  h2 { font-size: 13px; }
+
+  /* Giriş */
+  .giris-kap {
+    padding: 8px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 34px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .giris-logo-alt {
+    font-size: 7px;
+  }
+
+  .giris-form-kap {
+    padding: 10px;
+  }
+
+  .giris-sekme {
+    padding: 6px 2px;
+    font-size: 8px;
+  }
+
+  .form-input {
+    font-size: 11px;
+    padding: 8px 9px;
+  }
+
+  .form-etiket {
+    font-size: 8px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    padding: 8px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .menu-baslik p {
+    font-size: 7px;
+  }
+
+  .menu-btn {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .menu-btn-ikon {
+    font-size: 16px;
+    width: 18px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 9px;
+  }
+
+  .menu-btn-alt {
+    font-size: 7px;
+  }
+
+  /* Karakter */
+  .karakter-liste {
+    grid-template-columns: 1fr;
+  }
+
+  .karakter-kart {
+    padding: 8px;
+  }
+
+  /* HUD */
+  .hud-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .hud-oyuncu-ad {
+    font-size: 9px;
+    max-width: 60px;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 11px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 8px;
+  }
+
+  .hud-kutu-etiket {
+    font-size: 5px;
+  }
+
+  .hud-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  /* Oyun alanı */
+  .oyun-alani {
+    min-height: 180px;
+  }
+
+  /* Kontroller */
+  .kontrol-ogesi {
+    font-size: 6px;
+  }
+
+  .kontroller-bar kbd {
+    min-width: 14px;
+    height: 14px;
+    font-size: 6px;
+    padding: 0 2px;
+  }
+
+  /* Butonlar */
+  .btn {
+    padding: 7px 10px;
+    font-size: 9px;
+    gap: 3px;
+  }
+
+  .btn-ikon {
+    font-size: 11px;
+  }
+
+  /* Vergi kartı */
+  .vergi-modal {
+    padding: 10px;
+  }
+
+  .vergi-modal-ikon {
+    font-size: 28px;
+  }
+
+  .vergi-modal-baslik {
+    font-size: 13px;
+  }
+
+  .vergi-modal-tutar {
+    font-size: 17px;
+  }
+
+  /* Diyalog */
+  .diyalog-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  /* Toast */
+  .toast {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+}
+
+/* ============================================================
+   7. ÇOK KÜÇÜK (< 320px)
+   ============================================================ */
+@media (max-width: 320px) {
+
+  body {
+    padding: 2px 1px;
+  }
+
+  h1 { font-size: 13px; }
+  h2 { font-size: 11px; }
+
+  .giris-logo-ikon {
+    font-size: 28px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 13px;
+  }
+
+  .menu-btn-ikon {
+    display: none;
+  }
+
+  .menu-btn {
+    padding: 6px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 8px;
+  }
+
+  .hud-orta {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hud-kutu:nth-child(4),
+  .hud-kutu:nth-child(5) {
+    display: none;
+  }
+
+  .oyun-alani {
+    min-height: 160px;
+  }
+
+  .btn {
+    padding: 6px 8px;
+    font-size: 8px;
+  }
+}
+
+/* ============================================================
+   8. YATAY MOD (LANDSCAPE)
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  body {
+    padding: 4px;
+    align-items: flex-start;
+  }
+
+  /* Giriş */
+  .giris-kap {
+    padding: 8px;
+    max-width: 90%;
+  }
+
+  .giris-logo {
+    margin-bottom: 10px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 16px;
+  }
+
+  .giris-form-kap {
+    padding: 12px;
+  }
+
+  .giris-sekmeler {
+    margin-bottom: 10px;
+  }
+
+  .giris-form {
+    gap: 8px;
+  }
+
+  /* Menü */
+  .menu-kap {
+    padding: 8px;
+    max-width: 95%;
+  }
+
+  .menu-baslik {
+    margin-bottom: 10px;
+  }
+
+  .menu-baslik h1 {
+    font-size: 16px;
+  }
+
+  .menu-baslik p {
+    display: none;
+  }
+
+  .menu-ust {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+  }
+
+  .menu-butonlar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .menu-btn {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .menu-btn-ikon {
+    font-size: 16px;
+    width: 20px;
+  }
+
+  .menu-btn-baslik {
+    font-size: 9px;
+  }
+
+  .menu-btn-alt {
+    display: none;
+  }
+
+  .menu-btn-ok {
+    font-size: 10px;
+  }
+
+  /* Oyun ekranı */
+  .hud {
+    padding: 4px 6px;
+  }
+
+  .hud-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+
+  .hud-kutu {
+    padding: 3px 4px;
+  }
+
+  .hud-kutu-ikon {
+    font-size: 12px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 9px;
+  }
+
+  .hud-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .hud-bilgi {
+    padding: 4px 8px;
+  }
+
+  .kontroller-bar {
+    display: none;
+  }
+
+  .oyun-alani {
+    min-height: 200px;
+  }
+
+  /* Modallar */
+  .modal-overlay {
+    padding: 6px;
+  }
+
+  .vergi-modal {
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .vergi-modal-icerik {
+    padding: 14px;
+  }
+
+  /* Karakter seçimi */
+  .karakter-kap {
+    max-width: 95%;
+  }
+
+  .karakter-baslik {
+    margin-bottom: 10px;
+  }
+
+  .karakter-baslik h2 {
+    font-size: 15px;
+  }
+
+  .karakter-baslik p {
+    display: none;
+  }
+
+  .karakter-liste {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .karakter-kart {
+    padding: 8px;
+  }
+
+  .karakter-kart-ikon {
+    font-size: 22px;
+  }
+
+  .karakter-kart-baslik {
+    font-size: 10px;
+  }
+
+  .karakter-kart-aciklama {
+    display: none;
+  }
+
+  .karakter-kart-istatistik {
+    padding-top: 4px;
+    gap: 2px;
+  }
+
+  .kart-stat {
+    font-size: 8px;
+  }
+
+  /* Intro */
+  .intro-yazi {
+    font-size: 20px;
+  }
+
+  .intro-alt-yazi {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   9. DOKUNMATİK EKRAN
+   ============================================================ */
+@media (pointer: coarse) {
+
+  /* Butonları daha büyük yap */
+  .btn,
+  .menu-btn,
+  .hud-btn,
+  .oyun-menu-btn,
+  .banka-islem,
+  .kariyer-is-btn,
+  .hastane-tedavi-btn,
+  .kacis-ulke-btn,
+  .secim-parti-btn,
+  .mahkeme-secenek,
+  .market-urun-btn,
+  .km-urun-btn,
+  .skor-sekme,
+  .giris-sekme {
+    min-height: 44px;
+    -webkit-tap-highlight-color: rgba(254, 202, 87, 0.2);
+  }
+
+  /* Küçük butonlar */
+  .btn-kucuk,
+  .borsa-hisse-butonlar .btn-kucuk,
+  .skor-sekme,
+  .sekme {
+    min-height: 36px;
+  }
+
+  /* Input alanları */
+  .form-input,
+  .sohbet-input,
+  .sohbet-panel-input,
+  .lobi-kod-input,
+  .feedback-textarea,
+  .feedback-select,
+  .not-textarea {
+    min-height: 44px;
+    font-size: 16px; /* iOS zoom engelleme */
+  }
+
+  /* Metin seçimini engelle */
+  .btn,
+  .menu-btn,
+  .hud-btn,
+  .kart,
+  .karakter-kart,
+  .market-urun {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Uzun basma menüsünü engelle */
+  img,
+  canvas {
+    -webkit-touch-callout: none;
+  }
+
+  /* Slider thumb büyütme */
+  .ayar-slider::-webkit-slider-thumb,
+  .radyo-panel-ses input[type="range"]::-webkit-slider-thumb {
+    width: 22px;
+    height: 26px;
+  }
+}
+
+/* ============================================================
+   10. YAZICI (PRINT)
+   ============================================================ */
+@media print {
+
+  /* Sayfa ayarları */
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  /* Ekranlar arasında sadece ana içeriği yazdır */
+  .ekran {
+    position: static !important;
+    display: none !important;
+  }
+
+  .ekran.aktif {
+    display: block !important;
+    position: static !important;
+  }
+
+  /* Butonları gizle */
+  .btn,
+  .hud-btn,
+  .menu-btn,
+  .oyun-menu-btn,
+  .btn-kapat,
+  .cikis-btn,
+  .sohbet-gonder,
+  .sohbet-panel-gonder,
+  .market-urun-btn,
+  .km-urun-btn,
+  .banka-islem,
+  .kariyer-is-btn,
+  .hastane-tedavi-btn,
+  .kacis-ulke-btn,
+  .secim-parti-btn,
+  .mahkeme-secenek,
+  .borsa-hisse-butonlar,
+  .rusvet-butonlar,
+  .rusvet-butonlar-2,
+  .paylas-butonlar,
+  .idam-butonlar,
+  .kazanma-butonlar,
+  .os-butonlar {
+    display: none !important;
+  }
+
+  /* Etkileşimli öğeleri gizle */
+  .hud,
+  .hud-bilgi,
+  .kontroller-bar,
+  .oyun-alani,
+  .sohbet-kap,
+  .sohbet-panel,
+  .bildirim-alani,
+  .toast-alani,
+  .bildirim-kap,
+  .hava-panel,
+  .radyo-panel,
+  .mini-harita,
+  .gorev-panel,
+  .versiyon-bilgi,
+  .fps-gosterge,
+  .debug-panel,
+  .baglanti-durum,
+  .yagmur,
+  .kar,
+  .sis,
+  .konfeti-parca,
+  .para-yagmur,
+  .parcacik-kap {
+    display: none !important;
+  }
+
+  /* Modal içeriğini göster */
+  .modal-overlay {
+    position: static !important;
+    background: transparent !important;
+    display: block !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Kartlar */
+  .karakter-kart,
+  .market-urun,
+  .borsa-hisse,
+  .skor-satir,
+  .ist-satir,
+  .basarim-ogesi {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #000 !important;
+    margin-bottom: 8px;
+  }
+
+  /* Başlıklar */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  /* Bağlantılar */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ============================================================
+   11. KARANLIK MOD (Sistem Tercihi)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  /* Zaten oyun karanlık temalı, ek bir şey yapmaya gerek yok */
+}
+
+/* Karanlık tema özel ayar */
+body.tema-koyu {
+  --renk-arkaplan: #0a0a14;
+  --renk-arkaplan-2: #14142a;
+  --renk-arkaplan-3: #1a1a3a;
+  --renk-arkaplan-4: #0f0f22;
+}
+
+/* ============================================================
+   12. YÜKSEK KONTRAST
+   ============================================================ */
+@media (prefers-contrast: more) {
+
+  :root {
+    --renk-metin: #ffffff;
+    --renk-metin-2: #f0f0f0;
+    --renk-metin-3: #e0e0e0;
+    --renk-metin-4: #d0d0d0;
+    --renk-kenarlik: #6a6a8a;
+    --renk-kenarlik-2: #5a5a7a;
+    --renk-kenarlik-3: #7a7a9a;
+    --renk-sari: #ffe066;
+    --renk-kirmizi: #ff5a5a;
+    --renk-yesil: #6ee7a0;
+    --renk-mavi: #8ed4ff;
+  }
+
+  .btn,
+  .menu-btn,
+  .karakter-kart,
+  .market-urun,
+  .borsa-hisse,
+  .modal-overlay > div {
+    border-width: 4px !important;
+  }
+
+  .btn {
+    box-shadow: 4px 4px 0 #000 !important;
+  }
+
+  .form-input {
+    border-width: 4px !important;
+  }
+
+  .hud-kutu,
+  .moral-bar,
+  .aclik-bar {
+    border-width: 3px !important;
+  }
+
+  /* Gölge yoğunlaştır */
+  .btn:hover,
+  .menu-btn:hover {
+    box-shadow: 6px 6px 0 #000 !important;
+  }
+}
+
+/* ============================================================
+   13. HAREKET AZALTMA (REDUCED MOTION)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Kritik animasyonlar hariç */
+  .yukleme-dolgu,
+  .progress-dolgu,
+  .moral-bar-dolgu,
+  .aclik-bar-dolgu {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Sonsuz animasyonları durdur */
+  .anim-nabiz,
+  .anim-sallan,
+  .anim-zipla,
+  .anim-parla,
+  .anim-don,
+  .anim-nefes,
+  .btn-parla::after,
+  .basarim-bildirim::before,
+  .vergi-modal-etiket,
+  .haber-canli-nokta,
+  .yildiz,
+  .bulut,
+  .kus,
+  .araba {
+    animation-play-state: paused !important;
+  }
+
+  /* Kullanıcı animasyonları tercih etmiyorsa hepsini kapat */
+  .konfeti-parca,
+  .para-yagmur,
+  .parcacik,
+  .damla,
+  .kar-tanesi,
+  .meteor {
+    display: none !important;
+  }
+
+  /* Hover efektleri kalabilir ama transition kısa */
+  .btn,
+  .menu-btn,
+  .karakter-kart {
+    transition-duration: 0.1ms !important;
+  }
+}
+
+/* ============================================================
+   14. RENK KÖRÜ MODU
+   ============================================================ */
+
+/* Deuteranopia (Kırmızı-Yeşil) */
+body.renk-koru-deuteranopia {
+  --renk-yesil: #4aa8ff;
+  --renk-kirmizi: #ffaa44;
+  --renk-sari: #ffe066;
+  --renk-mavi: #9d7cff;
+}
+
+body.renk-koru-deuteranopia .durum-tehlike {
+  border-color: #ffaa44 !important;
+  color: #ffaa44 !important;
+}
+
+/* Protanopia (Kırmızı-Yeşil) */
+body.renk-koru-protanopia {
+  --renk-yesil: #6ec6ff;
+  --renk-kirmizi: #ffbb33;
+  --renk-sari: #fff066;
+  --renk-mavi: #b39ddb;
+}
+
+/* Tritanopia (Mavi-Sarı) */
+body.renk-koru-tritanopia {
+  --renk-yesil: #00d4aa;
+  --renk-kirmizi: #ff5599;
+  --renk-sari: #a0d8ff;
+  --renk-mavi: #ff6b6b;
+}
+
+/* Genel renk körü modu */
+body.renk-koru {
+  /* Sadece ikon+şekil ile ayırt et */
+  filter: saturate(1.2);
+}
+
+body.renk-koru .kirmizi-yesil-ayirt {
+  border-style: dashed !important;
+  border-width: 4px !important;
+}
+
+/* ============================================================
+   15. YÖNELİM (ORIENTATION)
+   ============================================================ */
+
+/* Portrait */
+@media (orientation: portrait) {
+  .oyun-alani {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-height: 600px) {
+  .oyun-alani {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ============================================================
+   EK: EKRAN YÜKSEKLİĞİNE GÖRE
+   ============================================================ */
+@media (max-height: 700px) {
+  .giris-kap {
+    padding: 14px;
+  }
+
+  .giris-logo {
+    margin-bottom: 14px;
+  }
+
+  .giris-logo-ikon {
+    font-size: 44px;
+  }
+
+  .menu-kap {
+    padding: 12px;
+  }
+
+  .menu-baslik {
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-height: 600px) {
+  .giris-logo-ikon {
+    font-size: 36px;
+    margin-bottom: 4px;
+  }
+
+  .giris-logo-baslik {
+    font-size: 18px;
+  }
+
+  .giris-logo-alt {
+    display: none;
+  }
+
+  .menu-baslik p {
+    display: none;
+  }
+
+  .menu-baslik {
+    margin-bottom: 10px;
+  }
+}
+
+/* ============================================================
+   EK: BÜYÜK EKRANLAR
+   ============================================================ */
+@media (min-width: 1400px) {
+  .oyun-kap {
+    max-width: 900px;
+  }
+
+  .oyun-alani {
+    min-height: 600px;
+  }
+
+  .karakter-liste {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .borsa-hisseler {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 18px;
+  }
+
+  .oyun-kap {
+    max-width: 1100px;
+  }
+
+  .hud-kutu-deger {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE SONU
+   ============================================================
+   responsive.css TAMAMLANDI
+   TOPLAM: ~2000 SATIR
+   ============================================================
+*/

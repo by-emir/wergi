@@ -1,0 +1,6377 @@
+/* ============================================================
+   ============================================================
+   💸 VERGİ OYUNU — ANİMASYONLAR
+   BÖLÜM: PART 1 / 2
+   ============================================================
+   İÇERİK:
+     1.  Genel Animasyon Sınıfları
+     2.  Ekran Geçiş Animasyonları
+     3.  Buton Animasyonları
+     4.  Yükleme Animasyonları
+     5.  Menü Animasyonları
+     6.  Form Animasyonları
+     7.  Modal Animasyonları
+     8.  Bildirim Animasyonları
+     9.  Kart Animasyonları
+     10. Yazı Animasyonları
+     11. İkon Animasyonları
+   ============================================================
+*/
+
+/* ============================================================
+   1. GENEL ANİMASYON SINIFLARI
+   ============================================================ */
+
+/* Fade In */
+.anim-fade-in {
+  animation: animFadeIn 0.5s ease forwards;
+}
+
+@keyframes animFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fade Out */
+.anim-fade-out {
+  animation: animFadeOut 0.5s ease forwards;
+}
+
+@keyframes animFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Yukarıdan gir */
+.anim-yukari-gir {
+  animation: animYukariGir 0.5s ease forwards;
+}
+
+@keyframes animYukariGir {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Aşağıdan gir */
+.anim-asagi-gir {
+  animation: animAsagiGir 0.5s ease forwards;
+}
+
+@keyframes animAsagiGir {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Soldan gir */
+.anim-sol-gir {
+  animation: animSolGir 0.5s ease forwards;
+}
+
+@keyframes animSolGir {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Sağdan gir */
+.anim-sag-gir {
+  animation: animSagGir 0.5s ease forwards;
+}
+
+@keyframes animSagGir {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Scale In */
+.anim-scale-in {
+  animation: animScaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes animScaleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Scale Out */
+.anim-scale-out {
+  animation: animScaleOut 0.3s ease forwards;
+}
+
+@keyframes animScaleOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.5); }
+}
+
+/* Dönerek gir */
+.anim-don-gir {
+  animation: animDonGir 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes animDonGir {
+  from { opacity: 0; transform: rotate(-180deg) scale(0.5); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+/* Elastik gir */
+.anim-elastik {
+  animation: animElastik 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes animElastik {
+  0% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Nabız */
+.anim-nabiz {
+  animation: animNabiz 1.5s infinite ease-in-out;
+}
+
+@keyframes animNabiz {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Sallanma */
+.anim-sallan {
+  animation: animSallan 2s infinite ease-in-out;
+}
+
+@keyframes animSallan {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* Zıplama */
+.anim-zipla {
+  animation: animZipla 1s infinite ease-in-out;
+}
+
+@keyframes animZipla {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Sarsıntı */
+.anim-sars {
+  animation: animSars 0.4s ease;
+}
+
+@keyframes animSars {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Parlama */
+.anim-parla {
+  animation: animParla 1.5s infinite ease-in-out;
+}
+
+@keyframes animParla {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 0 transparent); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 12px currentColor); }
+}
+
+/* Dönme */
+.anim-don {
+  animation: animDon 3s infinite linear;
+}
+
+@keyframes animDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Nefes alma */
+.anim-nefes {
+  animation: animNefes 3s infinite ease-in-out;
+}
+
+@keyframes animNefes {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Görünmez ol (opacity 0) */
+.anim-gorunmez {
+  animation: animGorunmez 2s infinite ease-in-out;
+}
+
+@keyframes animGorunmez {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Renk değiştir */
+.anim-renk {
+  animation: animRenk 3s infinite linear;
+}
+
+@keyframes animRenk {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Titreşim */
+.anim-titrek {
+  animation: animTitrek 0.1s infinite;
+}
+
+@keyframes animTitrek {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+}
+
+/* Kalp atışı */
+.anim-kalp {
+  animation: animKalp 1.2s infinite ease-in-out;
+}
+
+@keyframes animKalp {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+  60% { transform: scale(1); }
+}
+
+/* Kayan ışık (Shimmer) */
+.anim-isik {
+  position: relative;
+  overflow: hidden;
+}
+
+.anim-isik::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: animIsik 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes animIsik {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ============================================================
+   2. EKRAN GEÇİŞ ANİMASYONLARI
+   ============================================================ */
+
+/* Ekran giriş - fade */
+.ekran.aktif {
+  animation: ekranFadeIn 0.5s ease;
+}
+
+@keyframes ekranFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ekran giriş - scale */
+.ekran.aktif.ekran-scale {
+  animation: ekranScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes ekranScaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Ekran giriş - kayma */
+.ekran.aktif.ekran-kayma {
+  animation: ekranKaymaIn 0.5s ease;
+}
+
+@keyframes ekranKaymaIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Ekran giriş - aşağıdan */
+.ekran.aktif.ekran-asagi {
+  animation: ekranAsagiIn 0.5s ease;
+}
+
+@keyframes ekranAsagiIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ekran giriş - dönerek */
+.ekran.aktif.ekran-don {
+  animation: ekranDonIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes ekranDonIn {
+  from { opacity: 0; transform: rotate(-10deg) scale(0.8); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+/* Ekran giriş - yıldız patlaması */
+.ekran.aktif.ekran-yildiz {
+  animation: ekranYildiz 0.7s ease;
+}
+
+@keyframes ekranYildiz {
+  0% { opacity: 0; transform: scale(0.5) rotate(45deg); filter: blur(20px); }
+  50% { opacity: 0.5; filter: blur(10px); }
+  100% { opacity: 1; transform: scale(1) rotate(0); filter: blur(0); }
+}
+
+/* Ekranlar arası geçiş overlay */
+.ekran-gecis-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9998;
+  pointer-events: none;
+  animation: gecisOverlay 0.8s ease;
+}
+
+@keyframes gecisOverlay {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Perde geçişi */
+.perde {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9998;
+  transform: translateY(100%);
+  animation: perdeGecis 1s ease forwards;
+}
+
+@keyframes perdeGecis {
+  0% { transform: translateY(100%); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Diyagonal geçiş */
+.diagonal-gecis {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(45deg, #feca57, #ff3b3b);
+  z-index: 9998;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  animation: diagonalGecis 1s ease forwards;
+}
+
+@keyframes diagonalGecis {
+  0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+  50% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+}
+
+/* Daire geçiş */
+.daire-gecis {
+  position: fixed;
+  inset: 0;
+  background: #feca57;
+  z-index: 9998;
+  clip-path: circle(0% at 50% 50%);
+  animation: daireGecis 1s ease forwards;
+}
+
+@keyframes daireGecis {
+  0% { clip-path: circle(0% at 50% 50%); }
+  50% { clip-path: circle(150% at 50% 50%); }
+  100% { clip-path: circle(0% at 50% 50%); }
+}
+
+/* Ekran titremesi */
+.ekran-titreme {
+  animation: ekranTitreme 0.5s ease;
+}
+
+@keyframes ekranTitreme {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5px, -5px); }
+  20% { transform: translate(5px, -5px); }
+  30% { transform: translate(-5px, 5px); }
+  40% { transform: translate(5px, 5px); }
+  50% { transform: translate(-5px, 0); }
+  60% { transform: translate(5px, 0); }
+  70% { transform: translate(0, -5px); }
+  80% { transform: translate(0, 5px); }
+  90% { transform: translate(-2px, 2px); }
+}
+
+/* CRT kapanma efekti */
+.crt-kapanma {
+  animation: crtKapanma 0.6s ease forwards;
+}
+
+@keyframes crtKapanma {
+  0% { transform: scaleY(1) scaleX(1); opacity: 1; }
+  50% { transform: scaleY(0.01) scaleX(1.1); opacity: 0.8; }
+  100% { transform: scaleY(0.001) scaleX(0); opacity: 0; }
+}
+
+/* CRT açılma efekti */
+.crt-acilma {
+  animation: crtAcilma 0.6s ease forwards;
+}
+
+@keyframes crtAcilma {
+  0% { transform: scaleY(0.001) scaleX(0); opacity: 0; }
+  50% { transform: scaleY(0.01) scaleX(1.1); opacity: 0.8; }
+  100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+}
+
+/* ============================================================
+   3. BUTON ANİMASYONLARI
+   ============================================================ */
+
+/* Buton hover yükselme */
+.btn-yuksek:hover {
+  animation: btnYuksek 0.3s ease forwards;
+}
+
+@keyframes btnYuksek {
+  to { transform: translate(-2px, -4px); }
+}
+
+/* Buton nabız */
+.btn-nabiz {
+  animation: btnNabiz 2s infinite ease-in-out;
+}
+
+@keyframes btnNabiz {
+  0%, 100% { box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 0 rgba(254, 202, 87, 0); }
+  50% { box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 24px rgba(254, 202, 87, 0.6); }
+}
+
+/* Buton parlama */
+.btn-parla {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-parla::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  animation: btnParla 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes btnParla {
+  from { transform: translateX(-100%) rotate(0deg); }
+  to { transform: translateX(100%) rotate(0deg); }
+}
+
+/* Buton yanıp sönme */
+.btn-yanip-son {
+  animation: btnYanipSon 1s infinite;
+}
+
+@keyframes btnYanipSon {
+  0%, 100% {
+    background: linear-gradient(180deg, #2ecc71, #16a34a);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    background: linear-gradient(180deg, #3ee081, #1cb84e);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 30px rgba(74, 222, 128, 0.8);
+  }
+}
+
+/* Buton tıklama dalgası */
+.btn-dalga {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-dalga::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-dalga:active::before {
+  width: 300px;
+  height: 300px;
+  transition: width 0s, height 0s;
+}
+
+/* Buton sallama */
+.btn-salla {
+  animation: btnSalla 0.6s ease;
+}
+
+@keyframes btnSalla {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(8deg); }
+  60% { transform: rotate(-5deg); }
+  80% { transform: rotate(5deg); }
+}
+
+/* Buton büyüme */
+.btn-buyu {
+  animation: btnBuyu 0.4s ease;
+}
+
+@keyframes btnBuyu {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Buton küçülme */
+.btn-kucul {
+  animation: btnKucul 0.3s ease;
+}
+
+@keyframes btnKucul {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+/* Kapatma butonu dönme */
+.btn-kapat:hover {
+  animation: btnKapatDon 0.5s ease;
+}
+
+@keyframes btnKapatDon {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(90deg) scale(1.1); }
+}
+
+/* Menü butonu ok hareketi */
+.menu-btn:hover .menu-btn-ok {
+  animation: okKay 0.6s infinite;
+}
+
+@keyframes okKay {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+/* ============================================================
+   4. YÜKLEME ANİMASYONLARI
+   ============================================================ */
+
+/* Spinner (dönen yuvarlak) */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--renk-kenarlik);
+  border-top-color: var(--renk-sari);
+  border-radius: 50%;
+  animation: spinnerDon 0.8s linear infinite;
+}
+
+@keyframes spinnerDon {
+  to { transform: rotate(360deg); }
+}
+
+/* Spinner (nokta) */
+.spinner-nokta {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.spinner-nokta::before,
+.spinner-nokta::after,
+.spinner-nokta > span {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--renk-sari);
+  border-radius: 50%;
+  animation: spinnerNokta 1.4s infinite ease-in-out both;
+}
+
+.spinner-nokta::before { animation-delay: -0.32s; }
+.spinner-nokta > span { animation-delay: -0.16s; }
+.spinner-nokta::after { animation-delay: 0s; }
+
+@keyframes spinnerNokta {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Spinner (bar) */
+.spinner-bar {
+  width: 120px;
+  height: 4px;
+  background: var(--renk-kenarlik);
+  overflow: hidden;
+  position: relative;
+}
+
+.spinner-bar::before {
+  content: "";
+  position: absolute;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--renk-sari);
+  animation: spinnerBar 1.5s infinite ease-in-out;
+}
+
+@keyframes spinnerBar {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* Yükleme noktaları */
+.yukleme-noktalar {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.yukleme-noktalar span {
+  width: 10px;
+  height: 10px;
+  background: var(--renk-sari);
+  border-radius: 50%;
+  animation: yuklemeNokta 1.4s infinite ease-in-out;
+}
+
+.yukleme-noktalar span:nth-child(1) { animation-delay: 0s; }
+.yukleme-noktalar span:nth-child(2) { animation-delay: 0.2s; }
+.yukleme-noktalar span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes yuklemeNokta {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: var(--renk-arkaplan);
+  border: 2px solid var(--renk-kenarlik);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-dolgu {
+  height: 100%;
+  background: linear-gradient(90deg, var(--renk-mavi), var(--renk-sari));
+  background-size: 200% 100%;
+  animation: progressParla 2s infinite linear;
+  transition: width 0.4s ease;
+}
+
+@keyframes progressParla {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* İskelet yükleme */
+.iskelet {
+  background: linear-gradient(
+    90deg,
+    var(--renk-kenarlik-2) 0%,
+    var(--renk-kenarlik) 50%,
+    var(--renk-kenarlik-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: iskeletParla 1.5s infinite;
+  min-height: 20px;
+}
+
+@keyframes iskeletParla {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* Yükleme daireleri */
+.yukleme-daire {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.yukleme-daire::before,
+.yukleme-daire::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+}
+
+.yukleme-daire::before {
+  border-top-color: var(--renk-sari);
+  border-right-color: var(--renk-sari);
+  animation: spinnerDon 1s linear infinite;
+}
+
+.yukleme-daire::after {
+  border-bottom-color: var(--renk-kirmizi);
+  border-left-color: var(--renk-kirmizi);
+  animation: spinnerDon 1.5s linear infinite reverse;
+}
+
+/* Yükleme zıplayan kutular */
+.yukleme-kutu {
+  display: inline-flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 30px;
+}
+
+.yukleme-kutu span {
+  width: 8px;
+  height: 100%;
+  background: var(--renk-sari);
+  animation: yuklemeKutu 1.2s infinite ease-in-out;
+}
+
+.yukleme-kutu span:nth-child(1) { animation-delay: 0s; }
+.yukleme-kutu span:nth-child(2) { animation-delay: 0.1s; }
+.yukleme-kutu span:nth-child(3) { animation-delay: 0.2s; }
+.yukleme-kutu span:nth-child(4) { animation-delay: 0.3s; }
+.yukleme-kutu span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes yuklemeKutu {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* ============================================================
+   5. MENÜ ANİMASYONLARI
+   ============================================================ */
+
+/* Menü butonları sırayla giriş */
+.menu-butonlar .menu-btn {
+  opacity: 0;
+  animation: menuBtnGir 0.5s ease forwards;
+}
+
+.menu-butonlar .menu-btn:nth-child(1) { animation-delay: 0.1s; }
+.menu-butonlar .menu-btn:nth-child(2) { animation-delay: 0.15s; }
+.menu-butonlar .menu-btn:nth-child(3) { animation-delay: 0.2s; }
+.menu-butonlar .menu-btn:nth-child(4) { animation-delay: 0.25s; }
+.menu-butonlar .menu-btn:nth-child(5) { animation-delay: 0.3s; }
+.menu-butonlar .menu-btn:nth-child(6) { animation-delay: 0.35s; }
+.menu-butonlar .menu-btn:nth-child(7) { animation-delay: 0.4s; }
+.menu-butonlar .menu-btn:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes menuBtnGir {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Menü başlık giriş */
+.menu-baslik h1 {
+  animation: menuBaslikGir 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes menuBaslikGir {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Menü üst bar kayma */
+.menu-ust {
+  animation: menuUstGir 0.6s ease backwards;
+}
+
+@keyframes menuUstGir {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menü alt bilgi */
+.menu-alt {
+  animation: menuAltGir 0.8s 0.5s ease backwards;
+}
+
+@keyframes menuAltGir {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Karakter kartları sırayla giriş */
+.karakter-liste .karakter-kart {
+  opacity: 0;
+  animation: karakterKartGir 0.5s ease forwards;
+}
+
+.karakter-liste .karakter-kart:nth-child(1) { animation-delay: 0.1s; }
+.karakter-liste .karakter-kart:nth-child(2) { animation-delay: 0.15s; }
+.karakter-liste .karakter-kart:nth-child(3) { animation-delay: 0.2s; }
+.karakter-liste .karakter-kart:nth-child(4) { animation-delay: 0.25s; }
+.karakter-liste .karakter-kart:nth-child(5) { animation-delay: 0.3s; }
+.karakter-liste .karakter-kart:nth-child(6) { animation-delay: 0.35s; }
+
+@keyframes karakterKartGir {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Karakter seçildiğinde */
+.karakter-kart.secili {
+  animation: karakterSec 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes karakterSec {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Menü başlık sallanma */
+.menu-avatar {
+  animation: menuAvatarSallan 3s infinite ease-in-out;
+}
+
+@keyframes menuAvatarSallan {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Sekme geçiş */
+.giris-sekme.aktif {
+  animation: sekmeAktif 0.3s ease;
+}
+
+@keyframes sekmeAktif {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Sekme hover */
+.giris-sekme:hover:not(.aktif) {
+  animation: sekmeHover 0.4s ease;
+}
+
+@keyframes sekmeHover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* ============================================================
+   6. FORM ANİMASYONLARI
+   ============================================================ */
+
+/* Input focus */
+.form-input:focus {
+  animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+/* Hata sarsıntı */
+.form-hata.goster {
+  animation: hataSars 0.4s ease;
+}
+
+@keyframes hataSars {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Başarı yeşillenme */
+.form-input.basari {
+  animation: inputBasari 0.5s ease;
+}
+
+@keyframes inputBasari {
+  0% { border-color: var(--renk-kenarlik); box-shadow: none; }
+  50% { border-color: var(--renk-yesil); box-shadow: 0 0 16px rgba(74, 222, 128, 0.5); }
+  100% { border-color: var(--renk-yesil); box-shadow: 0 0 8px rgba(74, 222, 128, 0.3); }
+}
+
+/* Hata kırmızılanma */
+.form-input.hata {
+  animation: inputHata 0.5s ease;
+}
+
+@keyframes inputHata {
+  0% { border-color: var(--renk-kenarlik); }
+  50% { border-color: var(--renk-kirmizi); box-shadow: 0 0 16px rgba(255, 90, 90, 0.5); }
+  100% { border-color: var(--renk-kirmizi); box-shadow: 0 0 8px rgba(255, 90, 90, 0.3); }
+}
+
+/* Şifre göz ikonu */
+.sifre-goz:hover {
+  animation: sifreGoz 0.3s ease;
+}
+
+@keyframes sifreGoz {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.15); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+/* Şifre güç barı */
+.guc-bar {
+  transition: all 0.3s ease;
+}
+
+.guc-bar.aktif {
+  animation: gucBarParla 0.4s ease;
+}
+
+@keyframes gucBarParla {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+  100% { transform: scaleY(1); }
+}
+
+/* Form mesaj giriş */
+.form-mesaj.goster {
+  animation: formMesajGir 0.4s ease;
+}
+
+@keyframes formMesajGir {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Checkbox işaretlenme */
+.checkbox-label input:checked + .checkbox-gorsel {
+  animation: checkboxIsaret 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkboxIsaret {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Toggle switch */
+.toggle-gorsel::before {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Slider */
+.ayar-slider::-webkit-slider-thumb {
+  transition: all 0.2s ease;
+}
+
+.ayar-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Sekme geçiş formu */
+.giris-form {
+  animation: formGecis 0.4s ease;
+}
+
+@keyframes formGecis {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form hata shake input */
+.form-input.shake {
+  animation: inputShake 0.5s ease;
+}
+
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-8px); }
+  20% { transform: translateX(8px); }
+  30% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  50% { transform: translateX(-4px); }
+  60% { transform: translateX(4px); }
+  70% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+/* Input yazı yazılırken parla */
+.form-input:not(:placeholder-shown) {
+  animation: inputDolu 0.3s ease;
+}
+
+@keyframes inputDolu {
+  0% { background: var(--renk-arkaplan); }
+  50% { background: rgba(74, 222, 128, 0.05); }
+  100% { background: var(--renk-arkaplan); }
+}
+
+/* ============================================================
+   7. MODAL ANİMASYONLARI
+   ============================================================ */
+
+/* Modal overlay giriş */
+.modal-overlay:not(.gizli) {
+  animation: modalOverlayGir 0.3s ease;
+}
+
+@keyframes modalOverlayGir {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal içerik scale */
+.modal-overlay:not(.gizli) > div {
+  animation: modalIcerikGir 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIcerikGir {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal açılma yukarıdan */
+.modal-yukari > div {
+  animation: modalYukari 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes modalYukari {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal yandan */
+.modal-yan > div {
+  animation: modalYan 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes modalYan {
+  from {
+    opacity: 0;
+    transform: translateX(100px) rotate(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+/* Modal elastik */
+.modal-elastik > div {
+  animation: modalElastik 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes modalElastik {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Vergi kartı özel */
+.vergi-modal {
+  animation: vergiModalGir 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes vergiModalGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  70% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Vergi kartı ikon sallanma */
+.vergi-modal-ikon {
+  animation: vergiIkonSallan 1.5s infinite ease-in-out;
+}
+
+@keyframes vergiIkonSallan {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.1); }
+}
+
+/* Modal kapanma */
+.modal-overlay.kapaniyor {
+  animation: modalKapan 0.3s ease forwards;
+}
+
+@keyframes modalKapan {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.modal-overlay.kapaniyor > div {
+  animation: modalIcerikKapan 0.3s ease forwards;
+}
+
+@keyframes modalIcerikKapan {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.8) translateY(30px); opacity: 0; }
+}
+
+/* İdam modalı */
+#idam .idam-kap {
+  animation: idamKapGir 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes idamKapGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-20deg);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    filter: blur(0);
+  }
+}
+
+/* İdam ikon düşme */
+.idam-ikon {
+  animation: idamIkonDus 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes idamIkonDus {
+  0% { transform: translateY(-100px) rotate(-180deg); opacity: 0; }
+  70% { transform: translateY(10px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* Kazanma modalı */
+.kazanma-kap {
+  animation: kazanmaKapGir 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes kazanmaKapGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(20deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ============================================================
+   8. BİLDİRİM ANİMASYONLARI
+   ============================================================ */
+
+/* Toast giriş */
+.toast {
+  animation: toastGir 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes toastGir {
+  0% {
+    opacity: 0;
+    transform: translateX(120%) scale(0.8);
+  }
+  60% {
+    transform: translateX(-5%) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Toast çıkış */
+.toast.cikis {
+  animation: toastCik 0.3s ease forwards;
+}
+
+@keyframes toastCik {
+  to {
+    opacity: 0;
+    transform: translateX(120%) scale(0.8);
+  }
+}
+
+/* Bildirim üst kayma */
+.bildirim-ogesi {
+  animation: bildirimGir 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bildirimGir {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Bildirim çıkış */
+.bildirim-ogesi.cikis {
+  animation: bildirimCik 0.3s ease forwards;
+}
+
+@keyframes bildirimCik {
+  to {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+}
+
+/* Başarım bildirimi */
+.basarim-bildirim:not(.gizli) {
+  animation: basarimGir 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes basarimGir {
+  0% {
+    opacity: 0;
+    transform: translateX(150%) rotate(10deg);
+  }
+  60% {
+    transform: translateX(-5%) rotate(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+/* Başarım ikon sallanma */
+.basarim-bildirim-ikon {
+  animation: basarimIkonSallan 1.5s infinite ease-in-out;
+}
+
+@keyframes basarimIkonSallan {
+  0%, 100% { transform: scale(1) rotate(-10deg); }
+  50% { transform: scale(1.15) rotate(10deg); }
+}
+
+/* Başarım parlayan efekt */
+.basarim-bildirim::before {
+  animation: basarimParla 2s infinite;
+}
+
+@keyframes basarimParla {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Seviye atlama giriş */
+.seviye-kap {
+  animation: seviyeGir 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes seviyeGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Seviye ikon patlama */
+.seviye-ikon {
+  animation: seviyeIkonPatla 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes seviyeIkonPatla {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Seviye numara */
+.seviye-numara {
+  animation: seviyeNumara 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes seviyeNumara {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+  }
+  60% {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ============================================================
+   9. KART ANİMASYONLARI
+   ============================================================ */
+
+/* Kart hover yükselme */
+.karakter-kart:hover,
+.market-urun:hover,
+.borsa-hisse:hover {
+  animation: kartYuksek 0.3s ease forwards;
+}
+
+@keyframes kartYuksek {
+  to { transform: translateY(-6px); }
+}
+
+/* Kart hover gölge */
+.karakter-kart:hover {
+  animation: kartGolge 0.3s ease forwards;
+}
+
+@keyframes kartGolge {
+  to {
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(254, 202, 87, 0.3);
+  }
+}
+
+/* Kart giriş - sırayla */
+.karakter-kart {
+  opacity: 0;
+  animation: kartGirSira 0.5s ease forwards;
+}
+
+@keyframes kartGirSira {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Stat kart nabız */
+.stat {
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  animation: statNabiz 0.5s ease;
+}
+
+@keyframes statNabiz {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Ödül modal ikon */
+.odul-ikon {
+  animation: odulIkonDon 2s infinite ease-in-out;
+}
+
+@keyframes odulIkonDon {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.15); }
+}
+
+/* Başarım kartları açılma */
+.basarim-ogesi {
+  animation: basarimKart 0.4s ease backwards;
+}
+
+@keyframes basarimKart {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.basarim-ogesi:nth-child(1) { animation-delay: 0.05s; }
+.basarim-ogesi:nth-child(2) { animation-delay: 0.1s; }
+.basarim-ogesi:nth-child(3) { animation-delay: 0.15s; }
+.basarim-ogesi:nth-child(4) { animation-delay: 0.2s; }
+.basarim-ogesi:nth-child(5) { animation-delay: 0.25s; }
+.basarim-ogesi:nth-child(6) { animation-delay: 0.3s; }
+.basarim-ogesi:nth-child(7) { animation-delay: 0.35s; }
+.basarim-ogesi:nth-child(8) { animation-delay: 0.4s; }
+
+/* Rozet parla */
+.basarim-ogesi.acik {
+  animation: rozetParla 2s infinite ease-in-out;
+}
+
+@keyframes rozetParla {
+  0%, 100% { box-shadow: inset 0 0 12px rgba(74, 222, 128, 0.1); }
+  50% { box-shadow: inset 0 0 24px rgba(74, 222, 128, 0.3); }
+}
+
+/* ============================================================
+   10. YAZI ANİMASYONLARI
+   ============================================================ */
+
+/* Daktilo efekti */
+.daktilo {
+  overflow: hidden;
+  border-right: 2px solid var(--renk-sari);
+  white-space: nowrap;
+  animation:
+    daktiloYaz 3s steps(40, end),
+    daktiloImlec 0.75s step-end infinite;
+}
+
+@keyframes daktiloYaz {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes daktiloImlec {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--renk-sari); }
+}
+
+/* Yazı fade-in */
+.yazi-fade {
+  animation: yaziFade 0.6s ease;
+}
+
+@keyframes yaziFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Yazı fade-in sırayla (kelimeler) */
+.yazi-sira span {
+  display: inline-block;
+  opacity: 0;
+  animation: yaziSira 0.5s ease forwards;
+}
+
+@keyframes yaziSira {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Yazı sallanma */
+.yazi-sallan {
+  animation: yaziSallan 2s infinite ease-in-out;
+}
+
+@keyframes yaziSallan {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+/* Yazı büyüme */
+.yazi-buyu {
+  animation: yaziBuyu 0.5s ease;
+}
+
+@keyframes yaziBuyu {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Yazı parla */
+.yazi-parla {
+  animation: yaziParla 2s infinite ease-in-out;
+}
+
+@keyframes yaziParla {
+  0%, 100% { text-shadow: 0 0 8px currentColor; }
+  50% { text-shadow: 0 0 24px currentColor, 0 0 48px currentColor; }
+}
+
+/* Başlık parlak geçiş */
+.yazi-renk-degis {
+  background: linear-gradient(
+    90deg,
+    #feca57, #ff6b6b, #feca57, #ff6b6b, #feca57
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: yaziRenkDegis 3s infinite linear;
+}
+
+@keyframes yaziRenkDegis {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* Sayı sayacı */
+.sayac {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.2s ease;
+}
+
+.sayac.artis {
+  animation: sayacArtis 0.3s ease;
+  color: var(--renk-yesil);
+}
+
+.sayac.azalis {
+  animation: sayacAzalis 0.3s ease;
+  color: var(--renk-kirmizi);
+}
+
+@keyframes sayacArtis {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes sayacAzalis {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.85); }
+}
+
+/* ============================================================
+   11. İKON ANİMASYONLARI
+   ============================================================ */
+
+/* İkon dönme */
+.ikon-don {
+  animation: ikonDon 2s infinite linear;
+}
+
+@keyframes ikonDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* İkon zıplama */
+.ikon-zipla {
+  animation: ikonZipla 1s infinite ease-in-out;
+}
+
+@keyframes ikonZipla {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* İkon nabız */
+.ikon-nabiz {
+  animation: ikonNabiz 1.5s infinite ease-in-out;
+}
+
+@keyframes ikonNabiz {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* İkon sallanma */
+.ikon-sallan {
+  animation: ikonSallan 2s infinite ease-in-out;
+}
+
+@keyframes ikonSallan {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* İkon titreşim */
+.ikon-titre {
+  animation: ikonTitre 0.2s infinite;
+}
+
+@keyframes ikonTitre {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  75% { transform: translate(1px, -1px); }
+}
+
+/* İkon parla */
+.ikon-parla {
+  animation: ikonParla 2s infinite ease-in-out;
+}
+
+@keyframes ikonParla {
+  0%, 100% { filter: drop-shadow(0 0 4px currentColor); }
+  50% { filter: drop-shadow(0 0 16px currentColor); }
+}
+
+/* İkon kalp atışı */
+.ikon-kalp {
+  animation: ikonKalp 1.2s infinite ease-in-out;
+}
+
+@keyframes ikonKalp {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+/* İkon düşme */
+.ikon-dus {
+  animation: ikonDus 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes ikonDus {
+  0% { transform: translateY(-50px) rotate(-180deg); opacity: 0; }
+  70% { transform: translateY(5px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* Emoji animasyonları için özel */
+.emoji-para {
+  animation: emojiPara 1.5s infinite ease-in-out;
+}
+
+@keyframes emojiPara {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.1); }
+}
+
+.emoji-vergi {
+  animation: emojiVergi 1s infinite;
+}
+
+@keyframes emojiVergi {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.1); filter: brightness(1.3) hue-rotate(20deg); }
+}
+
+.emoji-uyari {
+  animation: emojiUyari 0.8s infinite;
+}
+
+@keyframes emojiUyari {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ============================================================
+   PART 1 SONU
+   ============================================================
+   PART 2'DE:
+     - Karakter animasyonları
+     - Dünya animasyonları
+     - Hava efektleri
+     - Özel efektler
+     - Vergi kartı animasyonları
+     - İdam & Kazanma
+     - Parçacık sistemleri
+     - Arka plan animasyonları
+   ============================================================
+*//* ============================================================
+   ============================================================
+   ANİMASYONLAR — PART 2A
+   ============================================================
+   İÇERİK:
+     12. Karakter Animasyonları
+     13. Dünya Animasyonları
+     14. Hava Efektleri
+     15. Özel Efektler
+   ============================================================
+*/
+
+/* ============================================================
+   12. KARAKTER ANİMASYONLARI
+   ============================================================ */
+
+/* --- Karakter Idle (Bekleme) --- */
+.karakter {
+  animation: karakterIdle 2s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes karakterIdle {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-3px) scaleY(1.01);
+  }
+}
+
+/* --- Karakter Nefes Alma --- */
+.karakter-nefes {
+  animation: karakterNefes 2.5s infinite ease-in-out;
+}
+
+@keyframes karakterNefes {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.02) translateY(-1px);
+  }
+}
+
+/* --- Karakter Yürüme --- */
+.karakter-yuru {
+  animation: karakterYuru 0.5s infinite ease-in-out;
+}
+
+@keyframes karakterYuru {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
+
+/* --- Karakter Koşma --- */
+.karakter-kos {
+  animation: karakterKos 0.3s infinite ease-in-out;
+}
+
+@keyframes karakterKos {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+}
+
+/* --- Karakter Zıplama --- */
+.karakter-zipla {
+  animation: karakterZipla 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes karakterZipla {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  30% {
+    transform: translateY(-20px) scaleY(1.15);
+  }
+  60% {
+    transform: translateY(-30px) scaleY(0.9);
+  }
+  80% {
+    transform: translateY(0) scaleY(1.1);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+/* --- Karakter Sarsıntı (Hasar) --- */
+.karakter-sarsil {
+  animation: karakterSarsil 0.5s ease;
+}
+
+@keyframes karakterSarsil {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  10% { transform: translateX(-6px) rotate(-2deg); }
+  20% { transform: translateX(6px) rotate(2deg); }
+  30% { transform: translateX(-5px) rotate(-1.5deg); }
+  40% { transform: translateX(5px) rotate(1.5deg); }
+  50% { transform: translateX(-4px) rotate(-1deg); }
+  60% { transform: translateX(4px) rotate(1deg); }
+  70% { transform: translateX(-2px) rotate(-0.5deg); }
+  80% { transform: translateX(2px) rotate(0.5deg); }
+}
+
+/* --- Karakter Yanma (Ateş) --- */
+.karakter-yan {
+  animation: karakterYan 0.3s infinite;
+  filter: hue-rotate(-20deg);
+}
+
+@keyframes karakterYan {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    filter: hue-rotate(-20deg) brightness(1);
+  }
+  25% {
+    transform: translate(-1px, -1px) rotate(-1deg);
+    filter: hue-rotate(-30deg) brightness(1.2);
+  }
+  75% {
+    transform: translate(1px, 1px) rotate(1deg);
+    filter: hue-rotate(-10deg) brightness(1.1);
+  }
+}
+
+/* --- Karakter Ölüm --- */
+.karakter-ol {
+  animation: karakterOl 1.5s ease forwards;
+}
+
+@keyframes karakterOl {
+  0% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(45deg) translateY(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(90deg) translateY(20px);
+    opacity: 0.5;
+  }
+}
+
+/* --- Karakter Dönme --- */
+.karakter-don {
+  animation: karakterDon 1s infinite linear;
+}
+
+@keyframes karakterDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Kafa Sallama (Hayır) --- */
+.karakter-kafa-hayir {
+  animation: kafaHayir 0.6s ease;
+}
+
+@keyframes kafaHayir {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* --- Kafa Onaylama (Evet) --- */
+.karakter-kafa-evet {
+  animation: kafaEvet 0.6s ease;
+}
+
+@keyframes kafaEvet {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* --- Kol Sallama --- */
+.kol-selam {
+  animation: kolSelam 1s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes kolSelam {
+  0%, 100% { transform: rotate(-90deg) translateY(-6px); }
+  50% { transform: rotate(-110deg) translateY(-8px); }
+}
+
+/* --- Kol Uzatma --- */
+.kol-uzat {
+  animation: kolUzat 0.6s ease;
+  transform-origin: top center;
+}
+
+@keyframes kolUzat {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-45deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --- Kol Sallanma (Idle) --- */
+.kol-idle-sol {
+  animation: kolIdleSol 3s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes kolIdleSol {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.kol-idle-sag {
+  animation: kolIdleSag 3s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes kolIdleSag {
+  0%, 100% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+}
+
+/* --- Bacak Yürüme --- */
+.bacak-sol-yuru {
+  animation: bacakSolYuru 0.5s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes bacakSolYuru {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+
+.bacak-sag-yuru {
+  animation: bacakSagYuru 0.5s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes bacakSagYuru {
+  0%, 100% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+/* --- Göz Kırpma --- */
+.goz-kirp {
+  animation: gozKirp 0.3s ease;
+}
+
+@keyframes gozKirp {
+  0%, 100% { height: 8px; top: 14px; }
+  50% { height: 2px; top: 17px; }
+}
+
+/* --- Göz Kısma (Şüphe) --- */
+.goz-kis {
+  animation: gozKis 2s infinite ease-in-out;
+}
+
+@keyframes gozKis {
+  0%, 100% { height: 8px; }
+  50% { height: 4px; }
+}
+
+/* --- Kaş Kaldırma --- */
+.kas-kaldir {
+  animation: kasKaldir 0.5s ease;
+}
+
+@keyframes kasKaldir {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* --- Kaş Çatma --- */
+.kas-cat {
+  animation: kasCat 0.5s ease;
+}
+
+@keyframes kasCat {
+  0%, 100% { transform: rotate(0deg); }
+  100% { transform: rotate(20deg) translateY(2px); }
+}
+
+/* --- Ağız Açma (Konuşma) --- */
+.agiz-konus {
+  animation: agizKonus 0.3s infinite;
+}
+
+@keyframes agizKonus {
+  0%, 100% { height: 3px; }
+  50% { height: 8px; }
+}
+
+/* --- Ağız Gülümseme --- */
+.agiz-gul {
+  animation: agizGul 0.5s ease forwards;
+}
+
+@keyframes agizGul {
+  from { height: 3px; }
+  to { height: 5px; border-bottom: 2px solid #2e1c0c; }
+}
+
+/* --- Ağız Üzülme --- */
+.agiz-uzul {
+  animation: agizUzul 0.5s ease forwards;
+}
+
+@keyframes agizUzul {
+  from { height: 3px; }
+  to { height: 2px; transform: translateX(-50%) rotate(0deg); }
+}
+
+/* --- Karakter Gölge --- */
+.golge-nefes {
+  animation: golgeNefes 2.5s infinite ease-in-out;
+}
+
+@keyframes golgeNefes {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.4; }
+  50% { transform: translateX(-50%) scaleX(0.9); opacity: 0.3; }
+}
+
+/* --- Karakter Saç Sallanma --- */
+.sac-sallan {
+  animation: sacSallan 2s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes sacSallan {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+/* --- Karakter Gömlek Rüzgar --- */
+.gomlek-ruzgar {
+  animation: gomlekRuzgar 1.5s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes gomlekRuzgar {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(3deg); }
+}
+
+/* --- Kemer Sıkma --- */
+.kemer-sik {
+  animation: kemerSik 0.5s ease;
+}
+
+@keyframes kemerSik {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* --- Karakter Terleme --- */
+.karakter-ter {
+  animation: karakterTer 2s infinite ease-in-out;
+}
+
+@keyframes karakterTer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.1) contrast(1.1); }
+}
+
+/* --- Karakter Titreme (Soğuk/Korku) --- */
+.karakter-titre {
+  animation: karakterTitre 0.15s infinite;
+}
+
+@keyframes karakterTitre {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-1px, 0) rotate(-0.5deg); }
+  75% { transform: translate(1px, 0) rotate(0.5deg); }
+}
+
+/* --- Karakter Fırlatma (Düşman saldırısı) --- */
+.karakter-firlat {
+  animation: karakterFirlat 1s ease forwards;
+}
+
+@keyframes karakterFirlat {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  50% { transform: translate(40px, -60px) rotate(180deg); opacity: 0.7; }
+  100% { transform: translate(80px, 0) rotate(360deg); opacity: 0; }
+}
+
+/* --- Karakter Belirme (Spawn) --- */
+.karakter-belir {
+  animation: karakterBelir 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes karakterBelir {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+/* --- Karakter Kaybolma (Despawn) --- */
+.karakter-kaybol {
+  animation: karakterKaybol 0.6s ease forwards;
+}
+
+@keyframes karakterKaybol {
+  0% { transform: scale(1); opacity: 1; filter: blur(0); }
+  100% { transform: scale(0) rotate(180deg); opacity: 0; filter: blur(10px); }
+}
+
+/* --- Karakter Işınlanma (Teleport) --- */
+.karakter-isinla {
+  animation: karakterIsinla 1s ease;
+}
+
+@keyframes karakterIsinla {
+  0% { opacity: 1; filter: blur(0); transform: scale(1); }
+  40% { opacity: 0; filter: blur(20px); transform: scale(0.5); }
+  60% { opacity: 0; filter: blur(20px); transform: scale(0.5); }
+  100% { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* --- Karakter Hayalet --- */
+.karakter-hayalet {
+  animation: karakterHayalet 3s infinite ease-in-out;
+}
+
+@keyframes karakterHayalet {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50% { opacity: 0.3; transform: translateY(-10px); }
+}
+
+/* --- Karakter Uçma --- */
+.karakter-uc {
+  animation: karakterUc 2s infinite ease-in-out;
+}
+
+@keyframes karakterUc {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* --- Karakter Yüzme --- */
+.karakter-yuz {
+  animation: karakterYuz 1.5s infinite ease-in-out;
+}
+
+@keyframes karakterYuz {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-3px); }
+}
+
+/* --- Karakter Dans --- */
+.karakter-dans {
+  animation: karakterDans 1s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes karakterDans {
+  0%, 100% { transform: rotate(-10deg) translateY(0); }
+  25% { transform: rotate(0deg) translateY(-10px); }
+  50% { transform: rotate(10deg) translateY(0); }
+  75% { transform: rotate(0deg) translateY(-10px); }
+}
+
+/* ============================================================
+   13. DÜNYA ANİMASYONLARI
+   ============================================================ */
+
+/* --- Güneş Dönme --- */
+.gunes {
+  animation: gunesDon 20s infinite linear, gunesNefes 3s infinite ease-in-out;
+}
+
+@keyframes gunesDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gunesNefes {
+  0%, 100% { box-shadow: 0 0 0 4px #ffb700, 0 0 24px 8px rgba(255, 217, 74, 0.7), 0 0 60px 20px rgba(255, 217, 74, 0.3); }
+  50% { box-shadow: 0 0 0 4px #ffb700, 0 0 40px 12px rgba(255, 217, 74, 0.9), 0 0 80px 30px rgba(255, 217, 74, 0.5); }
+}
+
+/* --- Güneş Işın Dönme --- */
+.gunes::before {
+  animation: gunesIsinDon 20s infinite linear;
+}
+
+@keyframes gunesIsinDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Ay Dönme --- */
+.ay {
+  animation: ayDon 30s infinite linear;
+}
+
+@keyframes ayDon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Ay Kraterler --- */
+.ay::after {
+  animation: ayKrater 4s infinite ease-in-out;
+}
+
+@keyframes ayKrater {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* --- Yıldız Parla --- */
+.yildiz {
+  animation: yildizParla 2s infinite ease-in-out;
+}
+
+@keyframes yildizParla {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+    box-shadow: 0 0 4px #fff;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 12px #fff, 0 0 20px #a5c4ff;
+  }
+}
+
+/* Farklı gecikmeler */
+.yildiz:nth-child(1) { animation-delay: 0s; }
+.yildiz:nth-child(2) { animation-delay: 0.2s; }
+.yildiz:nth-child(3) { animation-delay: 0.4s; }
+.yildiz:nth-child(4) { animation-delay: 0.6s; }
+.yildiz:nth-child(5) { animation-delay: 0.8s; }
+.yildiz:nth-child(6) { animation-delay: 1s; }
+.yildiz:nth-child(7) { animation-delay: 1.2s; }
+.yildiz:nth-child(8) { animation-delay: 1.4s; }
+.yildiz:nth-child(9) { animation-delay: 1.6s; }
+.yildiz:nth-child(10) { animation-delay: 1.8s; }
+
+/* --- Yıldız Kayması (Shooting Star) --- */
+.yildiz-kayan {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  animation: yildizKayan 3s infinite ease-in-out;
+}
+
+@keyframes yildizKayan {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    transform: translate(300px, 300px) rotate(-45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(300px, 300px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* --- Bulut Kayma --- */
+.bulut.b1 {
+  animation: bulutKay 30s infinite linear;
+}
+
+.bulut.b2 {
+  animation: bulutKay 40s infinite linear;
+  animation-delay: -10s;
+}
+
+.bulut.b3 {
+  animation: bulutKay 55s infinite linear;
+  animation-delay: -25s;
+}
+
+@keyframes bulutKay {
+  from { transform: translateX(-100px); }
+  to { transform: translateX(900px); }
+}
+
+/* --- Bulut Sallanma --- */
+.bulut {
+  animation-name: bulutKay, bulutSallan;
+  animation-duration: 30s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes bulutSallan {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: 4px; }
+}
+
+/* --- Kuş Uçma --- */
+.kus.k1 {
+  animation: kusUc 20s infinite linear;
+}
+
+.kus.k2 {
+  animation: kusUc 26s infinite linear;
+  animation-delay: -8s;
+}
+
+@keyframes kusUc {
+  0% { transform: translateX(-60px) scaleX(1); }
+  49% { transform: translateX(400px) scaleX(1); }
+  50% { transform: translateX(400px) scaleX(-1); }
+  100% { transform: translateX(-60px) scaleX(-1); }
+}
+
+/* --- Kuş Kanat Çırpma --- */
+.kus::before {
+  animation: kanatUst 0.6s infinite ease-in-out;
+}
+
+.kus::after {
+  animation: kanatUst 0.6s infinite ease-in-out;
+}
+
+@keyframes kanatUst {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(-40deg); }
+}
+
+/* --- Kelebek Uçma --- */
+.kelebek {
+  animation: kelebekUc 8s infinite ease-in-out;
+}
+
+@keyframes kelebekUc {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(50px, -30px) rotate(15deg); }
+  50% { transform: translate(100px, -60px) rotate(0deg); }
+  75% { transform: translate(150px, -30px) rotate(-15deg); }
+  100% { transform: translate(200px, 0) rotate(0deg); }
+}
+
+.kelebek::before,
+.kelebek::after {
+  animation: kelebekKanat 0.3s infinite;
+}
+
+@keyframes kelebekKanat {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(60deg); }
+}
+
+/* --- Bina Pencere Yanma --- */
+.bina::before {
+  animation: pencereYan 5s infinite;
+}
+
+@keyframes pencereYan {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 0.5; }
+}
+
+/* --- Bina Uyarı Işığı --- */
+.bina.b2::after,
+.bina.b6::after {
+  animation: kirmiziYan 1.5s infinite;
+}
+
+@keyframes kirmiziYan {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #ff3b3b;
+  }
+  50% {
+    opacity: 0.2;
+    box-shadow: 0 0 4px #ff3b3b;
+  }
+}
+
+/* --- Araba Geçme --- */
+.araba.a1 {
+  animation: arabaGec 8s infinite linear;
+}
+
+.araba.a2 {
+  animation: arabaGecTers 11s infinite linear;
+  animation-delay: -3s;
+}
+
+.araba.a3 {
+  animation: arabaGec 14s infinite linear;
+  animation-delay: -7s;
+}
+
+@keyframes arabaGec {
+  from { transform: translateX(-80px) scaleX(1); }
+  to { transform: translateX(900px) scaleX(1); }
+}
+
+@keyframes arabaGecTers {
+  from { transform: translateX(900px) scaleX(-1); }
+  to { transform: translateX(-80px) scaleX(-1); }
+}
+
+/* --- Araba Tekerlek Dönme --- */
+.araba::after {
+  animation: tekerlekDon 0.5s infinite linear;
+}
+
+@keyframes tekerlekDon {
+  from { background-position: 0 0, 22px 0; }
+  to { background-position: -12px 0, 10px 0; }
+}
+
+/* --- Yol Çizgileri --- */
+.yol::after {
+  animation: yolCizgi 2s infinite linear;
+}
+
+@keyframes yolCizgi {
+  from { background-position-x: 0; }
+  to { background-position-x: -40px; }
+}
+
+/* --- Sokak Lambası Yanma --- */
+.lamba::after {
+  animation: lambaYan 3s infinite ease-in-out;
+}
+
+@keyframes lambaYan {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 12px #ffd94a, 0 0 24px rgba(255, 217, 74, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 6px #ffd94a, 0 0 12px rgba(255, 217, 74, 0.3);
+  }
+}
+
+/* --- Lamba Titreme (Bozuk) --- */
+.lamba-bozuk::after {
+  animation: lambaTitre 0.2s infinite;
+}
+
+@keyframes lambaTitre {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.3; }
+  50% { opacity: 1; }
+  75% { opacity: 0.5; }
+}
+
+/* --- Ağaç Sallanma --- */
+.agac::before {
+  animation: agacSallan 3s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes agacSallan {
+  0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+  50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+/* --- Çimen Sallanma --- */
+.cimen {
+  animation: cimenSallan 2s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes cimenSallan {
+  0%, 100% { transform: skewX(-5deg); }
+  50% { transform: skewX(5deg); }
+}
+
+/* --- NPC Yürüme --- */
+.npc.n1 {
+  animation: npcYuru 18s infinite linear;
+}
+
+.npc.n2 {
+  animation: npcYuru 22s infinite linear;
+  animation-delay: -6s;
+}
+
+.npc.n3 {
+  animation: npcYuru 26s infinite linear;
+  animation-delay: -12s;
+}
+
+@keyframes npcYuru {
+  from { transform: translateX(-20px); }
+  to { transform: translateX(820px); }
+}
+
+/* --- NPC Bacak Hareketi --- */
+.npc::after {
+  animation: npcBacak 0.4s infinite;
+}
+
+@keyframes npcBacak {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.9); }
+}
+
+/* --- Duman Tütme --- */
+.duman {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(200, 200, 200, 0.5);
+  border-radius: 50%;
+  animation: dumanYukari 4s infinite ease-out;
+}
+
+@keyframes dumanYukari {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-60px) scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* --- Baca Dumanı --- */
+.baca-duman {
+  animation: bacaDuman 3s infinite ease-out;
+}
+
+@keyframes bacaDuman {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5) rotate(180deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-60px) scale(2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* --- Gökyüzü Renk Değişim --- */
+.gokyuzu {
+  animation: gokyuzuRenk 60s infinite linear;
+}
+
+@keyframes gokyuzuRenk {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(20deg) brightness(1.1); }
+  50% { filter: hue-rotate(0deg) brightness(1); }
+  75% { filter: hue-rotate(-20deg) brightness(0.9); }
+  100% { filter: hue-rotate(0deg) brightness(1); }
+}
+
+/* ============================================================
+   14. HAVA EFEKTLERİ
+   ============================================================ */
+
+/* --- Yağmur --- */
+.damla {
+  animation: yagmurDus 0.6s infinite linear;
+}
+
+@keyframes yagmurDus {
+  0% {
+    transform: translateY(-20px) scaleY(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(340px) scaleY(1.2);
+    opacity: 0;
+  }
+}
+
+/* Farklı gecikmeler */
+.damla:nth-child(1) { animation-delay: 0s; }
+.damla:nth-child(2) { animation-delay: 0.05s; }
+.damla:nth-child(3) { animation-delay: 0.1s; }
+.damla:nth-child(4) { animation-delay: 0.15s; }
+.damla:nth-child(5) { animation-delay: 0.2s; }
+.damla:nth-child(6) { animation-delay: 0.25s; }
+.damla:nth-child(7) { animation-delay: 0.3s; }
+.damla:nth-child(8) { animation-delay: 0.35s; }
+.damla:nth-child(9) { animation-delay: 0.4s; }
+.damla:nth-child(10) { animation-delay: 0.45s; }
+
+/* --- Şiddetli Yağmur --- */
+.yagmur-siddetli .damla {
+  animation-duration: 0.3s;
+  height: 20px;
+  width: 3px;
+}
+
+/* --- Çisenti --- */
+.yagmur-cisenti .damla {
+  animation-duration: 1.2s;
+  height: 8px;
+  width: 1px;
+  opacity: 0.6;
+}
+
+/* --- Kar --- */
+.kar-tanesi {
+  position: absolute;
+  top: -20px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff;
+  animation: karDus 4s infinite linear;
+}
+
+@keyframes karDus {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) translateX(50px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Kar farklı boyutlar */
+.kar-tanesi:nth-child(odd) {
+  width: 4px;
+  height: 4px;
+  animation-duration: 5s;
+}
+
+.kar-tanesi:nth-child(3n) {
+  width: 8px;
+  height: 8px;
+  animation-duration: 6s;
+}
+
+/* --- Sis --- */
+.sis {
+  animation: sisNefes 6s infinite ease-in-out;
+}
+
+@keyframes sisNefes {
+  0%, 100% {
+    opacity: 0.5;
+    backdrop-filter: blur(2px);
+  }
+  50% {
+    opacity: 0.8;
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Sis kayma */
+.sis-kay {
+  animation: sisKayma 30s infinite linear;
+}
+
+@keyframes sisKayma {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+/* --- Şimşek --- */
+.simsek {
+  animation: simsekCak 0.4s ease;
+}
+
+@keyframes simsekCak {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  10% {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  20% {
+    background: rgba(255, 255, 255, 0);
+  }
+  30% {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  40%, 100% {
+    background: rgba(255, 255, 255, 0);
+  }
+}
+
+/* Şimşek çizgisi */
+.simsek-cizgi {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #fff, #a5c4ff, transparent);
+  box-shadow:
+    0 0 20px #fff,
+    0 0 40px #a5c4ff,
+    0 0 60px #6ec6ff;
+  animation: simsekCizgi 0.3s ease;
+  opacity: 0;
+}
+
+@keyframes simsekCizgi {
+  0% { opacity: 1; transform: scaleY(0); transform-origin: top; }
+  20% { transform: scaleY(1); }
+  40% { opacity: 1; }
+  60% { opacity: 0.5; transform: scaleY(1.1); }
+  100% { opacity: 0; transform: scaleY(1); }
+}
+
+/* --- Rüzgar --- */
+.ruzgar {
+  animation: ruzgarEs 3s infinite ease-in-out;
+}
+
+@keyframes ruzgarEs {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+/* Rüzgar çizgileri */
+.ruzgar-cizgi {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: ruzgarCizgi 2s infinite linear;
+}
+
+@keyframes ruzgarCizgi {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(900px);
+    opacity: 0;
+  }
+}
+
+/* --- Kasırga --- */
+.kasirga {
+  animation: kasirgaDon 2s infinite linear;
+}
+
+@keyframes kasirgaDon {
+  from { transform: rotate(0deg) scaleX(1); }
+  25% { transform: rotate(90deg) scaleX(0.8); }
+  50% { transform: rotate(180deg) scaleX(1); }
+  75% { transform: rotate(270deg) scaleX(0.8); }
+  to { transform: rotate(360deg) scaleX(1); }
+}
+
+/* --- Toz Fırtınası --- */
+.toz-firtinasi {
+  animation: tozFirtinasi 4s infinite linear;
+}
+
+@keyframes tozFirtinasi {
+  0%, 100% {
+    background-position: 0 0;
+    filter: brightness(0.8) sepia(0.3);
+  }
+  50% {
+    background-position: 100px 50px;
+    filter: brightness(0.9) sepia(0.5);
+  }
+}
+
+/* --- Dolu --- */
+.dolu-tanesi {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, #fff, #8ab4d4);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(138, 180, 212, 0.8);
+  animation: doluDus 1s infinite linear;
+}
+
+@keyframes doluDus {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  100% {
+    transform: translateY(400px) translateX(10px);
+    opacity: 0;
+  }
+}
+
+/* --- Gökkuşağı --- */
+.gokkusagi {
+  animation: gokkusagiGir 3s ease forwards, gokkusagiParla 4s infinite ease-in-out 3s;
+}
+
+@keyframes gokkusagiGir {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes gokkusagiParla {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* --- Ay Tutulması --- */
+.ay-tutulmasi {
+  animation: ayTutulmasi 10s infinite ease-in-out;
+}
+
+@keyframes ayTutulmasi {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 20px #f0f0f0);
+  }
+  50% {
+    filter: brightness(0.3) drop-shadow(0 0 40px #ff5a5a);
+    background: #ff5a5a;
+  }
+}
+
+/* --- Güneş Tutulması --- */
+.gunes-tutulmasi {
+  animation: gunesTutulmasi 8s infinite ease-in-out;
+}
+
+@keyframes gunesTutulmasi {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 30px #ffd94a);
+  }
+  50% {
+    filter: brightness(0.1) drop-shadow(0 0 40px #ff3b3b);
+  }
+}
+
+/* --- Meteor Yağmuru --- */
+.meteor {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 20px #feca57,
+    -30px -30px 40px 10px rgba(255, 255, 255, 0.3);
+  animation: meteorDus 1.5s infinite linear;
+}
+
+@keyframes meteorDus {
+  from {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 1;
+  }
+  to {
+    transform: translate(400px, 400px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Farklı gecikmeler */
+.meteor:nth-child(1) { animation-delay: 0s; }
+.meteor:nth-child(2) { animation-delay: 0.3s; }
+.meteor:nth-child(3) { animation-delay: 0.6s; }
+.meteor:nth-child(4) { animation-delay: 0.9s; }
+.meteor:nth-child(5) { animation-delay: 1.2s; }
+
+/* ============================================================
+   15. ÖZEL EFEKTLER
+   ============================================================ */
+
+/* --- Konfeti --- */
+.konfeti-parca {
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  top: -20px;
+  animation: konfetiDus linear infinite;
+}
+
+@keyframes konfetiDus {
+  0% {
+    transform: translateY(-20px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(360deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Konfeti şekilleri */
+.konfeti-parca.yuvarlak {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.konfeti-parca.ucgen {
+  width: 0;
+  height: 0;
+  background: transparent !important;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid currentColor;
+}
+
+.konfeti-parca.kare {
+  width: 8px;
+  height: 8px;
+}
+
+/* Konfeti renkleri */
+.konfeti-kirmizi { background: #ff3b3b; }
+.konfeti-yesil { background: #22c55e; }
+.konfeti-mavi { background: #6ec6ff; }
+.konfeti-sari { background: #feca57; }
+.konfeti-mor { background: #9b59b6; }
+.konfeti-pembe { background: #ff6b9d; }
+.konfeti-turuncu { background: #f4a261; }
+
+/* --- Para Yağmuru --- */
+.para-yagmur {
+  position: absolute;
+  font-size: 28px;
+  top: -40px;
+  animation: paraDus linear infinite;
+  filter: drop-shadow(0 0 8px rgba(254, 202, 87, 0.8));
+}
+
+@keyframes paraDus {
+  0% {
+    transform: translateY(-40px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) rotate(45deg) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Para farklı boyutlar */
+.para-yagmur.kucuk {
+  font-size: 20px;
+  animation-duration: 4s;
+}
+
+.para-yagmur.buyuk {
+  font-size: 40px;
+  animation-duration: 6s;
+}
+
+/* --- Yıldız Patlaması --- */
+.yildiz-patlamasi {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: yildizPatlama 1s ease-out forwards;
+}
+
+.yildiz-patlamasi::before,
+.yildiz-patlamasi::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 4px;
+  background: radial-gradient(ellipse, #fff, transparent);
+  transform: translate(-50%, -50%);
+  animation: patlamaCizgi 1s ease-out forwards;
+}
+
+@keyframes yildizPatlama {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes patlamaCizgi {
+  0% {
+    transform: translate(-50%, -50%) scaleX(0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scaleX(1) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scaleX(0) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* --- Kıvılcım --- */
+.kivilcim {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffd94a;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #ffd94a,
+    0 0 20px #feca57;
+  animation: kivilcimUc 1s ease-out forwards;
+}
+
+@keyframes kivilcimUc {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 50px), var(--y, -50px)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* --- Ateş --- */
+.ates {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: radial-gradient(ellipse at bottom, #ff3b3b, #feca57, transparent);
+  border-radius: 50% 50% 20% 20%;
+  filter: blur(2px);
+  animation: atesYan 0.5s infinite alternate;
+}
+
+@keyframes atesYan {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    filter: blur(2px) hue-rotate(0deg);
+  }
+  50% {
+    transform: scaleY(1.15) scaleX(0.95);
+    filter: blur(3px) hue-rotate(-10deg);
+  }
+  100% {
+    transform: scaleY(0.95) scaleX(1.05);
+    filter: blur(2px) hue-rotate(10deg);
+  }
+}
+
+/* --- Patlama --- */
+.patlama {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #feca57, #ff3b3b, transparent);
+  animation: patlama 0.8s ease-out forwards;
+}
+
+@keyframes patlama {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 60, 60, 0.7);
+  }
+  50% {
+    transform: scale(15);
+    opacity: 0.8;
+    box-shadow: 0 0 60px 30px rgba(255, 60, 60, 0.5);
+  }
+  100% {
+    transform: scale(30);
+    opacity: 0;
+    box-shadow: 0 0 100px 60px rgba(255, 60, 60, 0);
+  }
+}
+
+/* --- Duman Bulutu --- */
+.duman-bulutu {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgba(150, 150, 150, 0.6);
+  border-radius: 50%;
+  filter: blur(4px);
+  animation: dumanBulut 2s ease-out forwards;
+}
+
+@keyframes dumanBulut {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* --- Işık Halkası --- */
+.isik-halkasi {
+  position: absolute;
+  border: 4px solid var(--renk-sari);
+  border-radius: 50%;
+  animation: isikHalka 1s ease-out forwards;
+}
+
+@keyframes isikHalka {
+  0% {
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+    box-shadow: 0 0 20px var(--renk-sari);
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    box-shadow: 0 0 60px var(--renk-sari);
+  }
+}
+
+/* --- Şok Dalgası --- */
+.sok-dalgasi {
+  position: absolute;
+  border: 6px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: sokDalgasi 0.8s ease-out forwards;
+}
+
+@keyframes sokDalgasi {
+  0% {
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    border-width: 20px;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+/* --- Ekran Sarsıntısı (Güçlü) --- */
+.sarsinti-guclu {
+  animation: sarsintiGuclu 0.6s ease;
+}
+
+@keyframes sarsintiGuclu {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-10px, -10px) rotate(-1deg); }
+  20% { transform: translate(10px, -10px) rotate(1deg); }
+  30% { transform: translate(-10px, 10px) rotate(-1deg); }
+  40% { transform: translate(10px, 10px) rotate(1deg); }
+  50% { transform: translate(-8px, 0) rotate(0); }
+  60% { transform: translate(8px, 0); }
+  70% { transform: translate(0, -8px); }
+  80% { transform: translate(0, 8px); }
+  90% { transform: translate(-4px, 4px); }
+}
+
+/* --- Ekran Sarsıntısı (Hafif) --- */
+.sarsinti-hafif {
+  animation: sarsintiHafif 0.3s ease;
+}
+
+@keyframes sarsintiHafif {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, -3px); }
+  50% { transform: translate(3px, 3px); }
+  75% { transform: translate(-3px, 3px); }
+}
+
+/* --- Ekran Zoom --- */
+.zoom-in {
+  animation: zoomIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s ease forwards;
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.5); opacity: 0; }
+}
+
+/* --- Kırmızı Flaş (Hasar) --- */
+.flas-kirmizi {
+  animation: flasKirmizi 0.4s ease;
+}
+
+@keyframes flasKirmizi {
+  0% { background: rgba(255, 60, 60, 0); }
+  50% { background: rgba(255, 60, 60, 0.5); }
+  100% { background: rgba(255, 60, 60, 0); }
+}
+
+/* --- Yeşil Flaş (Şifa) --- */
+.flas-yesil {
+  animation: flasYesil 0.6s ease;
+}
+
+@keyframes flasYesil {
+  0% { background: rgba(74, 222, 128, 0); }
+  50% { background: rgba(74, 222, 128, 0.4); }
+  100% { background: rgba(74, 222, 128, 0); }
+}
+
+/* --- Altın Flaş (Ödül) --- */
+.flas-altin {
+  animation: flasAltin 0.8s ease;
+}
+
+@keyframes flasAltin {
+  0% { background: rgba(254, 202, 87, 0); }
+  50% { background: rgba(254, 202, 87, 0.4); }
+  100% { background: rgba(254, 202, 87, 0); }
+}
+
+/* --- Beyaz Flaş --- */
+.flas-beyaz {
+  animation: flasBeyaz 0.3s ease;
+}
+
+@keyframes flasBeyaz {
+  0% { background: rgba(255, 255, 255, 0); }
+  50% { background: rgba(255, 255, 255, 0.8); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+/* --- Glitch Efekti --- */
+.glitch {
+  animation: glitch 0.3s infinite;
+  position: relative;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* --- RGB Ayrılma --- */
+.rgb-ayrilma {
+  animation: rgbAyrilma 0.2s infinite;
+}
+
+@keyframes rgbAyrilma {
+  0%, 100% {
+    text-shadow:
+      -1px 0 0 rgba(255, 0, 0, 0.5),
+      1px 0 0 rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow:
+      1px 0 0 rgba(255, 0, 0, 0.5),
+      -1px 0 0 rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* --- CRT Bozulma --- */
+.crt-bozulma {
+  animation: crtBozulma 0.5s infinite;
+}
+
+@keyframes crtBozulma {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(1deg); }
+}
+
+/* --- Hayalet --- */
+.hayalet {
+  animation: hayalet 3s infinite ease-in-out;
+  filter: opacity(0.6) blur(1px);
+}
+
+@keyframes hayalet {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 0.3; transform: translateY(-5px); }
+}
+
+/* --- Nabız Halkası --- */
+.nabiz-halka {
+  position: absolute;
+  border: 3px solid var(--renk-sari);
+  border-radius: 50%;
+  animation: nabizHalka 2s infinite ease-out;
+}
+
+@keyframes nabizHalka {
+  0% {
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* --- Kalp Efekti --- */
+.kalp-efekt {
+  position: absolute;
+  font-size: 24px;
+  color: #ff3b3b;
+  animation: kalpUc 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes kalpUc {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* --- Yıldız Efekti (Baş üstü) --- */
+.yildiz-efekt {
+  position: absolute;
+  font-size: 22px;
+  color: #feca57;
+  animation: yildizEfekt 1.2s ease-out forwards;
+  filter: drop-shadow(0 0 8px #feca57);
+}
+
+@keyframes yildizEfekt {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* --- Öfke Efekti --- */
+.ofke-efekt {
+  position: absolute;
+  font-size: 24px;
+  animation: ofkeEfekt 1s infinite;
+}
+
+@keyframes ofkeEfekt {
+  0%, 100% { transform: scale(1) rotate(-5deg); color: #ff3b3b; }
+  50% { transform: scale(1.2) rotate(5deg); color: #ff6b6b; }
+}
+
+/* --- Soru İşareti (Şaşkın) --- */
+.soru-efekt {
+  position: absolute;
+  font-size: 26px;
+  color: #feca57;
+  font-weight: 900;
+  animation: soruEfekt 1.5s ease-out forwards;
+  text-shadow: 0 0 8px #feca57;
+}
+
+@keyframes soruEfekt {
+  0% {
+    transform: scale(0) translateY(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.2) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+/* --- Ter Efekti --- */
+.ter-efekt {
+  position: absolute;
+  font-size: 16px;
+  animation: terEfekt 1s infinite;
+}
+
+@keyframes terEfekt {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* --- Uyku Z Harfi --- */
+.zzz {
+  position: absolute;
+  font-size: 20px;
+  color: #a5c4ff;
+  font-weight: 900;
+  animation: zzzUc 2s infinite ease-out;
+}
+
+@keyframes zzzUc {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(40px, -60px) scale(1.2) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* --- Uyku ZZZ farklı gecikmeler --- */
+.zzz:nth-child(1) { animation-delay: 0s; }
+.zzz:nth-child(2) { animation-delay: 0.5s; }
+.zzz:nth-child(3) { animation-delay: 1s; }
+
+/* --- Müzik Notası --- */
+.nota {
+  position: absolute;
+  font-size: 22px;
+  color: #feca57;
+  animation: notaUc 2s infinite ease-out;
+}
+
+@keyframes notaUc {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(30px, -80px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* --- Uçan Yazı (Damage) --- */
+.uçan-yazi {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 900;
+  color: #ff3b3b;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  animation: ucanYazi 1.5s ease-out forwards;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.uçan-yazi.yesil {
+  color: #4ade80;
+}
+
+.uçan-yazi.sari {
+  color: #feca57;
+}
+
+@keyframes ucanYazi {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(0, -20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -80px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* --- Lazer Işını --- */
+.lazer {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff3b3b, #fff, #ff3b3b, transparent);
+  box-shadow:
+    0 0 10px #ff3b3b,
+    0 0 20px #ff3b3b,
+    0 0 40px #ff3b3b;
+  animation: lazerAte 0.3s ease-out forwards;
+  transform-origin: left center;
+}
+
+@keyframes lazerAte {
+  0% {
+    transform: scaleX(0) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(1) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* --- Lazer Şarj --- */
+.lazer-sarj {
+  animation: lazerSarj 2s ease-in-out;
+}
+
+@keyframes lazerSarj {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 59, 59, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(255, 59, 59, 0.7),
+      0 0 40px rgba(255, 59, 59, 0.5);
+  }
+}
+
+/* --- Kılıç Sallama --- */
+.kilic-salla {
+  animation: kilicSalla 0.4s ease-out;
+  transform-origin: bottom right;
+}
+
+@keyframes kilicSalla {
+  0% { transform: rotate(-45deg); }
+  50% { transform: rotate(45deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --- Kılıç İzi --- */
+.kilic-izi {
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  box-shadow: 0 0 10px #fff, 0 0 20px #6ec6ff;
+  animation: kilicIzi 0.3s ease-out forwards;
+  transform-origin: left center;
+}
+
+@keyframes kilicIzi {
+  0% {
+    transform: rotate(-45deg) scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* --- Para Kaldırma (Money Pop) --- */
+.para-pop {
+  animation: paraPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes paraPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4) rotate(15deg);
+    color: #feca57;
+    text-shadow: 0 0 20px #feca57;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- Altın Parıltı --- */
+.altin-parilti {
+  background: linear-gradient(
+    90deg,
+    #feca57, #fff5b0, #feca57, #fff5b0, #feca57
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: altinParilti 1.5s infinite linear;
+}
+
+@keyframes altinParilti {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* --- Kırmızı Alarm --- */
+.alarm {
+  animation: alarm 0.5s infinite;
+}
+
+@keyframes alarm {
+  0%, 100% {
+    background: rgba(255, 59, 59, 0.9);
+    box-shadow: 0 0 30px rgba(255, 59, 59, 0.8);
+  }
+  50% {
+    background: rgba(255, 100, 100, 0.9);
+    box-shadow: 0 0 60px rgba(255, 59, 59, 1);
+  }
+}
+
+/* --- Titreşim (Hata) --- */
+.titre-hata {
+  animation: titreHata 0.1s infinite;
+}
+
+@keyframes titreHata {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, -2px); }
+}
+
+/* --- İsyan Efekti --- */
+.isyan {
+  animation: isyan 0.5s infinite;
+}
+
+@keyframes isyan {
+  0%, 100% {
+    transform: rotate(0deg) translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg) translate(-2px, 0);
+    filter: hue-rotate(15deg);
+  }
+  75% {
+    transform: rotate(2deg) translate(2px, 0);
+    filter: hue-rotate(-15deg);
+  }
+}
+
+/* --- Hızlı Kayma --- */
+.hizli-kayma {
+  animation: hizliKayma 0.5s ease;
+}
+
+@keyframes hizliKayma {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* --- Işınlanma --- */
+.isinlanma {
+  animation: isinlanma 1s ease;
+}
+
+@keyframes isinlanma {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0;
+    filter: blur(30px);
+    transform: scale(0.3);
+  }
+  70% {
+    opacity: 0;
+    filter: blur(30px);
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* --- Yakınlaşma (Zoom In Cinematic) --- */
+.cinematic-zoom {
+  animation: cinematicZoom 3s ease forwards;
+}
+
+@keyframes cinematicZoom {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1.5) translate(-50px, -50px);
+    filter: brightness(0.7);
+  }
+}
+
+/* --- Fade to Black --- */
+.fade-black {
+  animation: fadeBlack 1.5s ease forwards;
+}
+
+@keyframes fadeBlack {
+  from { background: transparent; }
+  to { background: #000; }
+}
+
+/* --- Fade from Black --- */
+.fade-from-black {
+  animation: fadeFromBlack 1.5s ease forwards;
+}
+
+@keyframes fadeFromBlack {
+  from { background: #000; }
+  to { background: transparent; }
+}
+
+/* --- Kabarcık (Bubble) --- */
+.kabarcik {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), transparent);
+  animation: kabarcikUc 3s ease-out forwards;
+}
+
+@keyframes kabarcikUc {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* --- Mürekkep Lekesi --- */
+.murekkep {
+  animation: murekkepYayil 3s ease-out forwards;
+  background: radial-gradient(circle, #000 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+@keyframes murekkepYayil {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* --- Kan Efekti --- */
+.kan-damla {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  background: radial-gradient(ellipse, #8b0000, #4a0000);
+  border-radius: 50% 50% 40% 40%;
+  animation: kanDamla 1.5s ease-out forwards;
+}
+
+@keyframes kanDamla {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40px) scaleY(1.5);
+    opacity: 0;
+  }
+}
+
+/* --- Kırık Cam --- */
+.kirik-cam {
+  animation: kirikCam 0.5s ease-out forwards;
+}
+
+@keyframes kirikCam {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 50% 30%, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.5;
+  }
+}
+
+/* --- Yangın Yayılımı --- */
+.yangin {
+  animation: yanginYayil 5s ease-out forwards;
+}
+
+@keyframes yanginYayil {
+  0% {
+    clip-path: circle(0% at 50% 100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(150% at 50% 100%);
+    opacity: 1;
+  }
+}
+
+/* --- Buzlanma --- */
+.buzlanma {
+  animation: buzlanma 3s ease-out forwards;
+}
+
+@keyframes buzlanma {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    filter: blur(5px);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    filter: blur(0);
+  }
+}
+
+/* --- Rüzgar Çizgileri (Hızlı) --- */
+.ruzgar-hizli {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  animation: ruzgarHizli 0.8s infinite linear;
+}
+
+@keyframes ruzgarHizli {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  to {
+    transform: translateX(900px);
+    opacity: 0;
+  }
+}
+
+/* --- Ekran Bozulması (Glitch) --- */
+.ekran-glitch {
+  animation: ekranGlitch 0.4s infinite;
+  position: relative;
+}
+
+@keyframes ekranGlitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-5px, 2px);
+    filter: hue-rotate(30deg) contrast(1.2);
+  }
+  20% {
+    transform: translate(5px, -2px);
+    filter: hue-rotate(-30deg);
+  }
+  30% {
+    transform: translate(-3px, -3px);
+    filter: hue-rotate(90deg) saturate(1.5);
+  }
+  40% {
+    transform: translate(3px, 3px);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+}
+
+/* --- Neon Parla --- */
+.neon-parla {
+  animation: neonParla 2s infinite ease-in-out;
+}
+
+@keyframes neonParla {
+  0%, 100% {
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+    color: currentColor;
+  }
+  50% {
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 80px currentColor;
+  }
+}
+
+/* --- Ateş Böceği --- */
+.ates-bocegi {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #feca57;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #feca57,
+    0 0 20px #feca57,
+    0 0 30px rgba(254, 202, 87, 0.5);
+  animation: atesBocegi 4s infinite ease-in-out;
+}
+
+@keyframes atesBocegi {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+    box-shadow: 0 0 5px #feca57;
+  }
+  25% {
+    transform: translate(20px, -30px);
+    opacity: 1;
+    box-shadow: 0 0 20px #feca57;
+  }
+  50% {
+    transform: translate(40px, 0);
+    opacity: 0.5;
+    box-shadow: 0 0 10px #feca57;
+  }
+  75% {
+    transform: translate(20px, 20px);
+    opacity: 1;
+    box-shadow: 0 0 20px #feca57;
+  }
+}
+
+/* --- Ay Işığı --- */
+.ay-isigi {
+  animation: ayIsigi 4s infinite ease-in-out;
+}
+
+@keyframes ayIsigi {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(240, 240, 240, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(240, 240, 240, 0.8));
+  }
+}
+
+/* --- Yıldız Tozu --- */
+.yildiz-tozu {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff, 0 0 12px #a5c4ff;
+  animation: yildizTozu 3s infinite ease-in-out;
+}
+
+@keyframes yildizTozu {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ============================================================
+   PART 2A SONU
+   ============================================================
+   PART 2B'DE:
+     - Vergi Kartı özel animasyonları
+     - İdam ekranı animasyonları
+     - Kazanma ekranı animasyonları
+     - Parçacık sistemleri
+     - Arka plan animasyonları
+     - Özel geçişler
+     - Durum animasyonları
+   ============================================================
+*//* ============================================================
+   ============================================================
+   ANİMASYONLAR — PART 2B (FINAL)
+   ============================================================
+   İÇERİK:
+     16. Vergi Kartı Animasyonları
+     17. İdam Ekranı Animasyonları
+     18. Kazanma Ekranı Animasyonları
+     19. Parçacık Sistemleri
+     20. Arka Plan Animasyonları
+     21. Özel Geçişler
+     22. Durum Animasyonları
+     23. Loading & Geçiş Efektleri
+     24. Özel Efektler
+     25. Klavye & Input Animasyonları
+   ============================================================
+*/
+
+/* ============================================================
+   16. VERGİ KARTI ANİMASYONLARI
+   ============================================================ */
+
+/* --- Vergi Modal Giriş --- */
+.vergi-modal {
+  animation: vergiModalGir 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes vergiModalGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg) translateY(-50px);
+    filter: blur(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) rotate(3deg) translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    filter: blur(0);
+  }
+}
+
+/* --- Vergi Modal Kapanma --- */
+.vergi-modal.kapanyor {
+  animation: vergiModalKapan 0.4s ease forwards;
+}
+
+@keyframes vergiModalKapan {
+  to {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px);
+    filter: blur(8px);
+  }
+}
+
+/* --- Vergi Üst Çizgi Kayma --- */
+.vergi-modal-ust {
+  animation: vergiUstKay 1s infinite linear;
+}
+
+@keyframes vergiUstKay {
+  from { background-position-x: 0; }
+  to { background-position-x: 28px; }
+}
+
+/* --- Vergi İkon Sallanma --- */
+.vergi-modal-ikon {
+  animation: vergiIkonSallan 1.5s infinite ease-in-out;
+}
+
+@keyframes vergiIkonSallan {
+  0%, 100% {
+    transform: rotate(-12deg) scale(1);
+    filter: drop-shadow(0 0 16px rgba(254, 202, 87, 0.6));
+  }
+  50% {
+    transform: rotate(12deg) scale(1.15);
+    filter: drop-shadow(0 0 28px rgba(254, 202, 87, 1));
+  }
+}
+
+/* --- Vergi Etiket Yanıp Sönme --- */
+.vergi-modal-etiket {
+  animation: vergiEtiketYan 0.8s infinite;
+}
+
+@keyframes vergiEtiketYan {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- Vergi Nokta Pulse --- */
+.vergi-modal-etiket-nokta {
+  animation: vergiNoktaPulse 0.8s infinite;
+}
+
+@keyframes vergiNoktaPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #ff3b3b;
+  }
+  50% {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px #ff3b3b, 0 0 40px #ff3b3b;
+  }
+}
+
+/* --- Vergi Başlık Renk Değişim --- */
+.vergi-modal-baslik {
+  animation: vergiBaslikRenk 3s infinite linear;
+  background: linear-gradient(90deg, #feca57, #ff6b6b, #feca57, #ff6b6b);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes vergiBaslikRenk {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* --- Vergi Tutar Sallanma --- */
+.vergi-modal-tutar {
+  animation: vergiTutarSallan 0.5s infinite;
+}
+
+@keyframes vergiTutarSallan {
+  0%, 100% { transform: translateX(0) scale(1); }
+  25% { transform: translateX(-2px) scale(1.02); }
+  75% { transform: translateX(2px) scale(1.02); }
+}
+
+/* --- Vergi Tutar Kırmızı Puls --- */
+.vergi-modal-tutar-kap {
+  animation: vergiTutarPuls 1.5s infinite ease-in-out;
+}
+
+@keyframes vergiTutarPuls {
+  0%, 100% {
+    box-shadow: inset 0 0 0 rgba(255, 90, 90, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 30px rgba(255, 90, 90, 0.4);
+  }
+}
+
+/* --- Vergi Uyarı Sallama --- */
+.vergi-modal-uyari {
+  animation: vergiUyariSalla 2s infinite ease-in-out;
+}
+
+@keyframes vergiUyariSalla {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-3px); }
+  20% { transform: translateX(3px); }
+  30% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  50%, 100% { transform: translateX(0); }
+}
+
+/* --- Vergi Kartı Gelme (Zıplayarak) --- */
+.vergi-kart-zipla {
+  animation: vergiKartZipla 0.7s ease;
+}
+
+@keyframes vergiKartZipla {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(10px); }
+  70% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- Vergi Kartı Köşe Parlama --- */
+.vergi-kart-parla::before {
+  animation: vergiKartParla 2s infinite;
+}
+
+@keyframes vergiKartParla {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* --- Vergi Ödendi Animasyonu --- */
+.vergi-odendi {
+  animation: vergiOdendi 1s ease forwards;
+}
+
+@keyframes vergiOdendi {
+  0% {
+    transform: scale(1);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  30% {
+    transform: scale(1.1);
+    filter: hue-rotate(120deg) brightness(1.5);
+  }
+  60% {
+    transform: scale(0.95);
+    filter: hue-rotate(120deg) brightness(1.2);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    filter: hue-rotate(120deg) brightness(2);
+  }
+}
+
+/* --- Vergi Reddedildi --- */
+.vergi-reddedildi {
+  animation: vergiReddedildi 0.8s ease forwards;
+}
+
+@keyframes vergiReddedildi {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    transform: scale(1.1) rotate(-5deg);
+    filter: hue-rotate(-30deg) brightness(1.3);
+  }
+  60% {
+    transform: scale(1.15) rotate(5deg);
+    filter: hue-rotate(-60deg) brightness(1.5);
+  }
+  100% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0;
+    filter: hue-rotate(-90deg) brightness(2);
+  }
+}
+
+/* --- Vergi Kartı Sallanma (Uyarı) --- */
+.vergi-kart-salla {
+  animation: vergiKartSalla 0.5s infinite;
+}
+
+@keyframes vergiKartSalla {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-3px, 0) rotate(-1deg); }
+  30% { transform: translate(3px, 0) rotate(1deg); }
+  50% { transform: translate(-2px, -2px) rotate(-0.5deg); }
+  70% { transform: translate(2px, 2px) rotate(0.5deg); }
+  90% { transform: translate(-1px, 1px); }
+}
+
+/* --- Vergi Buton Öde Puls --- */
+.btn-vergi-ode {
+  animation: btnVergiOdePuls 2s infinite ease-in-out;
+}
+
+@keyframes btnVergiOdePuls {
+  0%, 100% {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 0 rgba(74, 222, 128, 0);
+  }
+  50% {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 24px rgba(74, 222, 128, 0.6);
+  }
+}
+
+/* --- Vergi Buton Reddet Puls --- */
+.btn-vergi-reddet {
+  animation: btnVergiReddetPuls 2s infinite ease-in-out;
+}
+
+@keyframes btnVergiReddetPuls {
+  0%, 100% {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 0 rgba(255, 59, 59, 0);
+  }
+  50% {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 24px rgba(255, 59, 59, 0.6);
+  }
+}
+
+/* --- Vergi Arkaplan Kırmızı Flaş --- */
+.vergi-flas {
+  animation: vergiFlas 0.6s ease;
+}
+
+@keyframes vergiFlas {
+  0%, 100% { background: rgba(255, 59, 59, 0); }
+  50% { background: rgba(255, 59, 59, 0.3); }
+}
+
+/* ============================================================
+   17. İDAM EKRANI ANİMASYONLARI
+   ============================================================ */
+
+/* --- İdam Kap Giriş --- */
+.idam-kap {
+  animation: idamKapGir 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes idamKapGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-30deg);
+    filter: blur(20px) grayscale(1);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(5px) grayscale(0.5);
+  }
+  70% {
+    transform: scale(1.05) rotate(3deg);
+    filter: blur(0) grayscale(0);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* --- İdam İkon Düşme --- */
+.idam-ikon {
+  animation: idamIkonDus 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes idamIkonDus {
+  0% {
+    transform: translateY(-200px) rotate(-360deg) scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(15px) rotate(20deg) scale(1.15);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-5px) rotate(-5deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1);
+  }
+}
+
+/* --- İdam Başlık Gölge Puls --- */
+.idam-baslik {
+  animation: idamBaslik 1s infinite alternate;
+}
+
+@keyframes idamBaslik {
+  from {
+    text-shadow:
+      4px 4px 0 #8b0000,
+      0 0 20px rgba(255, 59, 59, 0.6),
+      0 0 40px rgba(255, 59, 59, 0.3);
+    color: #ff3b3b;
+  }
+  to {
+    text-shadow:
+      4px 4px 0 #8b0000,
+      0 0 40px rgba(255, 59, 59, 1),
+      0 0 80px rgba(255, 59, 59, 0.6);
+    color: #ff5a5a;
+  }
+}
+
+/* --- İdam Sebep Giriş --- */
+.idam-sebep-kap {
+  animation: idamSebepGir 0.8s 0.5s ease backwards;
+}
+
+@keyframes idamSebepGir {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+/* --- İdam İstatistik Sırayla --- */
+.idam-istat {
+  opacity: 0;
+  animation: idamIstatGir 0.5s ease forwards;
+}
+
+.idam-istat:nth-child(1) { animation-delay: 0.8s; }
+.idam-istat:nth-child(2) { animation-delay: 1s; }
+.idam-istat:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes idamIstatGir {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- İdam İstat Değer Renk Değişim --- */
+.idam-istat-deger {
+  animation: idamIstatRenk 3s infinite linear;
+  background: linear-gradient(90deg, #feca57, #ff5a5a, #feca57);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes idamIstatRenk {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* --- İdam İroni Giriş --- */
+.idam-ironi {
+  animation: idamIroniGir 1s 1.5s ease backwards;
+}
+
+@keyframes idamIroniGir {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* --- İdam İroni Yazı Puls --- */
+.idam-ironi-yazi {
+  animation: idamIroniYazi 3s infinite ease-in-out;
+}
+
+@keyframes idamIroniYazi {
+  0%, 100% {
+    color: #b8b8d0;
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    color: #feca57;
+    text-shadow: 0 0 20px rgba(254, 202, 87, 0.8);
+  }
+}
+
+/* --- İdam Arkaplan Sis --- */
+.idam-sis {
+  animation: idamSis 4s infinite ease-in-out;
+}
+
+@keyframes idamSis {
+  0%, 100% {
+    opacity: 0.7;
+    background-size: 100% 100%;
+  }
+  50% {
+    opacity: 1;
+    background-size: 120% 120%;
+  }
+}
+
+/* --- İdam Yağmur --- */
+.idam-yagmur {
+  animation: idamYagmur 2s infinite linear;
+}
+
+@keyframes idamYagmur {
+  from { background-position: 0 0; }
+  to { background-position: 0 200px; }
+}
+
+/* --- İdam Ekran Kararma --- */
+.idam-ekran-kararma {
+  animation: idamEkranKararma 2s ease forwards;
+}
+
+@keyframes idamEkranKararma {
+  from { filter: brightness(1) contrast(1); }
+  to { filter: brightness(0.3) contrast(1.5) saturate(0.3); }
+}
+
+/* --- İdam Sayı Azalma (Countdown) --- */
+.idam-countdown {
+  animation: idamCountdown 3s ease forwards;
+}
+
+@keyframes idamCountdown {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.8; }
+}
+
+/* --- İdam Buton Sırayla --- */
+.idam-butonlar .btn {
+  opacity: 0;
+  animation: idamButonGir 0.5s 2s ease forwards;
+}
+
+.idam-butonlar .btn:nth-child(1) { animation-delay: 2s; }
+.idam-butonlar .btn:nth-child(2) { animation-delay: 2.2s; }
+
+@keyframes idamButonGir {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- İdam Damga Efekti --- */
+.idam-damga {
+  animation: idamDamga 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes idamDamga {
+  0% {
+    transform: scale(5) rotate(-30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ============================================================
+   18. KAZANMA EKRANI ANİMASYONLARI
+   ============================================================ */
+
+/* --- Kazanma Kap Giriş --- */
+.kazanma-kap {
+  animation: kazanmaKapGir 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes kazanmaKapGir {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(30deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(-5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* --- Kazanma İkon Zıplama --- */
+.kazanma-ikon {
+  animation: kazanmaIkon 1.5s infinite ease-in-out;
+}
+
+@keyframes kazanmaIkon {
+  0%, 100% {
+    transform: scale(1) rotate(-8deg) translateY(0);
+    filter: drop-shadow(0 0 30px rgba(254, 202, 87, 0.8));
+  }
+  25% {
+    transform: scale(1.15) rotate(0deg) translateY(-15px);
+    filter: drop-shadow(0 0 50px rgba(254, 202, 87, 1));
+  }
+  50% {
+    transform: scale(1.1) rotate(8deg) translateY(0);
+    filter: drop-shadow(0 0 30px rgba(254, 202, 87, 0.8));
+  }
+  75% {
+    transform: scale(1.15) rotate(0deg) translateY(-15px);
+    filter: drop-shadow(0 0 50px rgba(254, 202, 87, 1));
+  }
+}
+
+/* --- Kazanma Başlık Parlak --- */
+.kazanma-baslik {
+  animation: kazanmaBaslik 2s infinite alternate;
+}
+
+@keyframes kazanmaBaslik {
+  from {
+    text-shadow:
+      4px 4px 0 #0f5f2a,
+      0 0 20px rgba(74, 222, 128, 0.5),
+      0 0 40px rgba(74, 222, 128, 0.3);
+    color: #4ade80;
+  }
+  to {
+    text-shadow:
+      4px 4px 0 #0f5f2a,
+      0 0 40px rgba(74, 222, 128, 1),
+      0 0 80px rgba(74, 222, 128, 0.6);
+    color: #3ee081;
+  }
+}
+
+/* --- Kazanma İstat Sırayla --- */
+.kazanma-istat {
+  opacity: 0;
+  animation: kazanmaIstatGir 0.5s ease forwards;
+}
+
+.kazanma-istat:nth-child(1) { animation-delay: 0.5s; }
+.kazanma-istat:nth-child(2) { animation-delay: 0.7s; }
+.kazanma-istat:nth-child(3) { animation-delay: 0.9s; }
+.kazanma-istat:nth-child(4) { animation-delay: 1.1s; }
+
+@keyframes kazanmaIstatGir {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+/* --- Kazanma Ödül Puls --- */
+.kazanma-odul {
+  animation: kazanmaOdul 1.5s infinite ease-in-out;
+}
+
+@keyframes kazanmaOdul {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(254, 202, 87, 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(254, 202, 87, 0.8);
+    transform: scale(1.03);
+  }
+}
+
+/* --- Kazanma Konfeti Patlaması --- */
+.kazanma-konfeti-patla {
+  animation: kazanmaKonfeti 3s ease-out;
+}
+
+@keyframes kazanmaKonfeti {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* --- Kazanma Alev Yanma --- */
+.kazanma-alev {
+  animation: kazanmaAlev 1s infinite alternate;
+}
+
+@keyframes kazanmaAlev {
+  0% { transform: scaleY(1) scaleX(1); opacity: 0.8; }
+  100% { transform: scaleY(1.2) scaleX(0.9); opacity: 1; }
+}
+
+/* --- Kazanma Altın Parla --- */
+.kazanma-altin {
+  animation: kazanmaAltin 2s infinite ease-in-out;
+}
+
+@keyframes kazanmaAltin {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 10px #feca57); }
+  50% { filter: brightness(1.5) drop-shadow(0 0 30px #feca57); }
+}
+
+/* ============================================================
+   19. PARÇACIK SİSTEMLERİ
+   ============================================================ */
+
+/* --- Parçacık Kapsayıcı --- */
+.parcacik-kap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* --- Genel Parçacık --- */
+.parcacik {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* --- Yıldız Parçacığı --- */
+.parcacik-yildiz {
+  background: #feca57;
+  box-shadow:
+    0 0 6px #feca57,
+    0 0 12px #feca57;
+  animation: parcacikYildiz 2s ease-out forwards;
+}
+
+@keyframes parcacikYildiz {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(var(--x, 50px), var(--y, -50px)) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--x, 50px) * 2), calc(var(--y, -50px) * 2)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* --- Kırmızı Parçacık --- */
+.parcacik-kirmizi {
+  background: #ff3b3b;
+  box-shadow:
+    0 0 6px #ff3b3b,
+    0 0 12px #ff3b3b;
+}
+
+/* --- Yeşil Parçacık --- */
+.parcacik-yesil {
+  background: #4ade80;
+  box-shadow:
+    0 0 6px #4ade80,
+    0 0 12px #4ade80;
+}
+
+/* --- Mavi Parçacık --- */
+.parcacik-mavi {
+  background: #6ec6ff;
+  box-shadow:
+    0 0 6px #6ec6ff,
+    0 0 12px #6ec6ff;
+}
+
+/* --- Mor Parçacık --- */
+.parcacik-mor {
+  background: #9b59b6;
+  box-shadow:
+    0 0 6px #9b59b6,
+    0 0 12px #9b59b6;
+}
+
+/* --- Altın Parçacık --- */
+.parcacik-altin {
+  background: #feca57;
+  box-shadow:
+    0 0 8px #feca57,
+    0 0 16px #feca57,
+    0 0 24px rgba(254, 202, 87, 0.5);
+}
+
+/* --- Yükselen Parçacık --- */
+.parcacik-yukari {
+  animation: parcacikYukari 2s ease-out forwards;
+}
+
+@keyframes parcacikYukari {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* --- Düşen Parçacık --- */
+.parcacik-asagi {
+  animation: parcacikAsagi 2s ease-out forwards;
+}
+
+@keyframes parcacikAsagi {
+  0% {
+    transform: translateY(-20px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* --- Patlayan Parçacık --- */
+.parcacik-patlama {
+  animation: parcacikPatlama 1s ease-out forwards;
+}
+
+@keyframes parcacikPatlama {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 100px), var(--y, -100px)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* --- Dönen Parçacık --- */
+.parcacik-don {
+  animation: parcacikDon 3s linear infinite;
+}
+
+@keyframes parcacikDon {
+  from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+/* --- Işık Parçacıkları --- */
+.parcacik-isik {
+  background: radial-gradient(circle, #fff, transparent);
+  animation: parcacikIsik 3s infinite ease-in-out;
+}
+
+@keyframes parcacikIsik {
+  0%, 100% {
+    transform: scale(0.5);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* --- Kar Yağışı (Parçacık) --- */
+.parcacik-kar {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff;
+  animation: parcacikKar 5s linear infinite;
+}
+
+@keyframes parcacikKar {
+  0% {
+    transform: translateY(-20px) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* --- Para Parçacıkları --- */
+.parcacik-para {
+  background: #feca57;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #feca57;
+  animation: parcacikPara 3s linear infinite;
+}
+
+@keyframes parcacikPara {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* --- Yıldız Tozu Parçacıkları --- */
+.parcacik-toz {
+  background: radial-gradient(circle, #fff, #a5c4ff, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px #a5c4ff;
+  animation: parcacikToz 4s infinite ease-in-out;
+}
+
+@keyframes parcacikToz {
+  0%, 100% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-10px, -50px) scale(0.8);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(30px, -20px) scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Ateş Parçacıkları --- */
+.parcacik-ates {
+  background: radial-gradient(circle, #fff, #ffd94a, #ff3b3b, transparent);
+  border-radius: 50%;
+  animation: parcacikAtes 1.5s ease-out forwards;
+}
+
+@keyframes parcacikAtes {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* --- Su Parçacıkları --- */
+.parcacik-su {
+  background: #6ec6ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #6ec6ff;
+  animation: parcacikSu 1s ease-out forwards;
+}
+
+@keyframes parcacikSu {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 50px), var(--y, 100px)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* --- Barut Parçacıkları --- */
+.parcacik-barut {
+  background: radial-gradient(circle, #fff, #f4a261, #8b4513);
+  border-radius: 50%;
+  animation: parcacikBarut 0.8s ease-out forwards;
+}
+
+@keyframes parcacikBarut {
+  0% {
+    transform: translate(0, 0) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 80px), var(--y, -50px)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   20. ARKA PLAN ANİMASYONLARI
+   ============================================================ */
+
+/* --- Arka Plan Nefes --- */
+body::before {
+  animation: arkaPlanNefes 8s ease-in-out infinite;
+}
+
+@keyframes arkaPlanNefes {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* --- Gradient Kayma --- */
+.arka-gradient {
+  background-size: 400% 400%;
+  animation: gradientKay 15s ease infinite;
+}
+
+@keyframes gradientKay {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Grid Kayma --- */
+.grid-kayma {
+  background-image:
+    linear-gradient(var(--renk-kenarlik) 1px, transparent 1px),
+    linear-gradient(90deg, var(--renk-kenarlik) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridKay 10s linear infinite;
+}
+
+@keyframes gridKay {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
+
+/* --- Grid Puls --- */
+.grid-puls {
+  animation: gridPuls 3s infinite ease-in-out;
+}
+
+@keyframes gridPuls {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* --- Parçacık Arka Plan --- */
+.parcacik-arka {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.parcacik-arka > div {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--renk-sari);
+  border-radius: 50%;
+  box-shadow: 0 0 4px var(--renk-sari);
+  animation: parcacikArkaYukari linear infinite;
+}
+
+@keyframes parcacikArkaYukari {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1);
+  }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(-100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* --- Aurora Efekti --- */
+.aurora {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.1) 25%,
+    rgba(110, 198, 255, 0.15) 50%,
+    rgba(155, 89, 182, 0.1) 75%,
+    transparent 100%
+  );
+  background-size: 400% 400%;
+  animation: auroraKay 20s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes auroraKay {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --- Yıldız Alanı --- */
+.yildiz-alani {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 50% 50%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 10%, #fff, transparent),
+    radial-gradient(2px 2px at 90% 60%, #fff, transparent);
+  background-size: 200% 200%;
+  animation: yildizAlan 60s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes yildizAlan {
+  from { background-position: 0 0; }
+  to { background-position: 200% 200%; }
+}
+
+/* --- Nebula Efekti --- */
+.nebula {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(155, 89, 182, 0.3), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(110, 198, 255, 0.2), transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(255, 107, 157, 0.2), transparent 50%);
+  animation: nebulaNefes 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nebulaNefes {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* --- Dijital Yağmur --- */
+.dijital-yagmur {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dijital-satir {
+  position: absolute;
+  top: -100%;
+  color: #4ade80;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 900;
+  text-shadow:
+    0 0 8px #4ade80,
+    0 0 16px #4ade80;
+  animation: dijitalKay linear infinite;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  letter-spacing: 8px;
+}
+
+@keyframes dijitalKay {
+  from { transform: translateY(0); }
+  to { transform: translateY(200vh); }
+}
+
+/* --- Akan Işık (Matrix) --- */
+.akan-isik {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 100px,
+      rgba(254, 202, 87, 0.02) 100px,
+      rgba(254, 202, 87, 0.02) 101px
+    );
+  animation: akanIsik 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes akanIsik {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+/* --- Kayan Bulutlar (Arka) --- */
+.bulut-arka {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.bulut-arka::before,
+.bulut-arka::after {
+  content: "";
+  position: absolute;
+  background: radial-gradient(ellipse, #fff, transparent);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.bulut-arka::before {
+  width: 300px;
+  height: 100px;
+  top: 20%;
+  animation: bulutArkaKay 60s linear infinite;
+}
+
+.bulut-arka::after {
+  width: 400px;
+  height: 120px;
+  top: 60%;
+  animation: bulutArkaKay 80s linear infinite reverse;
+}
+
+@keyframes bulutArkaKay {
+  from { transform: translateX(-500px); }
+  to { transform: translateX(calc(100vw + 500px)); }
+}
+
+/* --- Sıcak Işık --- */
+.sicak-isik {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at bottom right,
+    rgba(254, 202, 87, 0.2) 0%,
+    transparent 60%
+  );
+  animation: sicakIsik 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sicakIsik {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* --- Soğuk Işık --- */
+.soguk-isik {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(110, 198, 255, 0.15) 0%,
+    transparent 60%
+  );
+  animation: sogukIsik 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sogukIsik {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* --- Vinyet --- */
+.vinyet {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 50;
+  animation: vinyetNefes 5s ease-in-out infinite;
+}
+
+@keyframes vinyetNefes {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* --- CRT Scanline (Hareketli) --- */
+.crt-scanline {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9997;
+  animation: crtScanline 8s linear infinite;
+}
+
+@keyframes crtScanline {
+  from { background-position: 0 0; }
+  to { background-position: 0 100vh; }
+}
+
+/* ============================================================
+   21. ÖZEL GEÇİŞLER
+   ============================================================ */
+
+/* --- Sayfa Geçiş Fade --- */
+.sayfa-gecis-fade {
+  animation: sayfaFade 0.6s ease;
+}
+
+@keyframes sayfaFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Sayfa Geçiş Slide --- */
+.sayfa-gecis-slide {
+  animation: sayfaSlide 0.6s ease;
+}
+
+@keyframes sayfaSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Sayfa Geçiş Zoom --- */
+.sayfa-gecis-zoom {
+  animation: sayfaZoom 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes sayfaZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* --- Karartma --- */
+.karartma {
+  animation: karartma 1s ease forwards;
+}
+
+@keyframes karartma {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.karartma-ac {
+  animation: karartmaAc 1s ease forwards;
+}
+
+@keyframes karartmaAc {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* --- Perde (Yukarıdan Aşağıya) --- */
+.perde-yukari {
+  animation: perdeYukari 0.8s ease forwards;
+}
+
+@keyframes perdeYukari {
+  0% { transform: translateY(100%); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* --- Perde (Soldan Sağa) --- */
+.perde-sol {
+  animation: perdeSol 0.8s ease forwards;
+}
+
+@keyframes perdeSol {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* --- Diagonal Geçiş --- */
+.diagonal-kayma {
+  animation: diagonalKayma 0.8s ease forwards;
+}
+
+@keyframes diagonalKayma {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+/* --- Daire Genişleme Geçiş --- */
+.daire-gecis-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.daire-gecis-overlay::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #000;
+  transform: translate(-50%, -50%);
+  animation: daireGenisle 1s ease forwards;
+}
+
+@keyframes daireGenisle {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 200vmax;
+    height: 200vmax;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* --- Kamera Zoom In (Sinematik) --- */
+.kamera-zoom-in {
+  animation: kameraZoomIn 2s ease forwards;
+}
+
+@keyframes kameraZoomIn {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1.5);
+    filter: brightness(0.5);
+  }
+}
+
+/* --- Kamera Shake --- */
+.kamera-shake {
+  animation: kameraShake 0.4s ease;
+}
+
+@keyframes kameraShake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-8px, -4px); }
+  20% { transform: translate(8px, 4px); }
+  30% { transform: translate(-6px, 4px); }
+  40% { transform: translate(6px, -4px); }
+  50% { transform: translate(-4px, -2px); }
+  60% { transform: translate(4px, 2px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  90% { transform: translate(-1px, -1px); }
+}
+
+/* --- Kayma (Slide) --- */
+.slayt-sol {
+  animation: slaytSol 0.5s ease;
+}
+
+@keyframes slaytSol {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.slayt-sag {
+  animation: slaytSag 0.5s ease;
+}
+
+@keyframes slaytSag {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.slayt-yukari {
+  animation: slaytYukari 0.5s ease;
+}
+
+@keyframes slaytYukari {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.slayt-asagi {
+  animation: slaytAsagi 0.5s ease;
+}
+
+@keyframes slaytAsagi {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* --- Kart Çevirme (Flip) --- */
+.kart-cevir {
+  animation: kartCevir 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+@keyframes kartCevir {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+.kart-cevir-tam {
+  animation: kartCevirTam 1s ease;
+  transform-style: preserve-3d;
+}
+
+@keyframes kartCevirTam {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* --- Katlanma (Fold) --- */
+.katlanma {
+  animation: katlanma 0.8s ease forwards;
+  transform-origin: center;
+}
+
+@keyframes katlanma {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   22. DURUM ANİMASYONLARI
+   ============================================================ */
+
+/* --- Tehlike Puls (Kırmızı) --- */
+.durum-tehlike {
+  animation: durumTehlike 1s infinite;
+}
+
+@keyframes durumTehlike {
+  0%, 100% {
+    border-color: #ff3b3b;
+    box-shadow: 0 0 0 rgba(255, 59, 59, 0);
+    color: #ff3b3b;
+  }
+  50% {
+    border-color: #ff5a5a;
+    box-shadow: 0 0 24px rgba(255, 59, 59, 0.6);
+    color: #ff5a5a;
+  }
+}
+
+/* --- Uyarı Puls (Sarı) --- */
+.durum-uyari {
+  animation: durumUyari 1.5s infinite;
+}
+
+@keyframes durumUyari {
+  0%, 100% {
+    border-color: #ffc94a;
+    box-shadow: 0 0 0 rgba(255, 201, 74, 0);
+  }
+  50% {
+    border-color: #ffd94a;
+    box-shadow: 0 0 20px rgba(255, 201, 74, 0.5);
+  }
+}
+
+/* --- Başarı Puls (Yeşil) --- */
+.durum-basari {
+  animation: durumBasari 2s infinite;
+}
+
+@keyframes durumBasari {
+  0%, 100% {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 rgba(74, 222, 128, 0);
+  }
+  50% {
+    border-color: #3ee081;
+    box-shadow: 0 0 24px rgba(74, 222, 128, 0.5);
+  }
+}
+
+/* --- Bilgi Puls (Mavi) --- */
+.durum-bilgi {
+  animation: durumBilgi 2s infinite;
+}
+
+@keyframes durumBilgi {
+  0%, 100% {
+    border-color: #6ec6ff;
+    box-shadow: 0 0 0 rgba(110, 198, 255, 0);
+  }
+  50% {
+    border-color: #8ed4ff;
+    box-shadow: 0 0 20px rgba(110, 198, 255, 0.5);
+  }
+}
+
+/* --- Donmuş (Buz) --- */
+.durum-donmus {
+  animation: durumDonmus 3s infinite ease-in-out;
+  filter: hue-rotate(180deg) brightness(1.2);
+}
+
+@keyframes durumDonmus {
+  0%, 100% { filter: hue-rotate(180deg) brightness(1.2); }
+  50% { filter: hue-rotate(200deg) brightness(1.4); }
+}
+
+/* --- Yanıyor (Ateş) --- */
+.durum-yaniyor {
+  animation: durumYaniyor 0.5s infinite;
+}
+
+@keyframes durumYaniyor {
+  0%, 100% {
+    filter: hue-rotate(-20deg) brightness(1.2);
+    box-shadow: 0 0 20px rgba(255, 90, 90, 0.6);
+  }
+  50% {
+    filter: hue-rotate(-30deg) brightness(1.4);
+    box-shadow: 0 0 40px rgba(255, 90, 90, 0.8);
+  }
+}
+
+/* --- Zehirli --- */
+.durum-zehir {
+  animation: durumZehir 2s infinite;
+  filter: hue-rotate(90deg);
+}
+
+@keyframes durumZehir {
+  0%, 100% { filter: hue-rotate(90deg) brightness(1); }
+  50% { filter: hue-rotate(120deg) brightness(1.1); }
+}
+
+/* --- Elektrik --- */
+.durum-elektrik {
+  animation: durumElektrik 0.15s infinite;
+}
+
+@keyframes durumElektrik {
+  0%, 100% {
+    filter: brightness(1);
+    box-shadow: 0 0 0 #6ec6ff;
+  }
+  50% {
+    filter: brightness(1.3);
+    box-shadow: 0 0 20px #6ec6ff;
+  }
+}
+
+/* --- Işıldayan --- */
+.durum-isildak {
+  animation: durumIsildak 2s infinite ease-in-out;
+}
+
+@keyframes durumIsildak {
+  0%, 100% {
+    box-shadow: 0 0 0 currentColor;
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+    filter: brightness(1.3);
+  }
+}
+
+/* --- Kayıp Giden (Fade) --- */
+.durum-kayip {
+  animation: durumKayip 2s infinite;
+}
+
+@keyframes durumKayip {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- Yüklüyorum --- */
+.durum-yukleniyor {
+  animation: durumYukleniyor 1s infinite linear;
+  background: linear-gradient(
+    90deg,
+    var(--renk-kenarlik) 0%,
+    var(--renk-sari) 50%,
+    var(--renk-kenarlik) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes durumYukleniyor {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* ============================================================
+   23. LOADING & GEÇİŞ EFEKTLERİ
+   ============================================================ */
+
+/* --- Yükleme Dot Wave --- */
+.dot-wave {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.dot-wave span {
+  width: 8px;
+  height: 8px;
+  background: var(--renk-sari);
+  border-radius: 50%;
+  animation: dotWave 1.4s infinite ease-in-out both;
+}
+
+.dot-wave span:nth-child(1) { animation-delay: -0.32s; }
+.dot-wave span:nth-child(2) { animation-delay: -0.16s; }
+.dot-wave span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes dotWave {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* --- Yükleme Ring --- */
+.loading-ring {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.loading-ring div {
+  position: absolute;
+  border: 4px solid var(--renk-sari);
+  border-radius: 50%;
+  border-color: var(--renk-sari) transparent transparent transparent;
+  animation: loadingRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-ring div:nth-child(1) { animation-delay: -0.45s; }
+.loading-ring div:nth-child(2) { animation-delay: -0.3s; }
+.loading-ring div:nth-child(3) { animation-delay: -0.15s; }
+
+@keyframes loadingRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- Yükleme Kare --- */
+.loading-square {
+  width: 40px;
+  height: 40px;
+  background: var(--renk-sari);
+  animation: loadingSquare 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingSquare {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 0;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.7);
+    border-radius: 50%;
+  }
+}
+
+/* --- Yükleme Bar --- */
+.loading-bar {
+  width: 200px;
+  height: 6px;
+  background: var(--renk-arkaplan);
+  border: 2px solid var(--renk-kenarlik);
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--renk-sari), transparent);
+  animation: loadingBar 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingBar {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* --- Yükleme Spiral --- */
+.loading-spiral {
+  width: 40px;
+  height: 40px;
+  border: 4px solid transparent;
+  border-top-color: var(--renk-sari);
+  border-right-color: var(--renk-sari);
+  border-radius: 50%;
+  animation: loadingSpiral 0.8s linear infinite;
+}
+
+@keyframes loadingSpiral {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Yükleme Pulse --- */
+.loading-pulse {
+  width: 40px;
+  height: 40px;
+  background: var(--renk-sari);
+  border-radius: 50%;
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(254, 202, 87, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 20px rgba(254, 202, 87, 0);
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(254, 202, 87, 0);
+  }
+}
+
+/* --- Skeleton Shimmer --- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--renk-kenarlik-2) 0%,
+    var(--renk-kenarlik) 50%,
+    var(--renk-kenarlik-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s infinite;
+}
+
+@keyframes skeleton {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* ============================================================
+   24. ÖZEL EFEKTLER
+   ============================================================ */
+
+/* --- Kalp Atışı (Heartbeat) --- */
+.heartbeat {
+  animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 40%, 80%, 100% { transform: scale(1); }
+  20% { transform: scale(1.15); }
+  60% { transform: scale(1.1); }
+}
+
+/* --- Yanıp Sönen --- */
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* --- Yanıp Sönen (Yumuşak) --- */
+.blink-soft {
+  animation: blinkSoft 2s infinite;
+}
+
+@keyframes blinkSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* --- Bekleme Noktaları --- */
+.waiting-dots::after {
+  content: "";
+  animation: waitingDots 1.5s infinite;
+}
+
+@keyframes waitingDots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+/* --- Yazma İmleci --- */
+.cursor-blink::after {
+  content: "▊";
+  color: var(--renk-sari);
+  animation: cursorBlink 0.8s infinite;
+  margin-left: 4px;
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* --- Parlayan Çerçeve --- */
+.parlayan-cerceve {
+  animation: parlayanCerceve 2s infinite ease-in-out;
+}
+
+@keyframes parlayanCerceve {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(254, 202, 87, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px var(--renk-sari),
+      0 0 24px rgba(254, 202, 87, 0.6);
+  }
+}
+
+/* --- Glow Text --- */
+.glow-text {
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+}
+
+.glow-text-soft {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor;
+}
+
+/* --- Gölge Puls --- */
+.shadow-puls {
+  animation: shadowPuls 2s infinite ease-in-out;
+}
+
+@keyframes shadowPuls {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 60px rgba(254, 202, 87, 0.3);
+  }
+}
+
+/* --- Sallanan Yazı --- */
+.sallanan-yazi {
+  animation: sallananYazi 2s infinite ease-in-out;
+}
+
+@keyframes sallananYazi {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+/* --- Zıplayan Yazı --- */
+.ziplayan-yazi {
+  animation: ziplayanYazi 1.5s infinite ease-in-out;
+}
+
+@keyframes ziplayanYazi {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* --- Kayıp Giden Yazı --- */
+.kayan-yazi {
+  animation: kayanYazi 10s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes kayanYazi {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* --- Daktilo (Uzun) --- */
+.daktilo-uzun {
+  overflow: hidden;
+  border-right: 2px solid var(--renk-sari);
+  white-space: nowrap;
+  animation:
+    daktiloUzun 5s steps(80, end),
+    daktiloImlec 0.75s step-end infinite;
+}
+
+@keyframes daktiloUzun {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* --- Wave Text --- */
+.wave-text span {
+  display: inline-block;
+  animation: waveText 1.5s infinite ease-in-out;
+}
+
+.wave-text span:nth-child(1) { animation-delay: 0s; }
+.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+.wave-text span:nth-child(6) { animation-delay: 0.5s; }
+.wave-text span:nth-child(7) { animation-delay: 0.6s; }
+.wave-text span:nth-child(8) { animation-delay: 0.7s; }
+.wave-text span:nth-child(9) { animation-delay: 0.8s; }
+.wave-text span:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes waveText {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+/* --- Bounce Text --- */
+.bounce-text {
+  animation: bounceText 1s infinite ease-in-out;
+}
+
+@keyframes bounceText {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* --- Rubber Band --- */
+.rubber-band {
+  animation: rubberBand 1s;
+}
+
+@keyframes rubberBand {
+  0% { transform: scale(1); }
+  30% { transform: scaleX(1.25) scaleY(0.75); }
+  40% { transform: scaleX(0.75) scaleY(1.25); }
+  50% { transform: scaleX(1.15) scaleY(0.85); }
+  65% { transform: scaleX(0.95) scaleY(1.05); }
+  75% { transform: scaleX(1.05) scaleY(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* --- Tada --- */
+.tada {
+  animation: tada 1s;
+}
+
+@keyframes tada {
+  0% { transform: scale(1) rotate(0); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* --- Jello --- */
+.jello {
+  animation: jello 1s;
+}
+
+@keyframes jello {
+  0%, 11.1%, 100% { transform: skewX(0) skewY(0); }
+  22.2% { transform: skewX(-12.5deg) skewY(-12.5deg); }
+  33.3% { transform: skewX(6.25deg) skewY(6.25deg); }
+  44.4% { transform: skewX(-3.125deg) skewY(-3.125deg); }
+  55.5% { transform: skewX(1.5625deg) skewY(1.5625deg); }
+  66.6% { transform: skewX(-0.78125deg) skewY(-0.78125deg); }
+  77.7% { transform: skewX(0.390625deg) skewY(0.390625deg); }
+  88.8% { transform: skewX(-0.1953125deg) skewY(-0.1953125deg); }
+}
+
+/* --- Swing --- */
+.swing {
+  transform-origin: top center;
+  animation: swing 1s ease-in-out;
+}
+
+@keyframes swing {
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --- Zoom Out --- */
+.zoom-out-efekt {
+  animation: zoomOutEfekt 0.5s ease forwards;
+}
+
+@keyframes zoomOutEfekt {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* ============================================================
+   25. KLAVYE & INPUT ANİMASYONLARI
+   ============================================================ */
+
+/* --- Tuş Basılma --- */
+.key-press {
+  animation: keyPress 0.15s ease;
+}
+
+@keyframes keyPress {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- kbd Puls (Klavye Kısayolu Vurgusu) --- */
+kbd.puls {
+  animation: kbdPuls 1.5s infinite;
+}
+
+@keyframes kbdPuls {
+  0%, 100% {
+    background: var(--renk-kenarlik);
+    color: #fff;
+    box-shadow: 0 0 0 rgba(254, 202, 87, 0);
+  }
+  50% {
+    background: var(--renk-sari);
+    color: var(--renk-arkaplan);
+    box-shadow: 0 0 16px rgba(254, 202, 87, 0.8);
+  }
+}
+
+/* --- Input Focus Puls --- */
+.input-focus-puls {
+  animation: inputFocusPuls 2s infinite ease-in-out;
+}
+
+@keyframes inputFocusPuls {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(254, 202, 87, 0);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(254, 202, 87, 0.4);
+  }
+}
+
+/* --- Yazı Yazma --- */
+.typing {
+  animation: typing 0.1s infinite alternate;
+}
+
+@keyframes typing {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1px); }
+}
+
+/* ============================================================
+   ANİMASYON SONU
+   ============================================================
+   animasyonlar.css TAMAMLANDI
+   TOPLAM: ~4000+ SATIR
+   ============================================================
+*/
